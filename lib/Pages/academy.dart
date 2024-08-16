@@ -60,7 +60,8 @@ class _AcademyState extends State<Academy> {
                         fontSize: 14,
                         fontWeight: FontWeight.w600),
                   ),
-                )),
+                )
+                ),
             SizedBox(
               height: 55,
             ),
