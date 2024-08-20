@@ -116,7 +116,7 @@ class _SignupState extends State<Signup> {
       },
       child: Container(
         margin: EdgeInsets.all(8),
-        padding: EdgeInsets.all(16),
+        // padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: isSelected ? Colors.blue : Colors.grey[300],
           borderRadius: BorderRadius.circular(12),
@@ -124,7 +124,7 @@ class _SignupState extends State<Signup> {
         ),
         child: Center(
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
                 isSelected ? Icons.check_circle : Icons.circle_outlined,
@@ -618,31 +618,35 @@ class _SignupState extends State<Signup> {
               SizedBox(
                 height: 30,
               ),
-              Center(
-                child: InkWell(
-                  onTap: () {
-                    _checkMobileNumber();
-                  },
-                  child: Container(
-                    width: 309,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color.fromRGBO(13, 149, 211, 1),
-                              Color.fromRGBO(9, 96, 186, 1)
-                            ])),
-                    child: Center(
-                        child: Text(
-                      "Create Profile",
-                      style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white),
-                    )),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Center(
+                  
+                  child: InkWell(
+                    onTap: () {
+                      _checkMobileNumber();
+                    },
+                    child: Container(
+                      width: 309,
+                      height: 45,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Color.fromRGBO(13, 149, 211, 1),
+                                Color.fromRGBO(9, 96, 186, 1)
+                              ])),
+                      child: Center(
+                          child: Text(
+                        "Create Profile",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      )),
+                    ),
                   ),
                 ),
               ),

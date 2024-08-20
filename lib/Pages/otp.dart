@@ -350,35 +350,38 @@ class _OtpState extends State<Otp> {
                           color: Color.fromRGBO(186, 186, 186, 1)))
                   : SizedBox(),
               SizedBox(height: 35),
-              Center(
-                child: InkWell(
-                  onTap: isOtpFilled ? validateOtp : null,
-                  child: Container(
-                    width: 309,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      gradient: LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: isOtpFilled
-                            ? [
-                                Color.fromRGBO(13, 149, 211, 1),
-                                Color.fromRGBO(9, 96, 186, 1),
-                              ]
-                            : [
-                                Colors.grey,
-                                Colors.grey,
-                              ],
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Center(
+                  child: InkWell(
+                    onTap: isOtpFilled ? validateOtp : null,
+                    child: Container(
+                      width: 309,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: isOtpFilled
+                              ? [
+                                  Color.fromRGBO(13, 149, 211, 1),
+                                  Color.fromRGBO(9, 96, 186, 1),
+                                ]
+                              : [
+                                  Colors.grey,
+                                  Colors.grey,
+                                ],
+                        ),
                       ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Submit",
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                      child: Center(
+                        child: Text(
+                          "Submit",
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),

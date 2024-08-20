@@ -4,6 +4,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:khelnet/Pages/loginpage.dart';
 import 'package:khelnet/Pages/otp.dart';
 import 'package:khelnet/Pages/signup.dart';
+import 'package:khelnet/test.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: Loginpage(),
+      child: HomeScreen(),
     );
   }
 }
