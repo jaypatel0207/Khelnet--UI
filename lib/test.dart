@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool isGridView = true;  // Variable to control grid or list view
+  bool isGridView = true; // Variable to control grid or list view
 
   // Sample data
   final List<Map<String, dynamic>> items = [
