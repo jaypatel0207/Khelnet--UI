@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Head%20Coach/NoData/nocoachesfound.dart';
+import 'package:khelnet/Head%20Coach/DataFound/coachesFound.dart';
 import 'package:khelnet/Head%20Coach/datafound.dart';
-import 'package:khelnet/Head%20Coach/NoData/nocenterfound.dart';
+import 'package:khelnet/Head%20Coach/DataFound/centerFound.dart';
 
 class Academy1 extends StatefulWidget {
   const Academy1({super.key});
@@ -288,7 +288,7 @@ class _AcademyState extends State<Academy1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Nodatafound(),
+                            builder: (context) => Centerfound(),
                           ),
                         );
                       }
@@ -406,7 +406,7 @@ class _AcademyState extends State<Academy1> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to(Nocoachesfound());
+                      Get.to(Coachesfound());
                     },
                     child: Container(
                       height: 113,

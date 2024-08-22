@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Nocoachesfound extends StatefulWidget {
-  const Nocoachesfound({super.key});
+class Coachesfound extends StatefulWidget {
+  const Coachesfound({super.key});
 
   @override
-  State<Nocoachesfound> createState() => _NodatafoundState();
+  State<Coachesfound> createState() => _NodatafoundState();
 }
 
-class _NodatafoundState extends State<Nocoachesfound> {
+class _NodatafoundState extends State<Coachesfound> {
   // This variable will store the selected state.
   String _selectedStatus = "Active";
 
