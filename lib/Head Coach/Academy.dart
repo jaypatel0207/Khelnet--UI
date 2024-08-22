@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:khelnet/Head%20Coach/NoData/nocoachesfound.dart';
+import 'package:khelnet/Head%20Coach/datafound.dart';
+import 'package:khelnet/Head%20Coach/NoData/nocenterfound.dart';
 
 class Academy1 extends StatefulWidget {
   const Academy1({super.key});
@@ -14,6 +18,8 @@ class _AcademyState extends State<Academy1> {
     "assets/images/12.png",
     "assets/images/11.png",
   ];
+
+  bool hasCenterData = false;
 
   @override
   Widget build(BuildContext context) {
@@ -270,7 +276,23 @@ class _AcademyState extends State<Academy1> {
               Column(
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      if (hasCenterData) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Datafound(),
+                          ),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Nodatafound(),
+                          ),
+                        );
+                      }
+                    },
                     child: Container(
                       height: 184,
                       width: 161,
@@ -383,7 +405,9 @@ class _AcademyState extends State<Academy1> {
               Column(
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(Nocoachesfound());
+                    },
                     child: Container(
                       height: 113,
                       width: 161,

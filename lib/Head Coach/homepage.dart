@@ -269,7 +269,7 @@ class _HomepageState extends State<Homepage> {
           children: [
             SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
