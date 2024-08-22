@@ -1,0 +1,326 @@
+
+import 'package:flutter/material.dart';
+import 'package:khelnet/Head%20Coach/Academy.dart';
+import 'package:khelnet/Head%20Coach/AttendancePage.dart';
+import 'package:khelnet/Head%20Coach/CoachAttendancePage.dart';
+import 'package:khelnet/Head%20Coach/ExpensesPage.dart';
+import 'package:khelnet/Head%20Coach/FeesPage.dart';
+import 'package:khelnet/Head%20Coach/PerformanceRatingPage.dart';
+import 'package:khelnet/Head%20Coach/ReportsPage.dart';
+import 'package:khelnet/Pages/academy.dart';
+
+class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  bool isGridView = true;
+  bool showAll = false;
+  final List<Map<String, String>> items = [
+    {"title": "My Academy", "image": "assets/images/1.png"},
+    {"title": "Attendance", "image": "assets/images/2.png"},
+    {"title": "Fees", "image": "assets/images/3.png"},
+    {"title": "Reports", "image": "assets/images/4.png"},
+    {"title": "Performance Rating", "image": "assets/images/5.png"},
+    {"title": "Coach Attendance", "image": "assets/images/6.png"},
+    {"title": "Expenses", "image": "assets/images/7.png"},
+  ];
+
+  void navigateToPage(String title) {
+    // Implement navigation based on the title
+    switch (title) {
+      case "My Academy":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Academy1()),
+        );
+        break;
+      case "Attendance":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AttendancePage()),
+        );
+        break;
+      case "Fees":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => FeesPage()),
+        );
+        break;
+      case "Reports":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ReportsPage()),
+        );
+        break;
+      case "Performance Rating":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PerformanceRatingPage()),
+        );
+        break;
+      case "Coach Attendance":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CoachAttendancePage()),
+        );
+        break;
+      case "Expenses":
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ExpensesPage()),
+        );
+        break;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  Color.fromRGBO(13, 149, 211, 1),
+                  Color.fromRGBO(9, 96, 186, 1),
+                ],
+              ),
+            ),
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: AssetImage("assets/images/m.png"),
+                        radius: 40,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Hello",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16,
+                                  color: Color.fromRGBO(251, 251, 251, 1)),
+                            ),
+                            Text(
+                              "Khelnet Badminton Academy",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 18,
+                                  color: Color.fromRGBO(251, 251, 251, 1)),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  height: 650,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(250, 248, 248, 1),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25)),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Container(
+                          height: 107,
+                          width: 360,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  width: 1.5,
+                                  color: Color.fromRGBO(241, 241, 241, 1)),
+                              borderRadius: BorderRadius.circular(18),
+                              color: Color.fromRGBO(251, 251, 251, 1)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  // Handle navigation
+                                  navigateToPage("My Academy");
+                                },
+                                child: Image.asset("assets/images/remind.png"),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  // Handle navigation
+                                  navigateToPage("Attendance");
+                                },
+                                child: Image.asset("assets/images/add.png"),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  // Handle navigation
+                                  navigateToPage("Fees");
+                                },
+                                child: Image.asset("assets/images/report.png"),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  // Handle navigation
+                                  navigateToPage("Reports");
+                                },
+                                child: Image.asset("assets/images/overview.png"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                isGridView ? Icons.grid_view : Icons.list,
+                                color: isGridView ? Colors.blue : Colors.grey,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  isGridView = !isGridView;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: isGridView
+                            ? GridView.builder(
+                                shrinkWrap: true,
+                                itemCount: showAll ? items.length : 6,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  childAspectRatio: 1.7,
+                                ),
+                                itemBuilder: (context, index) {
+                                  return buildContainer(
+                                    items[index]["title"]!,
+                                    items[index]["image"]!,
+                                  );
+                                },
+                              )
+                            : ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: showAll ? items.length : 6,
+                                itemBuilder: (context, index) {
+                                  return buildListTile(
+                                    items[index]["title"]!,
+                                    items[index]["image"]!,
+                                  );
+                                },
+                              ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            showAll = !showAll;
+                          });
+                        },
+                        child: Text(showAll ? "View Less" : "View All"),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildContainer(String title, String image) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 1.5,
+            color: Color.fromRGBO(241, 241, 241, 1),
+          ),
+          color: Color.fromRGBO(251, 251, 251, 1),
+          borderRadius: BorderRadius.circular(7),
+        ),
+        child: Column(
+          children: [
+            SizedBox(height: 5),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(image),
+                  IconButton(
+                    onPressed: () {
+                      navigateToPage(title);
+                    },
+                    icon: Icon(Icons.arrow_forward_ios, color: Colors.blue),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildListTile(String title, String image) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListTile(
+        leading: Image.asset(image),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+          ),
+        ),
+        trailing: Icon(Icons.arrow_forward_ios, color: Colors.blue),
+        onTap: () {
+          navigateToPage(title);
+        },
+      ),
+    );
+  }
+}

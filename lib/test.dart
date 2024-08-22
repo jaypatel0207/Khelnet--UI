@@ -7,6 +7,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isGridView = true; // Variable to control grid or list view
+  bool viewAll = false; // Control variable for "View All" functionality
 
   // Sample data
   final List<Map<String, dynamic>> items = [
@@ -20,34 +21,67 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Determine how many items to show based on "View All" status
+    int itemCount = viewAll ? items.length : items.length - 1;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Khelnet Badminton Academy'),
         actions: [
-          IconButton(
-            icon: Icon(isGridView ? Icons.list : Icons.grid_view),
-            onPressed: () {
-              setState(() {
-                isGridView = !isGridView;
-              });
-            },
+          Container(
+            margin: EdgeInsets.all(8),  // Add margin for better spacing
+            decoration: BoxDecoration(
+              color: isGridView ? Colors.blue.withOpacity(0.1) : Colors.grey.withOpacity(0.1),
+              shape: BoxShape.circle,  // Make the button circular
+            ),
+            child: IconButton(
+              icon: Icon(
+                isGridView ? Icons.grid_view : Icons.list,
+                color: isGridView ? Colors.blue : Colors.grey,
+              ),
+              onPressed: () {
+                setState(() {
+                  isGridView = !isGridView; // Toggle the view
+                });
+              },
+            ),
           ),
         ],
       ),
-      body: isGridView ? buildGridView() : buildListView(),
+      body: Column(
+        children: [
+          Expanded(
+            child: isGridView
+                ? buildGridView(itemCount)  // Pass itemCount to determine how many items to show
+                : buildListView(itemCount),  // Pass itemCount to determine how many items to show
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  viewAll = !viewAll; // Toggle "View All" state
+                });
+              },
+              child: Text(viewAll ? 'Show Less' : 'View All'), // Button label changes dynamically
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   // Grid View Layout
-  Widget buildGridView() {
+  Widget buildGridView(int itemCount) {
     return GridView.builder(
+      padding: EdgeInsets.all(10),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 3,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemCount: items.length,
+      itemCount: itemCount,  // Use the passed itemCount
       itemBuilder: (context, index) {
         return Card(
           child: InkWell(
@@ -59,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(items[index]['icon'], size: 30),
-                  SizedBox(height: 8),
+                
                   Text(items[index]['title']),
                 ],
               ),
@@ -71,9 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // List View Layout
-  Widget buildListView() {
+  Widget buildListView(int itemCount) {
     return ListView.builder(
-      itemCount: items.length,
+      padding: EdgeInsets.all(10),
+      itemCount: itemCount,  // Use the passed itemCount
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(

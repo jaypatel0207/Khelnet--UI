@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:khelnet/Head%20Coach/bottom.dart';
+import 'package:khelnet/Head%20Coach/homepage.dart';
 import 'package:khelnet/Pages/loginpage.dart';
 import 'package:khelnet/Pages/otp.dart';
 import 'package:khelnet/Pages/signup.dart';
 import 'package:khelnet/test.dart';
+
+
+
 
 void main() => runApp(MyApp());
 
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: HomeScreen(),
+      child: Bottom(),
     );
   }
 }
