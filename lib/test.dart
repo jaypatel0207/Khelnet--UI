@@ -1,125 +1,181 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+class AddStudentScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _AddStudentScreenState createState() => _AddStudentScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  bool isGridView = true; // Variable to control grid or list view
-  bool viewAll = false; // Control variable for "View All" functionality
-
-  // Sample data
-  final List<Map<String, dynamic>> items = [
-    {'title': 'My Academy', 'icon': Icons.school},
-    {'title': 'Attendance', 'icon': Icons.check_circle},
-    {'title': 'Fees', 'icon': Icons.attach_money},
-    {'title': 'Reports', 'icon': Icons.bar_chart},
-    {'title': 'Performance Rating', 'icon': Icons.star},
-    {'title': 'Coach Attendance', 'icon': Icons.people},
-  ];
+class _AddStudentScreenState extends State<AddStudentScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _studentNameController = TextEditingController();
+  final _contactNumberController = TextEditingController();
+  String _selectedCenter = 'Center 1';
+  String _selectedBatch = 'Batch 1';
+  bool _additionalInfoExpanded = false;
 
   @override
   Widget build(BuildContext context) {
-    // Determine how many items to show based on "View All" status
-    int itemCount = viewAll ? items.length : items.length - 1;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Khelnet Badminton Academy'),
-        actions: [
-          Container(
-            margin: EdgeInsets.all(8),  // Add margin for better spacing
-            decoration: BoxDecoration(
-              color: isGridView ? Colors.blue.withOpacity(0.1) : Colors.grey.withOpacity(0.1),
-              shape: BoxShape.circle,  // Make the button circular
-            ),
-            child: IconButton(
-              icon: Icon(
-                isGridView ? Icons.grid_view : Icons.list,
-                color: isGridView ? Colors.blue : Colors.grey,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text('Add Students'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Student Profile Picture
+              Center(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.lightBlue,
+                      child: Icon(
+                        Icons.person,
+                        size: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: IconButton(
+                        icon: Icon(Icons.edit),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              onPressed: () {
-                setState(() {
-                  isGridView = !isGridView; // Toggle the view
-                });
-              },
-            ),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: isGridView
-                ? buildGridView(itemCount)  // Pass itemCount to determine how many items to show
-                : buildListView(itemCount),  // Pass itemCount to determine how many items to show
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  viewAll = !viewAll; // Toggle "View All" state
-                });
-              },
-              child: Text(viewAll ? 'Show Less' : 'View All'), // Button label changes dynamically
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Grid View Layout
-  Widget buildGridView(int itemCount) {
-    return GridView.builder(
-      padding: EdgeInsets.all(10),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 3,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
-      itemCount: itemCount,  // Use the passed itemCount
-      itemBuilder: (context, index) {
-        return Card(
-          child: InkWell(
-            onTap: () {
-              // Handle item click
-            },
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              SizedBox(height: 20),
+              // Basic Info Section
+              Text(
+                'Basic Info',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _studentNameController,
+                decoration: InputDecoration(
+                  labelText: 'Student Name',
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter student name';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _contactNumberController,
+                decoration: InputDecoration(
+                  labelText: 'Contact Number',
+                ),
+                keyboardType: TextInputType.phone,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter contact number';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+              DropdownButtonFormField<String>(
+                value: _selectedCenter,
+                decoration: InputDecoration(
+                  labelText: 'Assign Center',
+                ),
+                items: ['Center 1', 'Center 2', 'Center 3']
+                    .map((center) => DropdownMenuItem<String>(
+                  value: center,
+                  child: Text(center),
+                ))
+                    .toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedCenter = value!;
+                  });
+                },
+              ),
+              SizedBox(height: 10),
+              DropdownButtonFormField<String>(
+                value: _selectedBatch,
+                decoration: InputDecoration(
+                  labelText: 'Assign Batch',
+                ),
+                items: ['Batch 1', 'Batch 2', 'Batch 3']
+                    .map((batch) => DropdownMenuItem<String>(
+                  value: batch,
+                  child: Text(batch),
+                ))
+                    .toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedBatch = value!;
+                  });
+                },
+              ),
+              SizedBox(height: 10),
+              ExpansionTile(
+                title: Text('Additional Info'),
+                initiallyExpanded: _additionalInfoExpanded,
+                onExpansionChanged: (value) {
+                  setState(() {
+                    _additionalInfoExpanded = value;
+                  });
+                },
                 children: [
-                  Icon(items[index]['icon'], size: 30),
-                
-                  Text(items[index]['title']),
+                  // Add additional information fields here
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Additional Information',
+                    ),
+                  ),
                 ],
               ),
-            ),
+              SizedBox(height: 20),
+              // Manage Fees Section
+              ExpansionTile(
+                title: Text('Manage Fees'),
+                initiallyExpanded: false,
+                children: [
+                  // Add fee management widgets here
+                  // Example:
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Add Fee'),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+              // Add Student Button
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Process form data (e.g., save to database)
+                    // ...
+                  }
+                },
+                child: Text('Add Student'),
+              ),
+            ],
           ),
-        );
-      },
-    );
-  }
-
-  // List View Layout
-  Widget buildListView(int itemCount) {
-    return ListView.builder(
-      padding: EdgeInsets.all(10),
-      itemCount: itemCount,  // Use the passed itemCount
-      itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-            leading: Icon(items[index]['icon'], size: 30),
-            title: Text(items[index]['title']),
-            onTap: () {
-              // Handle item click
-            },
-          ),
-        );
-      },
+        ),
+      ),
     );
   }
 }
