@@ -3,14 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Centerfound extends StatefulWidget {
-  const Centerfound({super.key});
+class 
+Studentfound extends StatefulWidget {
+  const Studentfound({super.key});
 
   @override
-  State<Centerfound> createState() => _NodatafoundState();
+  State<Studentfound> createState() => _NodatafoundState();
 }
 
-class _NodatafoundState extends State<Centerfound> {
+class _NodatafoundState extends State<Studentfound> {
   String status = "Active"; // The status to be displayed beside the arrow
 
   // Sample data for members
@@ -67,7 +68,7 @@ class _NodatafoundState extends State<Centerfound> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Center",
+          "Student",
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
@@ -104,7 +105,7 @@ class _NodatafoundState extends State<Centerfound> {
                         Expanded(
                           child: TextField(
                               onChanged: (value) => _runFilter(value),
-                            keyboardType: TextInputType.phone,
+                            
                             decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.search,

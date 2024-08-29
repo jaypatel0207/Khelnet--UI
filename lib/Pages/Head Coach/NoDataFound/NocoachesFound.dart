@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Coachesfound extends StatefulWidget {
-  const Coachesfound({super.key});
+class Nocoachesfound extends StatefulWidget {
+  const Nocoachesfound({super.key});
 
   @override
-  State<Coachesfound> createState() => _NodatafoundState();
+  State<Nocoachesfound> createState() => _NodatafoundState();
 }
 
-class _NodatafoundState extends State<Coachesfound> {
+class _NodatafoundState extends State<Nocoachesfound> {
   // This variable will store the selected state.
   String _selectedStatus = "Active";
 
@@ -46,7 +46,7 @@ class _NodatafoundState extends State<Coachesfound> {
                 children: [
                   Expanded(
                     child: TextField(
-                      keyboardType: TextInputType.phone,
+                 
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.search,
@@ -95,49 +95,49 @@ class _NodatafoundState extends State<Coachesfound> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 57,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      _selectedStatus,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                        color: Color.fromRGBO(9, 96, 186, 1),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    PopupMenuButton<String>(
-                      icon: Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Colors.blue,
-                      ),
-                      onSelected: (String value) {
-                        setState(() {
-                          _selectedStatus = value;
-                        });
-                      },
-                      itemBuilder: (BuildContext context) {
-                        return <PopupMenuEntry<String>>[
-                          PopupMenuItem<String>(
-                            value: "Active",
-                            child: Text("Active"),
-                          ),
-                          PopupMenuItem<String>(
-                            value: "Inactive",
-                            child: Text("Inactive"),
-                          ),
-                        ];
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     Row(
+            //       children: [
+            //         Text(
+            //           _selectedStatus,
+            //           style: TextStyle(
+            //             fontWeight: FontWeight.w500,
+            //             fontSize: 14,
+            //             color: Color.fromRGBO(9, 96, 186, 1),
+            //           ),
+            //         ),
+            //         SizedBox(width: 10),
+            //         PopupMenuButton<String>(
+            //           icon: Icon(
+            //             Icons.keyboard_arrow_down,
+            //             color: Colors.blue,
+            //           ),
+            //           onSelected: (String value) {
+            //             setState(() {
+            //               _selectedStatus = value;
+            //             });
+            //           },
+            //           itemBuilder: (BuildContext context) {
+            //             return <PopupMenuEntry<String>>[
+            //               PopupMenuItem<String>(
+            //                 value: "Active",
+            //                 child: Text("Active"),
+            //               ),
+            //               PopupMenuItem<String>(
+            //                 value: "Inactive",
+            //                 child: Text("Inactive"),
+            //               ),
+            //             ];
+            //           },
+            //         ),
+            //       ],
+            //     ),
+            //   ],
+            // ),
             SizedBox(
               height: 100,
             ),

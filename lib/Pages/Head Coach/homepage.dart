@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:khelnet/Head%20Coach/Academy.dart';
-import 'package:khelnet/Head%20Coach/AttendancePage.dart';
-import 'package:khelnet/Head%20Coach/CoachAttendancePage.dart';
-import 'package:khelnet/Head%20Coach/ExpensesPage.dart';
-import 'package:khelnet/Head%20Coach/FeesPage.dart';
-import 'package:khelnet/Head%20Coach/PerformanceRatingPage.dart';
-import 'package:khelnet/Head%20Coach/ReportsPage.dart';
+import 'package:khelnet/Pages/Head%20Coach/Academy.dart';
+import 'package:khelnet/Pages/Head%20Coach/AttendancePage.dart';
+import 'package:khelnet/Pages/Head%20Coach/CoachAttendancePage.dart';
+import 'package:khelnet/Pages/Head%20Coach/ExpensesPage.dart';
+import 'package:khelnet/Pages/Head%20Coach/FeesPage.dart';
+import 'package:khelnet/Pages/Head%20Coach/PerformanceRatingPage.dart';
+import 'package:khelnet/Pages/Head%20Coach/ReportsPage.dart';
 import 'package:khelnet/Pages/academy.dart';
 
 class Homepage extends StatefulWidget {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Head%20Coach/DataFound/coachesFound.dart';
-import 'package:khelnet/Head%20Coach/datafound.dart';
-import 'package:khelnet/Head%20Coach/DataFound/centerFound.dart';
+import 'package:khelnet/Pages/Head%20Coach/DataFound/coachFound.dart';
+import 'package:khelnet/Pages/Head%20Coach/DataFound/plans&charges.dart';
+import 'package:khelnet/Pages/Head%20Coach/NoDataFound/NocoachesFound.dart';
+import 'package:khelnet/Pages/Head%20Coach/datafound.dart';
+import 'package:khelnet/Pages/Head%20Coach/DataFound/StudentFound.dart';
 
 class Academy1 extends StatefulWidget {
   const Academy1({super.key});
@@ -19,7 +21,9 @@ class _AcademyState extends State<Academy1> {
     "assets/images/11.png",
   ];
 
-  bool hasCenterData = false;
+  bool hasCenterData = true;
+  bool hasStudentData = true;
+  bool hasCoachData = true;
 
   @override
   Widget build(BuildContext context) {
@@ -277,21 +281,21 @@ class _AcademyState extends State<Academy1> {
                 children: [
                   InkWell(
                     onTap: () {
-                      if (hasCenterData) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Datafound(),
-                          ),
-                        );
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Centerfound(),
-                          ),
-                        );
-                      }
+                      // if (hasCenterData) {
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => Datafound(),
+                      //     ),
+                      //   );
+                      // } else {
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => Centerfound(),
+                      //     ),
+                      //   );
+                      // }
                     },
                     child: Container(
                       height: 184,
@@ -344,7 +348,13 @@ class _AcademyState extends State<Academy1> {
                     height: 12,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return Planscharges();
+                        },
+                      ));
+                    },
                     child: Container(
                       height: 113,
                       width: 161,
@@ -406,7 +416,21 @@ class _AcademyState extends State<Academy1> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Get.to(Coachesfound());
+                      if (hasCoachData) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Nocoachesfound(),
+                          ),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Coachfound(),
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 113,
@@ -465,7 +489,23 @@ class _AcademyState extends State<Academy1> {
                     height: 12,
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      if (hasStudentData) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Studentfound(),
+                          ),
+                        );
+                      } else {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => NoStudentFound(),
+                        //   ),
+                        // );
+                      }
+                    },
                     child: Container(
                       height: 184,
                       width: 161,
