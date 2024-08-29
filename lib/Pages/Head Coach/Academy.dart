@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:khelnet/Pages/Head%20Coach/DataFound/centerfound.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/coachFound.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/plans&charges.dart';
 import 'package:khelnet/Pages/Head%20Coach/NoDataFound/NocoachesFound.dart';
@@ -281,21 +282,21 @@ class _AcademyState extends State<Academy1> {
                 children: [
                   InkWell(
                     onTap: () {
-                      // if (hasCenterData) {
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => Datafound(),
-                      //     ),
-                      //   );
-                      // } else {
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => Centerfound(),
-                      //     ),
-                      //   );
-                      // }
+                      if (hasCenterData) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Centerfound(),
+                          ),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Centerfound(),
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 184,

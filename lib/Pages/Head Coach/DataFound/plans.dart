@@ -13,10 +13,7 @@ class _PlansState extends State<Plans> {
     "Khelnet Plan 01",
     "Khelnet Plan 01",
     "Khelnet Plan 01",
-    "Khelnet Plan 01",
-    "Khelnet Plan 01",
-    "Khelnet Plan 01",
-    "Khelnet Plan 01"
+    
   ];
 
   int totalplans = 0;
@@ -27,7 +24,6 @@ class _PlansState extends State<Plans> {
     super.initState();
     totalplans = PlanList.length;
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +41,7 @@ class _PlansState extends State<Plans> {
                   Expanded(
                     child: TextField(
                       // onChanged: (value) => _runFilter(value),
-
+        
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.search,
@@ -79,24 +75,20 @@ class _PlansState extends State<Plans> {
                             color: Colors.black,
                           )),
                       Text(
-                        totalplans.toString(),
+                        totalplans.toString(), 
                         //"0"
-                        // totalMembers.toString(), // Show the total number of members here
-                        // style: TextStyle(
-                        //     color: Colors.blue,
-                        //     fontWeight: FontWeight.w500,
-                        //     fontSize: 12),
-                      )
+                          // totalMembers.toString(), // Show the total number of members here
+                          // style: TextStyle(
+                          //     color: Colors.blue,
+                          //     fontWeight: FontWeight.w500,
+                          //     fontSize: 12),
+                          )
                     ],
                   )
                 ],
               ),
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: PlanList.length,
-              itemBuilder: (context, index) {
-                return Row(
+           Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
@@ -120,7 +112,7 @@ class _PlansState extends State<Plans> {
                                   child: Row(
                                     children: [
                                       Text(
-                                        "${PlanList[index]}",
+                                        "Khelnet Plan 01",
                                         style: TextStyle(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 14,
@@ -176,8 +168,8 @@ class _PlansState extends State<Plans> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, top: 13),
+                                    padding:
+                                        const EdgeInsets.only(left: 8.0, top: 13),
                                     child: Row(
                                       children: [
                                         Text(
@@ -238,8 +230,8 @@ class _PlansState extends State<Plans> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, top: 13),
+                                    padding:
+                                        const EdgeInsets.only(left: 8.0, top: 13),
                                     child: Row(
                                       children: [
                                         Text(
@@ -300,8 +292,8 @@ class _PlansState extends State<Plans> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, top: 13),
+                                    padding:
+                                        const EdgeInsets.only(left: 8.0, top: 13),
                                     child: Row(
                                       children: [
                                         Text(
@@ -428,8 +420,8 @@ class _PlansState extends State<Plans> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, top: 13),
+                                    padding:
+                                        const EdgeInsets.only(left: 8.0, top: 13),
                                     child: Row(
                                       children: [
                                         Text(
@@ -490,8 +482,8 @@ class _PlansState extends State<Plans> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, top: 13),
+                                    padding:
+                                        const EdgeInsets.only(left: 8.0, top: 13),
                                     child: Row(
                                       children: [
                                         Text(
@@ -552,8 +544,8 @@ class _PlansState extends State<Plans> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, top: 13),
+                                    padding:
+                                        const EdgeInsets.only(left: 8.0, top: 13),
                                     child: Row(
                                       children: [
                                         Text(
@@ -604,9 +596,39 @@ class _PlansState extends State<Plans> {
                       ),
                     ),
                   ],
-                );
-              },
-            )
+                ), 
+                SizedBox(height: 110,),
+                Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 64,
+                  width: 315,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [
+                            Color.fromRGBO(13, 149, 211, 1),
+                            Color.fromRGBO(9, 96, 186, 1),
+                          ]),
+                      borderRadius: BorderRadius.circular(84)),
+                  child: Center(
+                      child: Text(
+                    "Add Plan",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        color: Color.fromRGBO(251, 251, 251, 1)),
+                  )),
+                ),
+              ),
+            ),
+          ),
           ],
         ),
       ),
