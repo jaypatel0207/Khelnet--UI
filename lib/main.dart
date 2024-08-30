@@ -5,6 +5,7 @@ import 'package:khelnet/Pages/AddStudent.dart';
 import 'package:khelnet/Pages/Head%20Coach/Academy.dart';
 import 'package:khelnet/Pages/Head%20Coach/bottom.dart';
 import 'package:khelnet/Pages/Head%20Coach/homepage.dart';
+import 'package:khelnet/Pages/academy.dart';
 import 'package:khelnet/Pages/loginpage.dart';
 import 'package:khelnet/Pages/otp.dart';
 import 'package:khelnet/Pages/signup.dart';
