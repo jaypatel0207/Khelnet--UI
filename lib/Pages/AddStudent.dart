@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Addstudent extends StatefulWidget {
@@ -13,6 +14,8 @@ class Addstudent extends StatefulWidget {
 class _AddstudentState extends State<Addstudent> {
   File? _image;
   bool _additionalInfoExpanded = false;
+  final TextEditingController _centerController = TextEditingController();
+  String selectedCenter = ""; // Track the selected center
 
   Future<void> _pickImage() async {
     final picker = ImagePicker();
@@ -24,6 +27,18 @@ class _AddstudentState extends State<Addstudent> {
         _image = null;
       }
     });
+  }
+
+  Widget _buildListTile(String center, StateSetter setModalState) {
+    return ListTile(
+      title: Text(center),
+      tileColor: selectedCenter == center ? Colors.blue.withOpacity(0.2) : null,
+      onTap: () {
+        setModalState(() {
+          selectedCenter = center; // Update selected center in the bottom sheet
+        });
+      },
+    );
   }
 
   @override
@@ -97,8 +112,8 @@ class _AddstudentState extends State<Addstudent> {
                               width: 1.5),
                         ),
                         hintText: 'Student Name',
-                                                  contentPadding:EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                         hintStyle: TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
@@ -107,17 +122,18 @@ class _AddstudentState extends State<Addstudent> {
                       ),
                     ),
 
-                      Padding(
-                        padding: const EdgeInsets.only(top: 11, right: 0, left: 0),
-                        child: TextField(
-                          keyboardType: TextInputType.number,
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 11, right: 0, left: 0),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Color.fromRGBO(247, 247, 247, 1),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
-                            borderSide:
-                                BorderSide(color: Colors.transparent, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Colors.transparent, width: 1.0),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
@@ -132,26 +148,29 @@ class _AddstudentState extends State<Addstudent> {
                                 width: 1.5),
                           ),
                           hintText: 'Contact Number',
-                          contentPadding:EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 25),
                           hintStyle: TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                                            ),
                       ),
+                    ),
 
-                        Padding(
-                        padding: const EdgeInsets.only(top: 11, right: 0, left: 0),
-                        child: TextField(
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 11, right: 0, left: 0),
+                      child: TextField(
+                        controller: _centerController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Color.fromRGBO(247, 247, 247, 1),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
-                            borderSide:
-                                BorderSide(color: Colors.transparent, width: 1.0),
+                            borderSide: BorderSide(
+                                color: Colors.transparent, width: 1.0),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
@@ -165,17 +184,145 @@ class _AddstudentState extends State<Addstudent> {
                                 color: Color.fromRGBO(186, 186, 186, 1),
                                 width: 1.5),
                           ),
-                          hintText: 'Student Name',
-                                                    contentPadding:EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              Get.bottomSheet(showModalBottomSheet(
+                                context: context,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(20.0)),
+                                ),
+                                builder: (BuildContext context) {
+                                  return StatefulBuilder(
+                                    builder: (BuildContext context,
+                                        StateSetter setModalState) {
+                                      return Container(
+                                        height: 500,
+                                        padding: EdgeInsets.all(16.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Center(
+                                              child: Text(
+                                                'Assign Center',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(height: 25.0),
+                                            Expanded(
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  border: Border.all(
+                                                      color: Color.fromRGBO(
+                                                          238, 234, 234, 1)),
+                                                ),
+                                                child: ListView(
+                                                  children: [
+                                                    _buildListTile('Center 1',
+                                                        setModalState),
+                                                    Divider(
+                                                      height: 10,
+                                                      color: Colors.white,
+                                                    ),
+                                                    _buildListTile('Center 2',
+                                                        setModalState),
+                                                    Divider(
+                                                      height: 10,
+                                                      color: Colors.white,
+                                                    ),
+                                                    _buildListTile('Center 3',
+                                                        setModalState),
+                                                    Divider(
+                                                      height: 10,
+                                                      color: Colors.white,
+                                                    ),
+                                                    _buildListTile('Center 4',
+                                                        setModalState),
+                                                    Divider(
+                                                      height: 10,
+                                                      color: Colors.white,
+                                                    ),
+                                                    _buildListTile('Center 5',
+                                                        setModalState),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: InkWell(
+                                                onTap: () {
+                                                  setState(() {
+                                                    _centerController.text =
+                                                        selectedCenter;
+                                                  });
+                                                  Navigator.pop(
+                                                      context); // Close the bottom sheet
+                                                },
+                                                child: Center(
+                                                  child: Container(
+                                                    width: 347,
+                                                    height: 51,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(103),
+                                                        gradient: LinearGradient(
+                                                            begin: Alignment
+                                                                .centerLeft,
+                                                            end: Alignment
+                                                                .centerRight,
+                                                            colors: [
+                                                              Color.fromRGBO(13,
+                                                                  149, 211, 1),
+                                                              Color.fromRGBO(
+                                                                  9, 96, 186, 1)
+                                                            ])),
+                                                    child: Center(
+                                                        child: Text(
+                                                      "Done",
+                                                      style: TextStyle(
+                                                          fontSize: 17,
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          color: Colors.white),
+                                                    )),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              ) as Widget);
+                            },
+                            icon: Icon(Icons.keyboard_arrow_down),
+                            color: Colors.blue,
+                          ),
+                          hintText: 'Assign Center',
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 25),
                           hintStyle: TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                                            ),
                       ),
+                    ),
                   ],
                 ),
               ),
