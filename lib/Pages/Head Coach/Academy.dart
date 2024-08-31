@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Pages/AddStudent.dart';
+import 'package:khelnet/Pages/Add/AddCoaches.dart';
+import 'package:khelnet/Pages/Add/AddStudent.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/centerfound.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/coachFound.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/plans&charges.dart';
@@ -58,7 +59,7 @@ class _AcademyState extends State<Academy1> {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return  Addstudent();
+                          return Addstudent();
                         },
                       ));
                     },
@@ -92,7 +93,9 @@ class _AcademyState extends State<Academy1> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(Addcoaches());
+                    },
                     child: Container(
                       height: 76,
                       width: 63,

@@ -1,53 +1,194 @@
+// import 'package:flutter/material.dart';
+
+// class SwitchButtonWidget extends StatefulWidget {
+//   const SwitchButtonWidget({Key? key}) : super(key: key);
+
+//   @override
+//   State<SwitchButtonWidget> createState() => _SwitchButtonWidgetState();
+// }
+
+// class _SwitchButtonWidgetState extends State<SwitchButtonWidget> {
+//   bool _attendance = false;
+//   bool _fees = false;
+//   bool _expenses = false;
+//   bool _skillRating = false;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Manage Access'),
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           children: [
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 const Text('Attendance'),
+//                 Switch(
+//                   value: _attendance,
+//                   onChanged: (value) {
+//                     setState(() {
+//                       _attendance = value;
+//                     });
+//                   },
+//                 ),
+//               ],
+//             ),
+//             const SizedBox(height: 16.0),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 const Text('Fees'),
+//                 Switch(
+//                   value: _fees,
+//                   onChanged: (value) {
+//                     setState(() {
+//                       _fees = value;
+//                     });
+//                   },
+//                 ),
+//               ],
+//             ),
+//             const SizedBox(height: 16.0),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 const Text('Expenses'),
+                
+//                 Switch(
+//                   value: _expenses,
+//                   onChanged: (value) {
+//                     setState(() {
+//                       _expenses = value;
+//                     });
+//                   },
+//                 ),
+//               ],
+//             ),
+//             const SizedBox(height: 16.0),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 const Text('Skill Rating'),
+//                 Switch(
+//                   value: _skillRating,
+//                   onChanged: (value) {
+//                     setState(() {
+//                       _skillRating = value;
+//                     });
+//                   },
+//                 ),
+//               ],
+//             ),
+//             const SizedBox(height: 32.0),
+//             ElevatedButton(
+//               onPressed: () {
+//                 // Implement your action when the button is pressed
+//                 print('Done button pressed');
+//               },
+//               child: const Text('Done'),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 
+class SwitchButtonWidget extends StatefulWidget {
+  const SwitchButtonWidget({Key? key}) : super(key: key);
 
-
-class DatePickerExample extends StatefulWidget {
   @override
-  _DatePickerExampleState createState() => _DatePickerExampleState();
+  State<SwitchButtonWidget> createState() => _SwitchButtonWidgetState();
 }
 
-class _DatePickerExampleState extends State<DatePickerExample> {
-  DateTime? _selectedDate;
-  TextEditingController _dateController = TextEditingController();
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-    if (picked != null && picked != _selectedDate) {
-      setState(() {
-        _selectedDate = picked;
-        _dateController.text = "${picked.toLocal()}".split(' ')[0]; // Format the date as desired
-      });
-    }
-  }
+class _SwitchButtonWidgetState extends State<SwitchButtonWidget> {
+  bool _attendance = false;
+  bool _fees = false;
+  bool _expenses = false;
+  bool _skillRating = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Date Picker Example'),
+        title: const Text('Manage Access'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _dateController,
-              decoration: InputDecoration(
-                labelText: 'Selected Date',
-              ),
-              readOnly: true, // Prevent user from manually editing the date
-              onTap: () => _selectDate(context), // Show date picker on tap
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Attendance'),
+                Switch(
+                  value: _attendance,
+                  onChanged: (value) {
+                    setState(() {
+                      _attendance = value;
+                    });
+                  },
+                ),
+              ],
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Fees'),
+                Switch(
+                  value: _fees,
+                  onChanged: (value) {
+                    setState(() {
+                      _fees = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Expenses'),
+                Switch(
+                  value: _expenses,
+                  onChanged: (value) {
+                    setState(() {
+                      _expenses = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Skill Rating'),
+                Switch(
+                  value: _skillRating,
+                  onChanged: (value) {
+                    setState(() {
+                      _skillRating = value;
+                    });
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 32.0),
             ElevatedButton(
-              onPressed: () => _selectDate(context),
-              child: Text('Select Date'),
+              onPressed: () {
+                // Implement your action when the button is pressed
+                print('Done button pressed');
+              },
+              child: const Text('Done'),
             ),
           ],
         ),

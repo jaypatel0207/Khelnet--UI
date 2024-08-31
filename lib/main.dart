@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:khelnet/Pages/AddStudent.dart';
+import 'package:khelnet/Controller/switch_controller.dart';
+import 'package:khelnet/Pages/Add/AddStudent.dart';
 import 'package:khelnet/Pages/Head%20Coach/Academy.dart';
 import 'package:khelnet/Pages/Head%20Coach/bottom.dart';
 import 'package:khelnet/Pages/Head%20Coach/homepage.dart';
@@ -14,7 +17,11 @@ import 'package:khelnet/test.dart';
 
 
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Get.put(SwitchController()); // Initialize your controller
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

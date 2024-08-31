@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:khelnet/Pages/Add/AddCoaches.dart';
 
 class Nocoachesfound extends StatefulWidget {
   const Nocoachesfound({super.key});
@@ -46,7 +48,6 @@ class _NodatafoundState extends State<Nocoachesfound> {
                 children: [
                   Expanded(
                     child: TextField(
-                 
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.search,
@@ -156,7 +157,9 @@ class _NodatafoundState extends State<Nocoachesfound> {
               height: 220,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(Addcoaches());
+              },
               child: Container(
                 height: 64,
                 width: 315,

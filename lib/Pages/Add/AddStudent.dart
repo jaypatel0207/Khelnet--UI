@@ -13,15 +13,27 @@ class Addstudent extends StatefulWidget {
 
 class _AddstudentState extends State<Addstudent> {
   File? _image;
-  bool _additionalInfoExpanded = false;
+  bool _basicInfoExpanded = true;
   final TextEditingController _centerController = TextEditingController();
   String selectedCenter = ""; // Track the selected center
   final TextEditingController _batchController = TextEditingController();
   String selectedBatch = "";
   final TextEditingController _fatherController = TextEditingController();
+  final TextEditingController _PlanController = TextEditingController();
+  String selectedPlan = ""; // Track the selected center
 
   DateTime? _selectedDate;
   TextEditingController _dateController = TextEditingController();
+
+  DateTime? _selectedDueDate;
+  TextEditingController _DuedateController = TextEditingController();
+
+  String selectedAdditionalCharges = "";
+
+  //String? _selectedValue = "Fees Paid";
+List<String> _options = ["Fees Paid (Current Month)", "Fees Unpaid (Current Month)"];
+  bool _isSelected = false;
+String? _selectedValue;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -35,6 +47,21 @@ class _AddstudentState extends State<Addstudent> {
         _selectedDate = picked;
         _dateController.text =
             "${picked.toLocal()}".split(' ')[0]; // Format the date as desired
+      });
+    }
+  }
+
+  void _selectDueDate() async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1950),
+        lastDate: DateTime(2200));
+    if (pickedDate != null) {
+      setState(() {
+        _selectedDueDate = pickedDate;
+        _DuedateController.text = "${pickedDate.toLocal()}"
+            .split(' ')[0]; // Format the date as desired
       });
     }
   }
@@ -75,6 +102,34 @@ class _AddstudentState extends State<Addstudent> {
     );
   }
 
+  Widget _buildListTilePlan(String Plan, StateSetter setModalState) {
+    return ListTile(
+      title: Text(Plan),
+      tileColor: selectedPlan == Plan ? Colors.blue.withOpacity(0.2) : null,
+      onTap: () {
+        setModalState(() {
+          selectedPlan = Plan; // Update selected center in the bottom sheet
+        });
+      },
+    );
+  }
+
+  Widget _buildListTileAdditionalCharges(
+      String AdditionalCharges, StateSetter setModalState) {
+    return ListTile(
+      title: Text(AdditionalCharges),
+      tileColor: selectedPlan == AdditionalCharges
+          ? Colors.blue.withOpacity(0.2)
+          : null,
+      onTap: () {
+        setModalState(() {
+          selectedPlan =
+              AdditionalCharges; // Update selected center in the bottom sheet
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).copyWith(dividerColor: Colors.transparent);
@@ -98,6 +153,7 @@ class _AddstudentState extends State<Addstudent> {
                 child: Center(
                   child: CircleAvatar(
                     radius: 50,
+                    
                     backgroundImage: _image != null
                         ? Image.file(_image!).image
                         : Image.asset("assets/images/image.png").image,
@@ -117,10 +173,10 @@ class _AddstudentState extends State<Addstudent> {
                         fontSize: 16,
                       ),
                     ),
-                    initiallyExpanded: _additionalInfoExpanded,
+                    initiallyExpanded: _basicInfoExpanded,
                     onExpansionChanged: (value) {
                       setState(() {
-                        _additionalInfoExpanded = value;
+                        _basicInfoExpanded = value;
                       });
                     },
                     children: [
@@ -812,41 +868,102 @@ class _AddstudentState extends State<Addstudent> {
                                                       ),
                                                     ),
                                                     Padding(
-  padding: const EdgeInsets.only(top: 11, right: 0, left: 0),
-  child: TextField(
-    readOnly: true, // Add this line to make the text field read only
-    controller: _dateController,
-    decoration: InputDecoration(
-      filled: true,
-      fillColor: Color.fromRGBO(247, 247, 247, 1),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(26),
-        borderSide: BorderSide(color: Colors.transparent, width: 1.0),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(26),
-        borderSide: BorderSide(color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(26),
-        borderSide: BorderSide(color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
-      ),
-      hintText: 'DOB',
-      suffixIcon: IconButton(
-        onPressed: () {
-          _selectDate(context); // Call the _selectDate function here
-        },
-        icon: Icon(Icons.date_range_outlined, color: Colors.blue),
-      ),
-      contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-      hintStyle: TextStyle(
-        color: Color.fromRGBO(186, 186, 186, 1),
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-      ),
-    ),
-  ),
-),
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 11,
+                                                              right: 0,
+                                                              left: 0),
+                                                      child: TextField(
+                                                        readOnly:
+                                                            true, // Add this line to make the text field read only
+                                                        controller:
+                                                            _dateController,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          filled: true,
+                                                          fillColor:
+                                                              Color.fromRGBO(
+                                                                  247,
+                                                                  247,
+                                                                  247,
+                                                                  1),
+                                                          border:
+                                                              OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        26),
+                                                            borderSide: BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0),
+                                                          ),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        26),
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Color
+                                                                        .fromRGBO(
+                                                                            186,
+                                                                            186,
+                                                                            186,
+                                                                            1),
+                                                                    width: 1.5),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        26),
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Color
+                                                                        .fromRGBO(
+                                                                            186,
+                                                                            186,
+                                                                            186,
+                                                                            1),
+                                                                    width: 1.5),
+                                                          ),
+                                                          hintText: 'DOB',
+                                                          suffixIcon:
+                                                              IconButton(
+                                                            onPressed: () {
+                                                              _selectDate(
+                                                                  context); // Call the _selectDate function here
+                                                            },
+                                                            icon: Icon(
+                                                                Icons
+                                                                    .date_range_outlined,
+                                                                color: Colors
+                                                                    .blue),
+                                                          ),
+                                                          contentPadding:
+                                                              EdgeInsets
+                                                                  .symmetric(
+                                                                      vertical:
+                                                                          15,
+                                                                      horizontal:
+                                                                          25),
+                                                          hintStyle: TextStyle(
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    186,
+                                                                    186,
+                                                                    186,
+                                                                    1),
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
                                                     Padding(
                                                       padding:
                                                           const EdgeInsets.only(
@@ -1210,7 +1327,7 @@ class _AddstudentState extends State<Addstudent> {
                                 vertical: 15, horizontal: 25),
                             hintStyle: TextStyle(
                               color: _fatherController.text.isNotEmpty
-                                  ? Color.fromRGBO(186, 186, 186, 1)
+                                  ? const Color.fromRGBO(186, 186, 186, 1)
                                   : Colors.blue,
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -1223,15 +1340,510 @@ class _AddstudentState extends State<Addstudent> {
                   ),
                 ),
               ),
+              Theme(
+                data: theme,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 30, right: 20, left: 20),
+                  child: ExpansionTile(
+                    title: Text("Manage Fees"),
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 11, right: 0, left: 0),
+                        child: TextField(
+                          controller: _PlanController,
+                          style: TextStyle(color: Colors.blue),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Colors.transparent, width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                Get.bottomSheet(showModalBottomSheet(
+                                  context: context,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20.0)),
+                                  ),
+                                  builder: (BuildContext context) {
+                                    return StatefulBuilder(
+                                      builder: (BuildContext context,
+                                          StateSetter setModalState) {
+                                        return Container(
+                                          height: 550,
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              const Center(
+                                                child: Text(
+                                                  'Assign Center',
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(height: 25.0),
+                                              Expanded(
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    border: Border.all(
+                                                        color: Color.fromRGBO(
+                                                            238, 234, 234, 1)),
+                                                  ),
+                                                  child: ListView(
+                                                    children: [
+                                                      _buildListTilePlan(
+                                                          'Plan 1',
+                                                          setModalState),
+                                                      const Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTilePlan(
+                                                          'Plan 2',
+                                                          setModalState),
+                                                      Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTilePlan(
+                                                          'Plan 3',
+                                                          setModalState),
+                                                      Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTilePlan(
+                                                          'Plan 4',
+                                                          setModalState),
+                                                      Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTilePlan(
+                                                          'Plan 5',
+                                                          setModalState),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 20,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      _PlanController.text =
+                                                          selectedPlan;
+                                                    });
+                                                    Navigator.pop(
+                                                        context); // Close the bottom sheet
+                                                  },
+                                                  child: Center(
+                                                    child: Container(
+                                                      width: 347,
+                                                      height: 51,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                  103),
+                                                          gradient: const LinearGradient(
+                                                              begin: Alignment
+                                                                  .centerLeft,
+                                                              end: Alignment
+                                                                  .centerRight,
+                                                              colors: [
+                                                                Color.fromRGBO(
+                                                                    13,
+                                                                    149,
+                                                                    211,
+                                                                    1),
+                                                                Color.fromRGBO(
+                                                                    9,
+                                                                    96,
+                                                                    186,
+                                                                    1)
+                                                              ])),
+                                                      child: const Center(
+                                                          child: Text(
+                                                        "Done",
+                                                        style: TextStyle(
+                                                            fontSize: 17,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ) as Widget);
+                              },
+                              icon: Icon(Icons.keyboard_arrow_down),
+                              color: Colors.blue,
+                            ),
+                            hintText: 'Assign Plan',
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 25),
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(186, 186, 186, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 11, right: 0, left: 0),
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Colors.transparent, width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            hintText: 'Fees Amount',
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 25),
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(186, 186, 186, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 11, right: 0, left: 0,),
+                        child: TextField(
+                          readOnly:
+                              true, // Add this line to make the text field read only
+                          controller: _DuedateController,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Colors.transparent, width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            hintText: 'Due Date (Latest Due Date)',
+                            suffixIcon: IconButton(
+                              onPressed:
+                                  _selectDueDate, // Call the _selectDate function here
+                              icon: Icon(Icons.date_range_outlined,
+                                  color: Colors.blue),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 25),
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(186, 186, 186, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 11, right: 0, left: 0),
+                        child: TextField(
+                          // keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Colors.transparent, width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            hintText: 'Sessions',
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 25),
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(186, 186, 186, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 11, right: 0, left: 0),
+                        child: TextField(
+                          controller: _PlanController,
+                          style: TextStyle(color: Colors.blue),
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Colors.transparent, width: 1.0),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(26),
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(186, 186, 186, 1),
+                                  width: 1.5),
+                            ),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                Get.bottomSheet(showModalBottomSheet(
+                                  context: context,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20.0)),
+                                  ),
+                                  builder: (BuildContext context) {
+                                    return StatefulBuilder(
+                                      builder: (BuildContext context,
+                                          StateSetter setModalState) {
+                                        return Container(
+                                          height: 550,
+                                          padding: EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              const Center(
+                                                child: Text(
+                                                  'Assign Center',
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(height: 25.0),
+                                              Expanded(
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    border: Border.all(
+                                                        color: Color.fromRGBO(
+                                                            238, 234, 234, 1)),
+                                                  ),
+                                                  child: ListView(
+                                                    children: [
+                                                      _buildListTileAdditionalCharges(
+                                                          'CGST',
+                                                          setModalState),
+                                                      const Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTileAdditionalCharges(
+                                                          'SGST',
+                                                          setModalState),
+                                                      Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTileAdditionalCharges(
+                                                          'GST', setModalState),
+                                                      Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTileAdditionalCharges(
+                                                          'Service Charges',
+                                                          setModalState),
+                                                      Divider(
+                                                        height: 10,
+                                                        color: Colors.white,
+                                                      ),
+                                                      _buildListTileAdditionalCharges(
+                                                          'Additional Fees',
+                                                          setModalState),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 20,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      _PlanController.text =
+                                                          selectedPlan;
+                                                    });
+                                                    Navigator.pop(
+                                                        context); // Close the bottom sheet
+                                                  },
+                                                  child: Center(
+                                                    child: Container(
+                                                      width: 347,
+                                                      height: 51,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                  103),
+                                                          gradient: const LinearGradient(
+                                                              begin: Alignment
+                                                                  .centerLeft,
+                                                              end: Alignment
+                                                                  .centerRight,
+                                                              colors: [
+                                                                Color.fromRGBO(
+                                                                    13,
+                                                                    149,
+                                                                    211,
+                                                                    1),
+                                                                Color.fromRGBO(
+                                                                    9,
+                                                                    96,
+                                                                    186,
+                                                                    1)
+                                                              ])),
+                                                      child: const Center(
+                                                          child: Text(
+                                                        "Done",
+                                                        style: TextStyle(
+                                                            fontSize: 17,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ) as Widget);
+                              },
+                              icon: Icon(Icons.keyboard_arrow_down),
+                              color: Colors.blue,
+                            ),
+                            hintText: 'Additonal Charges',
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 25),
+                            hintStyle: TextStyle(
+                              color: Color.fromRGBO(186, 186, 186, 1),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
 
 
-                  Theme(
-                    data: theme,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
-                      child: ExpansionTile(title: Text("Manage Fees")),
-                    ),
-                  )
+Column(
+  children: _options.map((option) {
+    return RadioListTile(
+      title: Text(option),
+      value: option,
+      groupValue: _selectedValue,
+      onChanged: (value) {
+        setState(() {
+          if (_selectedValue == value) {
+            _selectedValue = null;
+            _isSelected = false;
+          } else {
+            _selectedValue = value as String?;
+            _isSelected = true;
+          }
+        });
+      },
+    );
+  }).toList(),
+)
 
 
 
@@ -1241,6 +1853,66 @@ class _AddstudentState extends State<Addstudent> {
 
 
 
+
+
+                    ],
+                  ),
+                ),
+              ), 
+
+SizedBox(height: 70,), 
+
+               Padding(
+                                                padding:
+                                                    const EdgeInsets.all(15.0),
+                                                child: InkWell(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      _PlanController.text =
+                                                          selectedPlan;
+                                                    });
+                                                    Navigator.pop(
+                                                        context); // Close the bottom sheet
+                                                  },
+                                                  child: Center(
+                                                    child: Container(
+                                                      width: 347,
+                                                      height: 51,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                  103),
+                                                          gradient: const LinearGradient(
+                                                              begin: Alignment
+                                                                  .centerLeft,
+                                                              end: Alignment
+                                                                  .centerRight,
+                                                              colors: [
+                                                                Color.fromRGBO(
+                                                                    13,
+                                                                    149,
+                                                                    211,
+                                                                    1),
+                                                                Color.fromRGBO(
+                                                                    9,
+                                                                    96,
+                                                                    186,
+                                                                    1)
+                                                              ])),
+                                                      child: const Center(
+                                                          child: Text(
+                                                        "Add Student",
+                                                        style: TextStyle(
+                                                            fontSize: 17,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
             ],
           ),
         ),
