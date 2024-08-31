@@ -742,50 +742,39 @@ class _AddcoachesState extends State<Addcoaches> {
                     },
                   ),
                 ),
-              ) , 
-
-
-
-
-              SizedBox(height: 130,), 
+              ),
+              SizedBox(
+                height: 130,
+              ),
               Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: InkWell(
-                                          onTap: () {
-                                          
-                                          },
-                                          child: Center(
-                                            child: Container(
-                                              width: 347,
-                                              height: 51,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          103),
-                                                  gradient:
-                                                      const LinearGradient(
-                                                          begin: Alignment
-                                                              .centerLeft,
-                                                          end: Alignment
-                                                              .centerRight,
-                                                          colors: [
-                                                        Color.fromRGBO(
-                                                            13, 149, 211, 1),
-                                                        Color.fromRGBO(
-                                                            9, 96, 186, 1)
-                                                      ])),
-                                              child: const Center(
-                                                  child: Text(
-                                                "Add Coach",
-                                                style: TextStyle(
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.w700,
-                                                    color: Colors.white),
-                                              )),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                padding: const EdgeInsets.all(8.0),
+                child: InkWell(
+                  onTap: () {},
+                  child: Center(
+                    child: Container(
+                      width: 347,
+                      height: 51,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(103),
+                          gradient: const LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Color.fromRGBO(13, 149, 211, 1),
+                                Color.fromRGBO(9, 96, 186, 1)
+                              ])),
+                      child: const Center(
+                          child: Text(
+                        "Add Coach",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      )),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
