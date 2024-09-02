@@ -1,5 +1,5 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/charges.dart';
 import 'package:khelnet/Pages/Head%20Coach/DataFound/plans.dart';
 
@@ -19,7 +19,7 @@ class _PlansState extends State<Planscharges> {
           length: 2,
           child: Scaffold(
             appBar: AppBar(
-              title: Text(
+              title: const Text(
                 "Plans & Charges",
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
@@ -31,13 +31,13 @@ class _PlansState extends State<Planscharges> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back)),
+                  icon: const Icon(Icons.arrow_back)),
               actions: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.tune,
                       color: Colors.black,
                     ),
@@ -45,10 +45,10 @@ class _PlansState extends State<Planscharges> {
                 ),
               ],
             ),
-            body: Column(
+            body: const Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 22.0, right: 22, top: 15, bottom: 25),
+                  padding: EdgeInsets.only(left: 22.0, right: 22, top: 15, bottom: 25),
                   child: TabBar(
                     labelColor:   Color.fromRGBO(9, 96, 186, 1),
                     dividerColor: Colors.transparent,

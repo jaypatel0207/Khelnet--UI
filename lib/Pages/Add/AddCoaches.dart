@@ -191,7 +191,7 @@ class _AddcoachesState extends State<Addcoaches> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 91.0),
+                  const SizedBox(height: 30.0),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
@@ -461,7 +461,7 @@ class _AddcoachesState extends State<Addcoaches> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 190,
+                                        height: 125,
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
@@ -744,13 +744,13 @@ class _AddcoachesState extends State<Addcoaches> {
                 ),
               ),
               SizedBox(
-                height: 130,
+                height: 110,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: () {},
-                  child: Center(
+              InkWell(
+                onTap: () {},
+                child: Center(
+                  child: Positioned.fill(
+                    top: 600, left: 8, right: 8,
                     child: Container(
                       width: 347,
                       height: 51,
