@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:khelnet/Controller/switch_controller.dart';
+import 'package:khelnet/Controller/ManageAc_switch_controller.dart';
 
 class Addcoaches extends StatefulWidget {
   const Addcoaches({super.key});

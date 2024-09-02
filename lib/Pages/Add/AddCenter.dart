@@ -5,7 +5,11 @@ import 'package:get/get.dart';
 import 'package:khelnet/Pages/Add/AddBatch.dart';
 
 class Addcenter extends StatefulWidget {
-  const Addcenter({super.key});
+  final String startTime;
+  final String endTime;
+  
+
+  Addcenter({required this.startTime, required this.endTime, });
 
   @override
   State<Addcenter> createState() => _AddcenterState();
@@ -115,7 +119,7 @@ class _AddcenterState extends State<Addcenter> {
                       ),
                       suffixIcon: IconButton(
                           onPressed: () {
-                            Get.to(Addbatch()); 
+                            Get.to(Addbatch());
                           },
                           icon: Icon(
                             Icons.add,
@@ -136,10 +140,44 @@ class _AddcenterState extends State<Addcenter> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
+                    readOnly: true,
                   ),
                 ),
                 SizedBox(
-                  height: 475,
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        "Batches",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 67,
+                    width: 356,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        border:
+                            Border.all(color: Color.fromRGBO(186, 186, 186, 1)),
+                        borderRadius: BorderRadius.circular(6)),
+                    child: ListTile(
+                      //title: Text(widget.batchName.toString(), style: TextStyle(color: Colors.blue),),
+                      subtitle: Text("("+widget.startTime.toString()+ "  -  " + widget.endTime.toString()+")", style: TextStyle(color: Colors.blue), ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 350,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -169,7 +207,7 @@ class _AddcenterState extends State<Addcenter> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

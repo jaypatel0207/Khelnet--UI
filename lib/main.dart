@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:khelnet/Controller/switch_controller.dart';
+import 'package:khelnet/Controller/ManageAc_switch_controller.dart';
 import 'package:khelnet/Pages/Add/AddStudent.dart';
 import 'package:khelnet/Pages/Head%20Coach/Academy.dart';
 import 'package:khelnet/Pages/Head%20Coach/bottom.dart';

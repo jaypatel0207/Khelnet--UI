@@ -120,7 +120,7 @@ class _CenterfoundState extends State<Centerfound> {
               padding: const EdgeInsets.all(6.0),
               child: InkWell(
                 onTap: () {
-                  Get.to(Addcenter());
+                  Get.to(Addcenter(startTime: '', endTime: '',));
                 },
                 child: Center(
                   child: Container(
