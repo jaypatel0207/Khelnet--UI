@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:khelnet/Pages/Add/AddCharges.dart';
-import 'package:khelnet/Pages/Add/AddPlans.dart';
+import 'package:khelnet/Pages/Plans/AddCharges.dart';
+import 'package:khelnet/Pages/Plans/AddPlans.dart';
+//import 'package:khelnet/Pages/Plans/AddPlans.dart';
 
 class AddplansCharges extends StatefulWidget {
   const AddplansCharges({super.key});

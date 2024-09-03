@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Pages/Add/AddCenter.dart';
+import 'package:khelnet/Pages/Center/AddCenter.dart';
 
 class Centerfound extends StatefulWidget {
   const Centerfound({super.key});

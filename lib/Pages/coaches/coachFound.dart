@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Pages/Head%20Coach/DataFound/coachInfo.dart';
+import 'package:khelnet/Pages/coaches/coachInfo.dart';
 
 class Coachfound extends StatefulWidget {
   const Coachfound({super.key});

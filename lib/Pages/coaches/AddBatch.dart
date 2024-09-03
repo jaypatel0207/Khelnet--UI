@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:khelnet/Controller/Days_switch_controller.dart';
 import 'package:khelnet/Controller/TimeController.dart';
 import 'package:khelnet/Controller/sportSwitchController.dart';
-import 'package:khelnet/Pages/Add/AddCenter.dart';
+import 'package:khelnet/Pages/Center/AddCenter.dart';
 
 class Addbatch extends StatefulWidget {
   const Addbatch({super.key});

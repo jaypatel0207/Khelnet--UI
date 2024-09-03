@@ -321,7 +321,7 @@ class _AddcoachesState extends State<Addcoaches> {
                     hintText: 'Contact Number',
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -371,7 +371,7 @@ class _AddcoachesState extends State<Addcoaches> {
                     ),
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -406,7 +406,7 @@ class _AddcoachesState extends State<Addcoaches> {
                       onPressed: () {
                         Get.bottomSheet(showModalBottomSheet(
                           context: context,
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20.0)),
                           ),
@@ -520,7 +520,7 @@ class _AddcoachesState extends State<Addcoaches> {
                     hintText: 'Assign Center',
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -543,19 +543,19 @@ class _AddcoachesState extends State<Addcoaches> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
                         Get.bottomSheet(showModalBottomSheet(
                           context: context,
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(20.0)),
                           ),
@@ -587,7 +587,7 @@ class _AddcoachesState extends State<Addcoaches> {
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             border: Border.all(
-                                                color: Color.fromRGBO(
+                                                color: const Color.fromRGBO(
                                                     238, 234, 234, 1)),
                                           ),
                                           child: ListView(

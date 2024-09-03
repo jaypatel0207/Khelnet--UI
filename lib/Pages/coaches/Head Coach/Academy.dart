@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Pages/Add/AddCoaches.dart';
-import 'package:khelnet/Pages/Add/AddPlans&Charges.dart';
-import 'package:khelnet/Pages/Add/AddStudent.dart';
-import 'package:khelnet/Pages/Head%20Coach/DataFound/centerfound.dart';
-import 'package:khelnet/Pages/Head%20Coach/DataFound/coachFound.dart';
-import 'package:khelnet/Pages/Head%20Coach/DataFound/plans&charges.dart';
-import 'package:khelnet/Pages/Head%20Coach/NoDataFound/NocoachesFound.dart';
-import 'package:khelnet/Pages/Head%20Coach/datafound.dart';
-import 'package:khelnet/Pages/Head%20Coach/DataFound/StudentFound.dart';
+import 'package:khelnet/Pages/coaches/AddCoaches.dart';
+import 'package:khelnet/Pages/Plans/AddPlans&Charges.dart';
+import 'package:khelnet/Pages/Students/AddStudent.dart';
+import 'package:khelnet/Pages/Center/centerfound.dart';
+import 'package:khelnet/Pages/coaches/coachFound.dart';
+import 'package:khelnet/Pages/Plans/plans&charges.dart';
+import 'package:khelnet/Pages/coaches/Head%20Coach/NocoachesFound.dart';
+import 'package:khelnet/Pages/coaches/Head%20Coach/datafound.dart';
+import 'package:khelnet/Pages/Students/StudentFound.dart';
 
 class Academy1 extends StatefulWidget {
   const Academy1({super.key});

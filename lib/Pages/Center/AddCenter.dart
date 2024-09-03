@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Pages/Add/AddBatch.dart';
+import 'package:khelnet/Pages/coaches/AddBatch.dart';
 
 class Addcenter extends StatefulWidget {
   final String startTime;

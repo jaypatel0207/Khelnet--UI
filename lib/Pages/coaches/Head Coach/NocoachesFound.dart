@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khelnet/Pages/Add/AddCoaches.dart';
+import 'package:khelnet/Pages/coaches/AddCoaches.dart';
 
 class Nocoachesfound extends StatefulWidget {
   const Nocoachesfound({super.key});
