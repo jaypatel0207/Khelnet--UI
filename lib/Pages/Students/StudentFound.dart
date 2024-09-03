@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:khelnet/Pages/Students/studentbasicinfo.dart';
+import 'package:khelnet/Pages/Students/studentinfo.dart';
 
 class 
 Studentfound extends StatefulWidget {
@@ -226,7 +230,9 @@ class _NodatafoundState extends State<Studentfound> {
                                     ),
                                   ),
                                   trailing: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                  //     Get.to(Studentbasicinfo());
+                                    },
                                     icon: Icon(
                                       Icons.arrow_forward_ios,
                                       size: 18,

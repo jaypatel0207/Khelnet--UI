@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khelnet/Pages/Students/AddStudent.dart';
+import 'package:khelnet/Pages/Students/studentinfo.dart';
 
 class Students extends StatefulWidget {
   const Students({super.key});
@@ -66,7 +67,9 @@ class _StudentsState extends State<Students> {
                                 icon: Icon(
                                   Icons.arrow_forward_ios,
                                 ),
-                                onPressed: () {}),
+                                onPressed: () {
+                                 
+                                }),
                           ),
                         ));
                   }),
