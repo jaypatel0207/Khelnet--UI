@@ -434,7 +434,7 @@ class _AcademyState extends State<Academy1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Nocoachesfound(),
+                            builder: (context) => Coachfound(),
                           ),
                         );
                       } else {

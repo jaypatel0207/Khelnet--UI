@@ -22,22 +22,23 @@ class _AddplansState extends State<Addcharges> {
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 hintText: 'Additional Charges Name',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                hintStyle: TextStyle(
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -54,22 +55,23 @@ class _AddplansState extends State<Addcharges> {
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 hintText: 'Charge Amount',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                hintStyle: TextStyle(
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -86,22 +88,23 @@ class _AddplansState extends State<Addcharges> {
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(255, 255, 255, 1), width: 1.5),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 hintText: 'Add Tax',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                hintStyle: TextStyle(
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -109,7 +112,7 @@ class _AddplansState extends State<Addcharges> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 400,
           ),
           Padding(
