@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -7,8 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:khelnet/Pages/Students/studentbasicinfo.dart';
 import 'package:khelnet/Pages/Students/studentinfo.dart';
 
-class 
-Studentfound extends StatefulWidget {
+class Studentfound extends StatefulWidget {
   const Studentfound({super.key});
 
   @override
@@ -20,24 +17,33 @@ class _NodatafoundState extends State<Studentfound> {
 
   // Sample data for members
   List<Map<String, dynamic>> activeMembers = [
-   {"name" : "Shivam Jain",}, 
-    {"name" : "Shivam Jain",},
-     {"name" : "Shivam Jain",}, 
-      {"name" : "Kanha Jain",}, 
-       {"name" : "Krishna Jain",}, 
-        {"name" : "Narayan Jain",}, 
-        {"name" : "Narayan 3",}
-
-
-
+    {
+      "name": "Shivam Jain",
+    },
+    {
+      "name": "Shivam Jain",
+    },
+    {
+      "name": "Shivam Jain",
+    },
+    {
+      "name": "Kanha Jain",
+    },
+    {
+      "name": "Krishna Jain",
+    },
+    {
+      "name": "Narayan Jain",
+    },
+    {
+      "name": "Narayan 3",
+    }
   ];
   List<String> inactiveMembers = ["Bob White", "Charlie Black", "David Gray"];
 
-
-
   List<Map<String, dynamic>> _foundcenter = [];
 
-@override
+  @override
   void initState() {
     _foundcenter = activeMembers.cast<Map<String, dynamic>>();
     super.initState();
@@ -50,7 +56,11 @@ class _NodatafoundState extends State<Studentfound> {
     } else {
       results = activeMembers
           .where((user) =>
-              user["name"].toLowerCase().contains(enteredKeyword.toLowerCase())||user["Number"].toString().contains(enteredKeyword)).cast<Map<String, dynamic>>()
+              user["name"]
+                  .toLowerCase()
+                  .contains(enteredKeyword.toLowerCase()) ||
+              user["Number"].toString().contains(enteredKeyword))
+          .cast<Map<String, dynamic>>()
           .toList();
     }
 
@@ -58,7 +68,6 @@ class _NodatafoundState extends State<Studentfound> {
       _foundcenter = results;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -108,8 +117,7 @@ class _NodatafoundState extends State<Studentfound> {
                       children: [
                         Expanded(
                           child: TextField(
-                              onChanged: (value) => _runFilter(value),
-                            
+                            onChanged: (value) => _runFilter(value),
                             decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.search,
@@ -144,7 +152,8 @@ class _NodatafoundState extends State<Studentfound> {
                                   color: Colors.black,
                                 )),
                             Text(
-                              totalMembers.toString(), // Show the total number of members here
+                              totalMembers
+                                  .toString(), // Show the total number of members here
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w500,
@@ -164,13 +173,13 @@ class _NodatafoundState extends State<Studentfound> {
                       Row(
                         children: [
                           Text(status,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14,
                                   color: Color.fromRGBO(9, 96, 186, 1))),
                           SizedBox(width: 10),
                           PopupMenuButton<String>(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.keyboard_arrow_down,
                               color: Colors.blue,
                             ),
@@ -181,11 +190,11 @@ class _NodatafoundState extends State<Studentfound> {
                             },
                             itemBuilder: (BuildContext context) {
                               return [
-                                PopupMenuItem<String>(
+                                const PopupMenuItem<String>(
                                   value: "Active",
                                   child: Text("Active"),
                                 ),
-                                PopupMenuItem<String>(
+                                const PopupMenuItem<String>(
                                   value: "Inactive",
                                   child: Text("Inactive"),
                                 ),
@@ -216,13 +225,13 @@ class _NodatafoundState extends State<Studentfound> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: ListTile(
-                                  leading: CircleAvatar(
+                                  leading: const CircleAvatar(
                                     backgroundImage:
                                         AssetImage("assets/images/mouth.png"),
                                     radius: 20,
                                   ),
                                   title: Text(_foundcenter[index]["name"]),
-                                  subtitle: Text(
+                                  subtitle: const Text(
                                     "Shine 1 ( 4:00 PM - 6:00 PM )",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
@@ -231,9 +240,9 @@ class _NodatafoundState extends State<Studentfound> {
                                   ),
                                   trailing: IconButton(
                                     onPressed: () {
-                                  //     Get.to(Studentbasicinfo());
+                                      //     Get.to(Studentbasicinfo());
                                     },
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.arrow_forward_ios,
                                       size: 18,
                                     ),
@@ -300,4 +309,3 @@ class _NodatafoundState extends State<Studentfound> {
     );
   }
 }
-
