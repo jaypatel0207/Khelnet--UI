@@ -31,9 +31,12 @@ class _AddstudentState extends State<Addstudent> {
   String selectedAdditionalCharges = "";
 
   //String? _selectedValue = "Fees Paid";
-List<String> _options = ["Fees Paid (Current Month)", "Fees Unpaid (Current Month)"];
+  List<String> _options = [
+    "Fees Paid (Current Month)",
+    "Fees Unpaid (Current Month)"
+  ];
   bool _isSelected = false;
-String? _selectedValue;
+  String? _selectedValue;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -136,7 +139,7 @@ String? _selectedValue;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Add Student',
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
         ),
@@ -153,7 +156,6 @@ String? _selectedValue;
                 child: Center(
                   child: CircleAvatar(
                     radius: 50,
-                    
                     backgroundImage: _image != null
                         ? Image.file(_image!).image
                         : Image.asset("assets/images/image.png").image,
@@ -165,7 +167,7 @@ String? _selectedValue;
                 child: Padding(
                   padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
                   child: ExpansionTile(
-                    title: Text(
+                    title: const Text(
                       'Basic Info',
                       style: TextStyle(
                         color: Color.fromRGBO(9, 96, 186, 1),
@@ -184,28 +186,28 @@ String? _selectedValue;
                       TextField(
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Color.fromRGBO(247, 247, 247, 1),
+                          fillColor: const Color.fromRGBO(247, 247, 247, 1),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                                 color: Colors.transparent, width: 1.0),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                                 color: Color.fromRGBO(186, 186, 186, 1),
                                 width: 1.5),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(26),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                                 color: Color.fromRGBO(186, 186, 186, 1),
                                 width: 1.5),
                           ),
                           hintText: 'Student Name',
-                          contentPadding: EdgeInsets.symmetric(
+                          contentPadding: const EdgeInsets.symmetric(
                               vertical: 15, horizontal: 25),
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
@@ -220,28 +222,28 @@ String? _selectedValue;
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             hintText: 'Contact Number',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -261,18 +263,18 @@ String? _selectedValue;
                             fillColor: Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
@@ -280,7 +282,7 @@ String? _selectedValue;
                               onPressed: () {
                                 Get.bottomSheet(showModalBottomSheet(
                                   context: context,
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.vertical(
                                         top: Radius.circular(20.0)),
                                   ),
@@ -295,7 +297,7 @@ String? _selectedValue;
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
                                               const Center(
@@ -315,7 +317,8 @@ String? _selectedValue;
                                                         BorderRadius.circular(
                                                             10),
                                                     border: Border.all(
-                                                        color: Color.fromRGBO(
+                                                        color: const Color
+                                                            .fromRGBO(
                                                             238, 234, 234, 1)),
                                                   ),
                                                   child: ListView(
@@ -328,19 +331,19 @@ String? _selectedValue;
                                                       ),
                                                       _buildListTile('Center 2',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
                                                       _buildListTile('Center 3',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
                                                       _buildListTile('Center 4',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
@@ -350,7 +353,7 @@ String? _selectedValue;
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 20,
                                               ),
                                               Padding(
@@ -416,9 +419,9 @@ String? _selectedValue;
                               color: Colors.blue,
                             ),
                             hintText: 'Assign Center',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -432,24 +435,24 @@ String? _selectedValue;
                             const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
                           controller: _batchController,
-                          style: TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
@@ -457,7 +460,7 @@ String? _selectedValue;
                               onPressed: () {
                                 Get.bottomSheet(showModalBottomSheet(
                                   context: context,
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.vertical(
                                         top: Radius.circular(20.0)),
                                   ),
@@ -492,7 +495,8 @@ String? _selectedValue;
                                                         BorderRadius.circular(
                                                             10),
                                                     border: Border.all(
-                                                        color: Color.fromRGBO(
+                                                        color: const Color
+                                                            .fromRGBO(
                                                             238, 234, 234, 1)),
                                                   ),
                                                   child: ListView(
@@ -594,11 +598,11 @@ String? _selectedValue;
                                   },
                                 ) as Widget);
                               },
-                              icon: Icon(Icons.keyboard_arrow_down),
+                              icon: const Icon(Icons.keyboard_arrow_down),
                               color: Colors.blue,
                             ),
                             hintText: 'Assign Batch',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
                             hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
@@ -617,7 +621,7 @@ String? _selectedValue;
                           style: TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
                               borderSide: const BorderSide(
@@ -881,22 +885,20 @@ String? _selectedValue;
                                                         decoration:
                                                             InputDecoration(
                                                           filled: true,
-                                                          fillColor:
-                                                              Color.fromRGBO(
-                                                                  247,
-                                                                  247,
-                                                                  247,
-                                                                  1),
+                                                          fillColor: const Color
+                                                              .fromRGBO(
+                                                              247, 247, 247, 1),
                                                           border:
                                                               OutlineInputBorder(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
                                                                         26),
-                                                            borderSide: BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 1.0),
+                                                            borderSide:
+                                                                const BorderSide(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    width: 1.0),
                                                           ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
@@ -905,7 +907,7 @@ String? _selectedValue;
                                                                     .circular(
                                                                         26),
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                                     color: Color
                                                                         .fromRGBO(
                                                                             186,
@@ -921,7 +923,7 @@ String? _selectedValue;
                                                                     .circular(
                                                                         26),
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                                     color: Color
                                                                         .fromRGBO(
                                                                             186,
@@ -937,20 +939,20 @@ String? _selectedValue;
                                                               _selectDate(
                                                                   context); // Call the _selectDate function here
                                                             },
-                                                            icon: Icon(
+                                                            icon: const Icon(
                                                                 Icons
                                                                     .date_range_outlined,
                                                                 color: Colors
                                                                     .blue),
                                                           ),
                                                           contentPadding:
-                                                              EdgeInsets
+                                                              const EdgeInsets
                                                                   .symmetric(
-                                                                      vertical:
-                                                                          15,
-                                                                      horizontal:
-                                                                          25),
-                                                          hintStyle: TextStyle(
+                                                                  vertical: 15,
+                                                                  horizontal:
+                                                                      25),
+                                                          hintStyle:
+                                                              const TextStyle(
                                                             color:
                                                                 Color.fromRGBO(
                                                                     186,
@@ -1343,32 +1345,33 @@ String? _selectedValue;
               Theme(
                 data: theme,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 30, right: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
                   child: ExpansionTile(
-                    title: Text("Manage Fees"),
+                    title: const Text("Manage Fees"),
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 11, right: 0, left: 0),
+                        padding:
+                            const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
                           controller: _PlanController,
                           style: TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
@@ -1376,7 +1379,7 @@ String? _selectedValue;
                               onPressed: () {
                                 Get.bottomSheet(showModalBottomSheet(
                                   context: context,
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.vertical(
                                         top: Radius.circular(20.0)),
                                   ),
@@ -1391,7 +1394,7 @@ String? _selectedValue;
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
                                               const Center(
@@ -1403,7 +1406,7 @@ String? _selectedValue;
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(height: 25.0),
+                                              const SizedBox(height: 25.0),
                                               Expanded(
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -1411,7 +1414,8 @@ String? _selectedValue;
                                                         BorderRadius.circular(
                                                             10),
                                                     border: Border.all(
-                                                        color: Color.fromRGBO(
+                                                        color: const Color
+                                                            .fromRGBO(
                                                             238, 234, 234, 1)),
                                                   ),
                                                   child: ListView(
@@ -1426,21 +1430,21 @@ String? _selectedValue;
                                                       _buildListTilePlan(
                                                           'Plan 2',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
                                                       _buildListTilePlan(
                                                           'Plan 3',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
                                                       _buildListTilePlan(
                                                           'Plan 4',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
@@ -1451,7 +1455,7 @@ String? _selectedValue;
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 20,
                                               ),
                                               Padding(
@@ -1513,13 +1517,13 @@ String? _selectedValue;
                                   },
                                 ) as Widget);
                               },
-                              icon: Icon(Icons.keyboard_arrow_down),
+                              icon: const Icon(Icons.keyboard_arrow_down),
                               color: Colors.blue,
                             ),
                             hintText: 'Assign Plan',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -1534,28 +1538,28 @@ String? _selectedValue;
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             hintText: 'Fees Amount',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -1565,28 +1569,31 @@ String? _selectedValue;
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 11, right: 0, left: 0,),
+                          top: 11,
+                          right: 0,
+                          left: 0,
+                        ),
                         child: TextField(
                           readOnly:
                               true, // Add this line to make the text field read only
                           controller: _DuedateController,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
@@ -1594,12 +1601,12 @@ String? _selectedValue;
                             suffixIcon: IconButton(
                               onPressed:
                                   _selectDueDate, // Call the _selectDate function here
-                              icon: Icon(Icons.date_range_outlined,
+                              icon: const Icon(Icons.date_range_outlined,
                                   color: Colors.blue),
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -1614,7 +1621,7 @@ String? _selectedValue;
                           // keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
                               borderSide: BorderSide(
@@ -1628,14 +1635,14 @@ String? _selectedValue;
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             hintText: 'Sessions',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -1644,27 +1651,28 @@ String? _selectedValue;
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 11, right: 0, left: 0),
+                        padding:
+                            const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
                           controller: _PlanController,
-                          style: TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
@@ -1672,7 +1680,7 @@ String? _selectedValue;
                               onPressed: () {
                                 Get.bottomSheet(showModalBottomSheet(
                                   context: context,
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.vertical(
                                         top: Radius.circular(20.0)),
                                   ),
@@ -1682,12 +1690,12 @@ String? _selectedValue;
                                           StateSetter setModalState) {
                                         return Container(
                                           height: 550,
-                                          padding: EdgeInsets.all(16.0),
+                                          padding: const EdgeInsets.all(16.0),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 10,
                                               ),
                                               const Center(
@@ -1699,7 +1707,7 @@ String? _selectedValue;
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(height: 25.0),
+                                              const SizedBox(height: 25.0),
                                               Expanded(
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -1707,7 +1715,8 @@ String? _selectedValue;
                                                         BorderRadius.circular(
                                                             10),
                                                     border: Border.all(
-                                                        color: Color.fromRGBO(
+                                                        color: const Color
+                                                            .fromRGBO(
                                                             238, 234, 234, 1)),
                                                   ),
                                                   child: ListView(
@@ -1722,20 +1731,20 @@ String? _selectedValue;
                                                       _buildListTileAdditionalCharges(
                                                           'SGST',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
                                                       _buildListTileAdditionalCharges(
                                                           'GST', setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
                                                       _buildListTileAdditionalCharges(
                                                           'Service Charges',
                                                           setModalState),
-                                                      Divider(
+                                                      const Divider(
                                                         height: 10,
                                                         color: Colors.white,
                                                       ),
@@ -1822,97 +1831,67 @@ String? _selectedValue;
                           ),
                         ),
                       ),
-
-
-Column(
-  children: _options.map((option) {
-    return RadioListTile(
-      title: Text(option),
-      value: option,
-      groupValue: _selectedValue,
-      onChanged: (value) {
-        setState(() {
-          if (_selectedValue == value) {
-            _selectedValue = null;
-            _isSelected = false;
-          } else {
-            _selectedValue = value as String?;
-            _isSelected = true;
-          }
-        });
-      },
-    );
-  }).toList(),
-)
-
-
-
-
-
-
-
-
-
-
-
+                      Column(
+                        children: _options.map((option) {
+                          return RadioListTile(
+                            title: Text(option),
+                            value: option,
+                            groupValue: _selectedValue,
+                            onChanged: (value) {
+                              setState(() {
+                                if (_selectedValue == value) {
+                                  _selectedValue = null;
+                                  _isSelected = false;
+                                } else {
+                                  _selectedValue = value as String?;
+                                  _isSelected = true;
+                                }
+                              });
+                            },
+                          );
+                        }).toList(),
+                      )
                     ],
                   ),
                 ),
-              ), 
-
-SizedBox(height: 70,), 
-
-               Padding(
-                                                padding:
-                                                    const EdgeInsets.all(15.0),
-                                                child: InkWell(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      _PlanController.text =
-                                                          selectedPlan;
-                                                    });
-                                                    Navigator.pop(
-                                                        context); // Close the bottom sheet
-                                                  },
-                                                  child: Center(
-                                                    child: Container(
-                                                      width: 347,
-                                                      height: 51,
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.circular(
-                                                                  103),
-                                                          gradient: const LinearGradient(
-                                                              begin: Alignment
-                                                                  .centerLeft,
-                                                              end: Alignment
-                                                                  .centerRight,
-                                                              colors: [
-                                                                Color.fromRGBO(
-                                                                    13,
-                                                                    149,
-                                                                    211,
-                                                                    1),
-                                                                Color.fromRGBO(
-                                                                    9,
-                                                                    96,
-                                                                    186,
-                                                                    1)
-                                                              ])),
-                                                      child: const Center(
-                                                          child: Text(
-                                                        "Add Student",
-                                                        style: TextStyle(
-                                                            fontSize: 17,
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            color:
-                                                                Colors.white),
-                                                      )),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
+              ),
+              SizedBox(
+                height: 70,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _PlanController.text = selectedPlan;
+                    });
+                    Navigator.pop(context); // Close the bottom sheet
+                  },
+                  child: Center(
+                    child: Container(
+                      width: 347,
+                      height: 51,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(103),
+                          gradient: const LinearGradient(
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                              colors: [
+                                Color.fromRGBO(13, 149, 211, 1),
+                                Color.fromRGBO(9, 96, 186, 1)
+                              ])),
+                      child: const Center(
+                          child: Text(
+                        "Add Student",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white),
+                      )),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

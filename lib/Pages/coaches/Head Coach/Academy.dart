@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:khelnet/Pages/coaches/AddCoaches.dart';
 import 'package:khelnet/Pages/Plans/AddPlans&Charges.dart';
@@ -10,6 +11,7 @@ import 'package:khelnet/Pages/Plans/plans&charges.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/NocoachesFound.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/datafound.dart';
 import 'package:khelnet/Pages/Students/StudentFound.dart';
+import 'package:khelnet/Custome Widget/CustomAppBar.dart';
 
 class Academy1 extends StatefulWidget {
   const Academy1({super.key});
@@ -32,14 +34,19 @@ class _AcademyState extends State<Academy1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'My Academy',
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w700, fontSize: 18),
-        ),
-        centerTitle: true,
-      ),
+      appBar: CustomAppBar(title: 'My Academy',
+
+      ), 
+      
+      // AppBar(
+      //   title: Text(
+      //     'My Academy',
+      //     style: TextStyle(
+      //         color: Colors.black, fontWeight: FontWeight.w700, fontSize: 18),
+      //   ),
+      //   centerTitle: true,
+      // ),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Padding(
@@ -49,7 +56,7 @@ class _AcademyState extends State<Academy1> {
               height: 122,
               width: 383,
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(251, 251, 251, 1),
+                  color: Colors.white,
                   border: Border.all(
                       color: Color.fromRGBO(241, 241, 241, 1), width: 1.5),
                   borderRadius: BorderRadius.circular(10)),
@@ -351,7 +358,7 @@ class _AcademyState extends State<Academy1> {
                             ),
                           ),
                           SizedBox(
-                            height: 16,
+                            height: 16.h,
                           ),
                           Image.asset("assets/images/lanch.png")
                         ],
