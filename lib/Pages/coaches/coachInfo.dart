@@ -1,7 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 import 'package:khelnet/Pages/coaches/basicinfo.dart';
 import 'package:khelnet/Pages/coaches/batches.dart';
 import 'package:khelnet/Pages/Students/students.dart';
@@ -35,19 +38,8 @@ class _CoachinfoState extends State<Coachinfo> {
           length: 3,
           child: Scaffold(
             backgroundColor: Colors.white,
-            appBar: AppBar(
-              backgroundColor: Colors.white,
-              title: const Text(
-                'Coach Info',
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-              ),
-              centerTitle: true,
-              leading: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(Icons.arrow_back_ios_new)),
-              actions: [
+            appBar: CustomAppBar(title: "Coach Info",
+             actions: [
                 Container(
                   height: 36,
                   width: 36,
@@ -63,8 +55,71 @@ class _CoachinfoState extends State<Coachinfo> {
                 const SizedBox(
                   width: 10,
                 ),
-              ],
-            ),
+              ], 
+            
+            leading: Row(
+                children: [
+                 const SizedBox(
+                    width: 13,
+                  ),
+                  Builder(builder: (context) {
+                    return InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                          height: 36,
+                          width: 36,
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromRGBO(13, 141, 207, 0.13)),
+                          child: const Center(
+                              child: Icon(
+                            Icons.arrow_back_ios_new,
+                            color: Color.fromRGBO(11, 121, 198, 1),
+                          ))),
+                    );
+                  }),
+                ],
+              ),
+            
+            
+            
+            ), 
+            
+            
+            // AppBar(
+            //   backgroundColor: Colors.white,
+            //   title: const Text(
+            //     'Coach Info',
+            //     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+            //   ),
+            //   centerTitle: true,
+            //   leading: IconButton(
+            //       onPressed: () {
+            //         Navigator.pop(context);
+            //       },
+            //       icon: Icon(Icons.arrow_back_ios_new)),
+            //   actions: [
+            //     Container(
+            //       height: 36,
+            //       width: 36,
+            //       decoration: const BoxDecoration(
+            //           shape: BoxShape.circle,
+            //           color: Color.fromARGB(255, 233, 201, 212)),
+            //       child: const Center(
+            //           child: Icon(
+            //         Icons.delete,
+            //         color: Color.fromRGBO(223, 92, 92, 1),
+            //       )),
+            //     ),
+            //     const SizedBox(
+            //       width: 10,
+            //     ),
+            //   ],
+            // ),
+
+
             body: Column(
               children: [
                 InkWell(
@@ -114,7 +169,7 @@ class _CoachinfoState extends State<Coachinfo> {
                     ),
                   ),
                 ),
-                SizedBox(
+             const    SizedBox(
                   height: 20,
                 ),
                 const Padding(
@@ -163,7 +218,7 @@ class _CoachinfoState extends State<Coachinfo> {
                         ),
                       ]),
                 ),
-                Expanded(
+           const      Expanded(
                     child: TabBarView(children: [
                   Basicinfo(),
                   Batches(),

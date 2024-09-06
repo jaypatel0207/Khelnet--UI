@@ -82,21 +82,21 @@ class _CoachState extends State<Coach> {
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
                       borderSide:
-                          BorderSide(color: Colors.transparent, width: 1.0),
+                       const   BorderSide(color: Colors.transparent, width: 1.0),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                     ),
                     hintText: 'Enter password',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1),
                         fontSize: 14,
                         fontWeight: FontWeight.w600),
                   ),
                 )),
-            SizedBox(
+         const   SizedBox(
               height: 55,
             ),
             InkWell(
@@ -108,7 +108,7 @@ class _CoachState extends State<Coach> {
                 height: 51,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                         colors: [

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 import 'package:khelnet/Pages/Center/AddCenter.dart';
 
 class Centerfound extends StatefulWidget {
@@ -11,6 +12,10 @@ class Centerfound extends StatefulWidget {
   @override
   State<Centerfound> createState() => _CenterfoundState();
 }
+
+
+
+
 
 class _CenterfoundState extends State<Centerfound> {
   List<Map<String, dynamic>> Centers = [
@@ -24,13 +29,26 @@ class _CenterfoundState extends State<Centerfound> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Center",
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-        ),
-        centerTitle: true,
+      appBar:  CustomAppBar(title: "Center", 
+     
+      
+      
+      
+      
+      
+      
       ),
+
+      // AppBar(
+      //   title: Text(
+      //     "Center",
+      //     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+      //   ),
+      //   centerTitle: true,
+      // ),
+
+      backgroundColor: Colors.white,
+
       body: Padding(
         padding: const EdgeInsets.only(
           top: 15.0,
@@ -45,45 +63,41 @@ class _CenterfoundState extends State<Centerfound> {
                   child: TextField(
                     // onChanged: (value) => _runFilter(value),
                     decoration: InputDecoration(
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.search,
                         color: Color.fromRGBO(186, 186, 186, 1),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
                       hintText: 'Search',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
-                // InkWell(
-                //   onTap: () {
-
-                //   },
-                //   child: Image.asset("assets/images/modern.png")),
+                
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.payment,
                     color: Colors.black,
                   ),
                 ),
-                Text("0"),
+                const Text("0"),
               ],
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
@@ -98,18 +112,19 @@ class _CenterfoundState extends State<Centerfound> {
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               width: 1,
-                              color: Color.fromRGBO(241, 241, 241, 1))),
+                              color: const Color.fromRGBO(241, 241, 241, 1))),
                       child: ListTile(
                         title: Text(
                           "${Centers[index]["name"]}",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 16),
                         ),
                         subtitle: Text("${Centers[index]["batches"]}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w500, fontSize: 14)),
                         trailing: InkWell(
-                            onTap: () {}, child: Icon(Icons.arrow_forward_ios)),
+                            onTap: () {},
+                            child: const Icon(Icons.arrow_forward_ios)),
                       ),
                     ),
                   );
@@ -131,7 +146,7 @@ class _CenterfoundState extends State<Centerfound> {
                     height: 51,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(103),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
                             colors: [

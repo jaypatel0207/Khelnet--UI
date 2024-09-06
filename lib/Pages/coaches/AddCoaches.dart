@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:khelnet/Controller/ManageAc_switch_controller.dart';
+import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 
 class Addcoaches extends StatefulWidget {
   const Addcoaches({super.key});
@@ -73,11 +75,6 @@ class _AddcoachesState extends State<Addcoaches> {
       },
     );
   }
-
-  bool _attendance = false;
-  bool _fees = false;
-  bool _expenses = false;
-  bool _skillRating = false;
 
   void showCustomBottomSheet() {
     Get.put(SwitchController());
@@ -237,19 +234,40 @@ class _AddcoachesState extends State<Addcoaches> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'Add Coaches',
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+      appBar: CustomAppBar(
+        title: "Add Coaches",
+        leading: Row(
+          children: [
+            const SizedBox(
+              width: 13,
+            ),
+            Builder(builder: (context) {
+              return InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Container(
+                    height: 36,
+                    width: 36,
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromRGBO(13, 141, 207, 0.13)),
+                    child: const Center(
+                        child: Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Color.fromRGBO(11, 121, 198, 1),
+                    ))),
+              );
+            }),
+          ],
         ),
-        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               InkWell(
@@ -269,26 +287,26 @@ class _AddcoachesState extends State<Addcoaches> {
                 child: TextField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromRGBO(253, 252, 252, 1),
+                    fillColor: const Color.fromRGBO(253, 252, 252, 1),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide:
-                          BorderSide(color: Colors.transparent, width: 1.0),
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     hintText: 'Coach Name',
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                    hintStyle: TextStyle(
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 25),
+                    hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -302,25 +320,25 @@ class _AddcoachesState extends State<Addcoaches> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromRGBO(253, 252, 252, 1),
+                    fillColor: const Color.fromRGBO(253, 252, 252, 1),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide:
-                          BorderSide(color: Colors.transparent, width: 1.0),
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     hintText: 'Contact Number',
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 25),
                     hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
@@ -337,20 +355,20 @@ class _AddcoachesState extends State<Addcoaches> {
                   obscureText: passwordVisible,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromRGBO(253, 252, 252, 1),
+                    fillColor: const Color.fromRGBO(253, 252, 252, 1),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide:
-                          BorderSide(color: Colors.transparent, width: 1.0),
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     hintText: 'Password',
@@ -369,8 +387,8 @@ class _AddcoachesState extends State<Addcoaches> {
                         );
                       },
                     ),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 25),
                     hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
@@ -383,23 +401,23 @@ class _AddcoachesState extends State<Addcoaches> {
                 padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
                 child: TextField(
                   controller: _CoachcenterController,
-                  style: TextStyle(color: Colors.blue),
+                  style: const TextStyle(color: Colors.blue),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromRGBO(253, 252, 252, 1),
+                    fillColor: const Color.fromRGBO(253, 252, 252, 1),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide:
-                          BorderSide(color: Colors.transparent, width: 1.0),
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                     ),
                     suffixIcon: IconButton(
@@ -416,12 +434,12 @@ class _AddcoachesState extends State<Addcoaches> {
                                   StateSetter setModalState) {
                                 return Container(
                                   height: 550,
-                                  padding: EdgeInsets.all(16.0),
+                                  padding: const EdgeInsets.all(16.0),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                       const Center(
@@ -433,14 +451,14 @@ class _AddcoachesState extends State<Addcoaches> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(height: 25.0),
+                                      const SizedBox(height: 25.0),
                                       Container(
                                         height: 135,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           border: Border.all(
-                                              color: Color.fromRGBO(
+                                              color: const Color.fromRGBO(
                                                   238, 234, 234, 1)),
                                         ),
                                         child: Column(
@@ -453,14 +471,14 @@ class _AddcoachesState extends State<Addcoaches> {
                                             ),
                                             _buildListTileCoach(
                                                 'Shine 2', setModalState),
-                                            Divider(
+                                            const Divider(
                                               height: 10,
                                               color: Colors.white,
                                             ),
                                           ],
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 125,
                                       ),
                                       Padding(
@@ -514,12 +532,12 @@ class _AddcoachesState extends State<Addcoaches> {
                           },
                         ) as Widget);
                       },
-                      icon: Icon(Icons.keyboard_arrow_down),
+                      icon: const Icon(Icons.keyboard_arrow_down),
                       color: Colors.blue,
                     ),
                     hintText: 'Assign Center',
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 25),
                     hintStyle: const TextStyle(
                       color: Color.fromRGBO(186, 186, 186, 1),
                       fontSize: 14,
@@ -532,14 +550,14 @@ class _AddcoachesState extends State<Addcoaches> {
                 padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
                 child: TextField(
                   controller: _CoachbatchController,
-                  style: TextStyle(color: Colors.blue),
+                  style: const TextStyle(color: Colors.blue),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color.fromRGBO(253, 252, 252, 1),
+                    fillColor: const Color.fromRGBO(253, 252, 252, 1),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
-                      borderSide:
-                          BorderSide(color: Colors.transparent, width: 1.0),
+                      borderSide: const BorderSide(
+                          color: Colors.transparent, width: 1.0),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(26),
@@ -565,7 +583,7 @@ class _AddcoachesState extends State<Addcoaches> {
                                   StateSetter setModalState) {
                                 return Container(
                                   height: 550,
-                                  padding: EdgeInsets.all(16.0),
+                                  padding: const EdgeInsets.all(16.0),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -580,7 +598,7 @@ class _AddcoachesState extends State<Addcoaches> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(height: 25.0),
+                                      const SizedBox(height: 25.0),
                                       Expanded(
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -671,12 +689,12 @@ class _AddcoachesState extends State<Addcoaches> {
                           },
                         ) as Widget);
                       },
-                      icon: Icon(Icons.keyboard_arrow_down),
+                      icon: const Icon(Icons.keyboard_arrow_down),
                       color: Colors.blue,
                     ),
                     hintText: 'Assign Batch',
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 25),
                     hintStyle: const TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1),
                         fontSize: 14,
@@ -689,7 +707,7 @@ class _AddcoachesState extends State<Addcoaches> {
                 child: Obx(
                   () => TextField(
                     readOnly: true,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                         color: Colors.blue),
@@ -702,21 +720,21 @@ class _AddcoachesState extends State<Addcoaches> {
                       }),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(253, 252, 252, 1),
+                      fillColor: const Color.fromRGBO(253, 252, 252, 1),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             width: 1.5),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(186, 186, 186, 1),
                             width: 1.5),
                       ),
@@ -725,13 +743,13 @@ class _AddcoachesState extends State<Addcoaches> {
                           onPressed: () {
                             showCustomBottomSheet(); // Show the bottom sheet
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.keyboard_arrow_down,
                             color: Colors.blue,
                           )),
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                      hintStyle: TextStyle(
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 25),
+                      hintStyle: const TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1),
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -744,13 +762,15 @@ class _AddcoachesState extends State<Addcoaches> {
                 ),
               ),
               SizedBox(
-                height: 110,
+                height: 130.h,
               ),
               InkWell(
                 onTap: () {},
                 child: Center(
                   child: Positioned.fill(
-                    top: 600, left: 8, right: 8,
+                    top: 600,
+                    left: 8,
+                    right: 8,
                     child: Container(
                       width: 347,
                       height: 51,

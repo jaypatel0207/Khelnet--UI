@@ -17,7 +17,7 @@ class _AddplansState extends State<Addplans> {
     return ListTile(
       title: Text(
         Plan,
-        style: const  TextStyle(fontWeight: FontWeight.w600),
+        style: const TextStyle(fontWeight: FontWeight.w600),
       ),
       tileColor: PlanDuration == Plan ? Colors.blue.withOpacity(0.2) : null,
       onTap: () {
@@ -45,7 +45,7 @@ class _AddplansState extends State<Addplans> {
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide: const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
@@ -59,7 +59,7 @@ class _AddplansState extends State<Addplans> {
                 ),
                 hintText: 'Plan Name',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
@@ -77,11 +77,12 @@ class _AddplansState extends State<Addplans> {
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -91,7 +92,7 @@ class _AddplansState extends State<Addplans> {
                 ),
                 hintText: 'Plan Amount',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
@@ -104,13 +105,14 @@ class _AddplansState extends State<Addplans> {
             padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
             child: TextField(
               controller: _PlanDurationController,
-              style: TextStyle(color: Colors.blue),
+              style: const TextStyle(color: Colors.blue),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: const BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
@@ -136,12 +138,12 @@ class _AddplansState extends State<Addplans> {
                               StateSetter setModalState) {
                             return Container(
                               height: 700,
-                              padding: EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                             const        SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     const Center(),
@@ -189,7 +191,7 @@ class _AddplansState extends State<Addplans> {
                                         ],
                                       ),
                                     ),
-                                 const    SizedBox(
+                                    const SizedBox(
                                       height: 46,
                                     ),
                                     Padding(
@@ -240,12 +242,12 @@ class _AddplansState extends State<Addplans> {
                       },
                     ) as Widget);
                   },
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                   color: Colors.blue,
                 ),
                 hintText: 'Plan Duration',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
@@ -258,17 +260,18 @@ class _AddplansState extends State<Addplans> {
             padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
             child: TextField(
               controller: _PlanDurationController,
-              style: TextStyle(color: Colors.blue),
+              style: const TextStyle(color: Colors.blue),
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                       color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -290,12 +293,12 @@ class _AddplansState extends State<Addplans> {
                               StateSetter setModalState) {
                             return Container(
                               height: 700,
-                              padding: EdgeInsets.all(16.0),
+                              padding: const EdgeInsets.all(16.0),
                               child: Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                 const    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     const Center(),
@@ -305,7 +308,7 @@ class _AddplansState extends State<Addplans> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(10),
                                         border: Border.all(
-                                            color: Color.fromRGBO(
+                                            color: const Color.fromRGBO(
                                                 238, 234, 234, 1)),
                                       ),
                                       child: Column(
@@ -318,7 +321,7 @@ class _AddplansState extends State<Addplans> {
                                           ),
                                           _buildListTilePlan(
                                               'Quaterly', setModalState),
-                                          Divider(
+                                          const Divider(
                                             height: 10,
                                             color: Colors.white,
                                           ),
@@ -343,7 +346,7 @@ class _AddplansState extends State<Addplans> {
                                         ],
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 46,
                                     ),
                                     Padding(
@@ -394,13 +397,13 @@ class _AddplansState extends State<Addplans> {
                       },
                     ) as Widget);
                   },
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                   color: Colors.blue,
                 ),
                 hintText: 'Make Additional Setting',
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-                hintStyle: TextStyle(
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+                hintStyle: const TextStyle(
                   color: Color.fromRGBO(186, 186, 186, 1),
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -408,7 +411,7 @@ class _AddplansState extends State<Addplans> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 300,
           ),
           Padding(

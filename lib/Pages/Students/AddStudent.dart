@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 
 class Addstudent extends StatefulWidget {
   const Addstudent({super.key});
@@ -26,7 +27,7 @@ class _AddstudentState extends State<Addstudent> {
   TextEditingController _dateController = TextEditingController();
 
   DateTime? _selectedDueDate;
-  TextEditingController _DuedateController = TextEditingController();
+  final TextEditingController _DuedateController = TextEditingController();
 
   String selectedAdditionalCharges = "";
 
@@ -138,19 +139,24 @@ class _AddstudentState extends State<Addstudent> {
     final theme = Theme.of(context).copyWith(dividerColor: Colors.transparent);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Add Student',
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-        ),
-        centerTitle: true,
+      appBar: const CustomAppBar(
+        title: "Add Student",
       ),
+      backgroundColor: Colors.white,
+
+      // AppBar(
+      //   title: const Text(
+      //     'Add Student',
+      //     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+      //   ),
+      //   centerTitle: true,
+      // ),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
           child: Column(
             children: [
-              SizedBox(height: 20),
+         const     SizedBox(height: 20),
               InkWell(
                 onTap: _pickImage,
                 child: Center(
@@ -257,10 +263,10 @@ class _AddstudentState extends State<Addstudent> {
                             const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
                           controller: _centerController,
-                          style: TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color.fromRGBO(247, 247, 247, 1),
+                            fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
                               borderSide: const BorderSide(
@@ -292,7 +298,7 @@ class _AddstudentState extends State<Addstudent> {
                                           StateSetter setModalState) {
                                         return Container(
                                           height: 550,
-                                          padding: EdgeInsets.all(16.0),
+                                          padding: const EdgeInsets.all(16.0),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -309,7 +315,7 @@ class _AddstudentState extends State<Addstudent> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(height: 25.0),
+                                              const SizedBox(height: 25.0),
                                               Expanded(
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -415,7 +421,7 @@ class _AddstudentState extends State<Addstudent> {
                                   },
                                 ) as Widget);
                               },
-                              icon: Icon(Icons.keyboard_arrow_down),
+                              icon: const Icon(Icons.keyboard_arrow_down),
                               color: Colors.blue,
                             ),
                             hintText: 'Assign Center',
@@ -470,7 +476,7 @@ class _AddstudentState extends State<Addstudent> {
                                           StateSetter setModalState) {
                                         return Container(
                                           height: 550,
-                                          padding: EdgeInsets.all(16.0),
+                                          padding: const EdgeInsets.all(16.0),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -487,7 +493,7 @@ class _AddstudentState extends State<Addstudent> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(height: 25.0),
+                                              const SizedBox(height: 25.0),
                                               Expanded(
                                                 child: Container(
                                                   decoration: BoxDecoration(
@@ -618,7 +624,7 @@ class _AddstudentState extends State<Addstudent> {
                             const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
                           // controller: _batchController,
-                          style: TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: const Color.fromRGBO(247, 247, 247, 1),
@@ -1354,7 +1360,7 @@ class _AddstudentState extends State<Addstudent> {
                             const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
                           controller: _PlanController,
-                          style: TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: const Color.fromRGBO(247, 247, 247, 1),
@@ -1389,7 +1395,7 @@ class _AddstudentState extends State<Addstudent> {
                                           StateSetter setModalState) {
                                         return Container(
                                           height: 550,
-                                          padding: EdgeInsets.all(16.0),
+                                          padding: const EdgeInsets.all(16.0),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -1624,12 +1630,12 @@ class _AddstudentState extends State<Addstudent> {
                             fillColor: const Color.fromRGBO(247, 247, 247, 1),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Colors.transparent, width: 1.0),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(26),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color.fromRGBO(186, 186, 186, 1),
                                   width: 1.5),
                             ),
@@ -1755,7 +1761,7 @@ class _AddstudentState extends State<Addstudent> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 20,
                                               ),
                                               Padding(
@@ -1817,13 +1823,13 @@ class _AddstudentState extends State<Addstudent> {
                                   },
                                 ) as Widget);
                               },
-                              icon: Icon(Icons.keyboard_arrow_down),
+                              icon: const Icon(Icons.keyboard_arrow_down),
                               color: Colors.blue,
                             ),
                             hintText: 'Additonal Charges',
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 15, horizontal: 25),
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Color.fromRGBO(186, 186, 186, 1),
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -1843,7 +1849,7 @@ class _AddstudentState extends State<Addstudent> {
                                   _selectedValue = null;
                                   _isSelected = false;
                                 } else {
-                                  _selectedValue = value as String?;
+                                  _selectedValue = value;
                                   _isSelected = true;
                                 }
                               });
@@ -1855,7 +1861,7 @@ class _AddstudentState extends State<Addstudent> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               Padding(

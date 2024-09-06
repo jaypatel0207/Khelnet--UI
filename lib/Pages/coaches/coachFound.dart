@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 import 'package:khelnet/Pages/coaches/coachInfo.dart';
 
 class Coachfound extends StatefulWidget {
@@ -30,11 +31,9 @@ class _CoachfoundState extends State<Coachfound> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'Coaches',
-          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-        ),
+      appBar: CustomAppBar(
+        title: "Coaches",
+        
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -47,7 +46,6 @@ class _CoachfoundState extends State<Coachfound> {
             ),
           ),
         ],
-        centerTitle: true,
       ),
       body: Column(
         children: [
@@ -58,26 +56,26 @@ class _CoachfoundState extends State<Coachfound> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.search,
                         color: Color.fromRGBO(186, 186, 186, 1),
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(35),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           width: 1.0,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color.fromRGBO(9, 96, 186, 1),
                           width: 1.5,
                         ),
                       ),
                       hintText: 'Search',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1),
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -93,7 +91,7 @@ class _CoachfoundState extends State<Coachfound> {
                     ),
                     Text(
                       totalMembers.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
                         fontSize: 12,
@@ -104,7 +102,7 @@ class _CoachfoundState extends State<Coachfound> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           ListView.builder(
@@ -119,20 +117,20 @@ class _CoachfoundState extends State<Coachfound> {
                   width: 360,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border:
-                          Border.all(color: Color.fromRGBO(241, 241, 241, 1))),
+                      border: Border.all(
+                          color: const Color.fromRGBO(241, 241, 241, 1))),
                   child: ListTile(
                     title: Text(
                       nameList[index],
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: 16),
                     ),
-                    subtitle: Text("Total Batches - 02"),
+                    subtitle: const Text("Total Batches - 02"),
                     trailing: IconButton(
                         onPressed: () {
-                          Get.to(Coachinfo());
+                          Get.to(const Coachinfo());
                         },
-                        icon: Icon(Icons.arrow_forward_ios)),
+                        icon: const Icon(Icons.arrow_forward_ios)),
                     leading: Image.asset("assets/images/mouth.png"),
                   ),
                 ),

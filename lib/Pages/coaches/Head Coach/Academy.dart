@@ -34,7 +34,8 @@ class _AcademyState extends State<Academy1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Academy',
+      appBar: CustomAppBar(title: 'My Academy', 
+      
 
       ), 
       
