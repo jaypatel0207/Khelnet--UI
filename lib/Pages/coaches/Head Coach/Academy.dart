@@ -34,11 +34,10 @@ class _AcademyState extends State<Academy1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Academy', 
-      
+      appBar: const CustomAppBar(
+        title: 'My Academy',
+      ),
 
-      ), 
-      
       // AppBar(
       //   title: Text(
       //     'My Academy',
@@ -59,7 +58,8 @@ class _AcademyState extends State<Academy1> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(
-                      color: Color.fromRGBO(241, 241, 241, 1), width: 1.5),
+                      color: const Color.fromRGBO(241, 241, 241, 1),
+                      width: 1.5),
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,20 +68,20 @@ class _AcademyState extends State<Academy1> {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return Addstudent();
+                          return const Addstudent();
                         },
                       ));
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 76,
                       width: 63,
                       child: Column(
                         children: [
                           Image.asset("assets/images/plus.png"),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Add",
                               style: TextStyle(
@@ -90,7 +90,7 @@ class _AcademyState extends State<Academy1> {
                                   color: Colors.black),
                             ),
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Student",
                               style: TextStyle(
@@ -103,18 +103,18 @@ class _AcademyState extends State<Academy1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(Addcoaches());
+                      Get.to(const Addcoaches());
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 76,
                       width: 63,
                       child: Column(
                         children: [
                           Image.asset("assets/images/coaches.png"),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Add",
                               style: TextStyle(
@@ -123,7 +123,7 @@ class _AcademyState extends State<Academy1> {
                                   color: Colors.black),
                             ),
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Coaches",
                               style: TextStyle(
@@ -136,16 +136,16 @@ class _AcademyState extends State<Academy1> {
                   ),
                   InkWell(
                     onTap: () {},
-                    child: Container(
+                    child: SizedBox(
                       height: 76,
                       width: 63,
                       child: Column(
                         children: [
                           Image.asset("assets/images/center.png"),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Add",
                               style: TextStyle(
@@ -154,7 +154,7 @@ class _AcademyState extends State<Academy1> {
                                   color: Colors.black),
                             ),
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Center",
                               style: TextStyle(
@@ -167,18 +167,18 @@ class _AcademyState extends State<Academy1> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(AddplansCharges());
+                      Get.to(const AddplansCharges());
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 76,
                       width: 63,
                       child: Column(
                         children: [
                           Image.asset("assets/images/charges.png"),
-                          SizedBox(
+                          const SizedBox(
                             height: 6,
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "Add Plans",
                               style: TextStyle(
@@ -187,7 +187,7 @@ class _AcademyState extends State<Academy1> {
                                   color: Colors.black),
                             ),
                           ),
-                          Center(
+                          const Center(
                             child: Text(
                               "& Charges",
                               style: TextStyle(
@@ -208,13 +208,13 @@ class _AcademyState extends State<Academy1> {
             decoration: BoxDecoration(
                 border: Border.all(
                   width: 1.5,
-                  color: Color.fromRGBO(9, 96, 186, 1),
+                  color: const Color.fromRGBO(9, 96, 186, 1),
                 ),
                 borderRadius: BorderRadius.circular(6)),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 21),
+                const Padding(
+                  padding: EdgeInsets.only(top: 20, left: 21),
                   child: Row(
                     children: [
                       Text(
@@ -225,8 +225,8 @@ class _AcademyState extends State<Academy1> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 21),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10, left: 21),
                   child: Row(
                     children: [
                       Text(
@@ -264,21 +264,21 @@ class _AcademyState extends State<Academy1> {
                             height: 36,
                             width: 98,
                             decoration: BoxDecoration(
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                       blurRadius: 4,
                                       spreadRadius: 0,
                                       color: Color.fromRGBO(0, 0, 0, 0.25))
                                 ],
                                 borderRadius: BorderRadius.circular(34),
-                                gradient: LinearGradient(
+                                gradient: const LinearGradient(
                                     begin: Alignment.centerLeft,
                                     end: Alignment.centerRight,
                                     colors: [
                                       Color.fromRGBO(13, 149, 211, 1),
                                       Color.fromRGBO(9, 96, 186, 1)
                                     ])),
-                            child: Center(
+                            child: const Center(
                                 child: Text(
                               "Start",
                               style: TextStyle(
@@ -293,7 +293,7 @@ class _AcademyState extends State<Academy1> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Row(
@@ -307,14 +307,14 @@ class _AcademyState extends State<Academy1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Centerfound(),
+                            builder: (context) => const Centerfound(),
                           ),
                         );
                       } else {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Centerfound(),
+                            builder: (context) => const Centerfound(),
                           ),
                         );
                       }
@@ -325,12 +325,12 @@ class _AcademyState extends State<Academy1> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                              width: 1, color: Color.fromRGBO(9, 96, 186, 1))),
+                              width: 1,
+                              color: const Color.fromRGBO(9, 96, 186, 1))),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 8, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -343,9 +343,8 @@ class _AcademyState extends State<Academy1> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 2, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 2, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -366,14 +365,14 @@ class _AcademyState extends State<Academy1> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   InkWell(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return Planscharges();
+                          return const Planscharges();
                         },
                       ));
                     },
@@ -383,12 +382,12 @@ class _AcademyState extends State<Academy1> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                              width: 1, color: Color.fromRGBO(9, 96, 186, 1))),
+                              width: 1,
+                              color: const Color.fromRGBO(9, 96, 186, 1))),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 8, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -401,9 +400,8 @@ class _AcademyState extends State<Academy1> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 2, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 2, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -416,7 +414,7 @@ class _AcademyState extends State<Academy1> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 7,
                           ),
                           Row(
@@ -431,7 +429,7 @@ class _AcademyState extends State<Academy1> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12,
               ),
               Column(
@@ -442,14 +440,14 @@ class _AcademyState extends State<Academy1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Coachfound(),
+                            builder: (context) => const Coachfound(),
                           ),
                         );
                       } else {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Coachfound(),
+                            builder: (context) => const Coachfound(),
                           ),
                         );
                       }
@@ -460,12 +458,12 @@ class _AcademyState extends State<Academy1> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                              width: 1, color: Color.fromRGBO(9, 96, 186, 1))),
+                              width: 1,
+                              color: const Color.fromRGBO(9, 96, 186, 1))),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 8, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -478,9 +476,8 @@ class _AcademyState extends State<Academy1> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 2, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 2, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -507,7 +504,7 @@ class _AcademyState extends State<Academy1> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   InkWell(
@@ -516,7 +513,7 @@ class _AcademyState extends State<Academy1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Studentfound(),
+                            builder: (context) => const Studentfound(),
                           ),
                         );
                       } else {
@@ -534,12 +531,12 @@ class _AcademyState extends State<Academy1> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           border: Border.all(
-                              width: 1, color: Color.fromRGBO(9, 96, 186, 1))),
+                              width: 1,
+                              color: const Color.fromRGBO(9, 96, 186, 1))),
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 8, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -552,9 +549,8 @@ class _AcademyState extends State<Academy1> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 2, left: 8, right: 8),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 2, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Text(
@@ -567,7 +563,7 @@ class _AcademyState extends State<Academy1> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 38,
                           ),
                           Row(

@@ -22,6 +22,10 @@ class _AddstudentState extends State<Addstudent> {
   final TextEditingController _fatherController = TextEditingController();
   final TextEditingController _PlanController = TextEditingController();
   String selectedPlan = ""; // Track the selected center
+   final TextEditingController _additionalChargeController = TextEditingController();
+  String selectedCharges = ""; 
+
+
 
   DateTime? _selectedDate;
   TextEditingController _dateController = TextEditingController();
@@ -122,12 +126,12 @@ class _AddstudentState extends State<Addstudent> {
       String AdditionalCharges, StateSetter setModalState) {
     return ListTile(
       title: Text(AdditionalCharges),
-      tileColor: selectedPlan == AdditionalCharges
+      tileColor: selectedCharges == AdditionalCharges
           ? Colors.blue.withOpacity(0.2)
           : null,
       onTap: () {
         setModalState(() {
-          selectedPlan =
+          selectedCharges =
               AdditionalCharges; // Update selected center in the bottom sheet
         });
       },
@@ -1660,7 +1664,7 @@ class _AddstudentState extends State<Addstudent> {
                         padding:
                             const EdgeInsets.only(top: 11, right: 0, left: 0),
                         child: TextField(
-                          controller: _PlanController,
+                          controller: _additionalChargeController,
                           style: const TextStyle(color: Colors.blue),
                           decoration: InputDecoration(
                             filled: true,
@@ -1770,8 +1774,8 @@ class _AddstudentState extends State<Addstudent> {
                                                 child: InkWell(
                                                   onTap: () {
                                                     setState(() {
-                                                      _PlanController.text =
-                                                          selectedPlan;
+                                                      _additionalChargeController.text =
+                                                          selectedCharges;
                                                     });
                                                     Navigator.pop(
                                                         context); // Close the bottom sheet

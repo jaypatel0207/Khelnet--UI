@@ -240,6 +240,10 @@ class _NodatafoundState extends State<Studentfound> {
                                   ),
                                   trailing: IconButton(
                                     onPressed: () {
+                                      Get.to(Studentinfo(
+                                        name: "",
+                                        key: Key(""),
+                                      ));
                                       //     Get.to(Studentbasicinfo());
                                     },
                                     icon: const Icon(

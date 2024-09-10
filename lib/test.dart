@@ -1,97 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
-// Main function which starts the app
+class PaymentStatusWidget extends StatelessWidget {
+  final bool isPaid;
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({required Key key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application.
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  TimeOfDay _time = TimeOfDay.now();
-  late TimeOfDay picked;
-  late TextEditingController _timeController;
-
-  @override
-  void initState() {
-    super.initState();
-    _timeController = TextEditingController();
-    _timeController.text = _formatTimeOfDay(_time);
-  }
-
-  @override
-  void dispose() {
-    _timeController.dispose();
-    super.dispose();
-  }
-
-  Future<void> selectTime(BuildContext context) async {
-    picked = (await showTimePicker(
-      context: context,
-      initialTime: _time,
-    ))!;
-
-    setState(() {
-      _time = picked;
-      _timeController.text = _formatTimeOfDay(_time);
-      print(picked);
-    });
-  }
-
-  String _formatTimeOfDay(TimeOfDay time) {
-    final now = DateTime.now();
-    final dt = DateTime(now.year, now.month, now.day, time.hour, time.minute);
-    final formatter = DateFormat.jm(); // Format the time (e.g., 3:00 PM)
-    return formatter.format(dt);
-  }
+  PaymentStatusWidget({required this.isPaid});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              iconSize: 80,
-              icon: Icon(
-                Icons.alarm,
-                size: 80,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Payment Status Text
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Payment Status',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                ),
               ),
+              SizedBox(height: 4),
+              Text(
+                isPaid ? 'Paid' : 'Unpaid',
+                style: TextStyle(
+                  color: isPaid ? Colors.green : Colors.red,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                ),
+              ),
+            ],
+          ),
+          
+          // Conditional IconButton
+          if (!isPaid) 
+            IconButton(
+              icon: Icon(Icons.more_vert),
               onPressed: () {
-                selectTime(context);
+                // Handle button press
               },
             ),
-            SizedBox(
-              height: 60,
-            ),
-            TextField(
-              controller: _timeController,
-              readOnly: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Selected Time',
-              ),
-              style: TextStyle(fontSize: 40),
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }
 }
 
-
-
-
-
-
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text('Payment Status')),
+      body: Center(
+        child: PaymentStatusWidget(isPaid: false), // Pass true for 'Paid' status
+      ),
+    ),
+  ));
+}

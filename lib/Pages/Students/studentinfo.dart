@@ -2,6 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:khelnet/Pages/Students/Attendance.dart';
+import 'package:khelnet/Pages/Students/Fees.dart';
+import 'package:khelnet/Pages/Students/studentbasicinfo.dart';
 
 class Studentinfo extends StatefulWidget {
   const Studentinfo({super.key, required name});
@@ -159,6 +162,18 @@ class _StudentinfoState extends State<Studentinfo> {
                         ),
                       ]),
                 ),
+
+
+                Expanded(
+                  child: TabBarView(children: [
+                    Studentbasicinfo(name: '',),
+                    const Attendance(), 
+                    const Fees(),
+                  ]),
+
+
+
+                )
       ],
      ),
       ),),
