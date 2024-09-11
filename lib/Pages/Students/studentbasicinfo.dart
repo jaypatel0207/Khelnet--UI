@@ -72,6 +72,7 @@ class _StudentbasicinfoState extends State<Studentbasicinfo> {
              Padding(
                   padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
                   child: TextField(
+                   
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       filled: true,
@@ -93,6 +94,7 @@ class _StudentbasicinfoState extends State<Studentbasicinfo> {
                             color: Color.fromRGBO(186, 186, 186, 1), width: 1.5),
                       ),
                       hintText: 'Contact Number',
+                      
                       contentPadding:
                      const      EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                       hintStyle: const  TextStyle(

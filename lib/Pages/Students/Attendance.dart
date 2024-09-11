@@ -10,6 +10,7 @@ class Attendance extends StatefulWidget {
   State<Attendance> createState() => _AttendanceState();
 }
 
+
 class _AttendanceState extends State<Attendance> {
   @override
   Widget build(BuildContext context) {
@@ -22,46 +23,43 @@ class _AttendanceState extends State<Attendance> {
             body: Column(
               children: [
                 TabBar(
-                          labelColor: Color.fromRGBO(9, 96, 186, 1),
-                          dividerColor: Colors.transparent,
-                          indicator: UnderlineTabIndicator(
-                              borderSide: BorderSide(
-                                  width: 2, color: Color.fromRGBO(9, 96, 186, 1))),
-                          unselectedLabelColor: Colors.grey,
-                          tabs: [
-                            Tab(
-                              child: Center(
-                                child: Text(
-                                  "Current Month",
-                                  style: TextStyle(
-                                    fontSize: 17.4,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
+                    labelColor: Color.fromRGBO(9, 96, 186, 1),
+                    dividerColor: Colors.transparent,
+                    indicator: UnderlineTabIndicator(
+                        borderSide: BorderSide(
+                            width: 2, color: Color.fromRGBO(9, 96, 186, 1))),
+                    unselectedLabelColor: Colors.grey,
+                    tabs: [
+                      Tab(
+                        child: Center(
+                          child: Text(
+                            "Current Month",
+                            style: TextStyle(
+                              fontSize: 17.4,
+                              fontWeight: FontWeight.w600,
                             ),
-                           
-                            Tab(
-                              child: Center(
-                                child: Text(
-                                  "Last Month",
-                                  style: TextStyle(
-                                    fontSize: 17.4,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
+                          ),
+                        ),
+                      ),
+                      Tab(
+                        child: Center(
+                          child: Text(
+                            "Last Month",
+                            style: TextStyle(
+                              fontSize: 17.4,
+                              fontWeight: FontWeight.w600,
                             ),
-                          ]),
-                          Expanded(child: TabBarView(children: [
-Currentmonth(), 
-Lastmonth(), 
-                          ]))
+                          ),
+                        ),
+                      ),
+                    ]),
+                Expanded(
+                    child: TabBarView(children: [
+                  Currentmonth(),
+                  Lastmonth(),
+                ]))
               ],
             ),
-
-
-                      
           )),
     );
   }

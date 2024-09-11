@@ -27,7 +27,7 @@ class _BottomState extends State<Bottom> {
         fixedColor: Colors.white,
         
         items: [
-        BottomNavigationBarItem(
+       const  BottomNavigationBarItem(
           icon: Icon(Icons.sports_basketball),label: ""
         ), 
           BottomNavigationBarItem(

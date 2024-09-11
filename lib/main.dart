@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const Bottom(),
+      child:  Bottom(),
     );
   }
 }

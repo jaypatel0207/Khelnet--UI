@@ -1,73 +1,67 @@
+
+
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PaymentStatusWidget extends StatelessWidget {
-  final bool isPaid;
-
-  PaymentStatusWidget({required this.isPaid});
+class Test extends StatefulWidget {
+  const Test({super.key});
 
   @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Payment Status Text
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
             children: [
-              Text(
-                'Payment Status',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
+          
+          
+              
+              Container(
+                
+                height: 57.h, 
+                width: 356.w, 
+          
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(241, 241, 241, 1) , 
+                  borderRadius: BorderRadius.circular(15),
                 ),
-              ),
-              SizedBox(height: 4),
-              Text(
-                isPaid ? 'Paid' : 'Unpaid',
-                style: TextStyle(
-                  color: isPaid ? Colors.green : Colors.red,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      const Text("Session Left", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: Color.fromRGBO(186  , 186 , 186, 1)),), 
+                      SizedBox(width: 150.w), 
+                      Container(
+                        width: 50.w, // Adjust the width as needed
+                        height: 40.h,  // Adjust the height as needed
+                        child: const TextField(
+                          keyboardType: TextInputType.number, 
+                          decoration: InputDecoration(
+                            border: UnderlineInputBorder(),
+                            isDense: true,  // Reduces the height of the TextField
+                            contentPadding: EdgeInsets.symmetric(vertical: 4, horizontal: 10), // Adjust padding
+                          ),
+                        ),
+                      ), 
+                      
+                      const Text(" /Month", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: Color.fromRGBO(186  , 186 , 186, 1))),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
-          
-          // Conditional IconButton
-          if (!isPaid) 
-            IconButton(
-              icon: Icon(Icons.more_vert),
-              onPressed: () {
-                // Handle button press
-              },
-            ),
-        ],
+        ),
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(title: Text('Payment Status')),
-      body: Center(
-        child: PaymentStatusWidget(isPaid: false), // Pass true for 'Paid' status
-      ),
-    ),
-  ));
 }
