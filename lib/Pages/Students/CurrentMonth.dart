@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Currentmonth extends StatefulWidget {
   const Currentmonth({super.key});
@@ -16,7 +18,7 @@ class _CurrentmonthState extends State<Currentmonth> {
       body: Column(
         children: [
           const Padding(
-            padding:  EdgeInsets.only(left: 25, right: 25, top: 15),
+            padding: EdgeInsets.only(left: 25, right: 25, top: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -61,7 +63,88 @@ class _CurrentmonthState extends State<Currentmonth> {
             right: 0,
             child: Center(
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.dialog(Dialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Container(
+                      height: 375,
+                      width: 307,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 37,
+                          ),
+                          Center(
+                              child: Image.asset("assets/images/download.png")),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Center(
+                              child: Text(
+                            "Attendance Report",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                            ),
+                          )),
+                          Center(
+                              child: Text(
+                            "Downloaded Sucessfully",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                            ),
+                          )),
+                          SizedBox(height: 35.h),
+                          Center(
+                              child: InkWell( 
+                                onTap: () {
+                                  Get.back(); //For Testing, 
+                                },
+                                child: Text(
+                                                            "Share Now",
+                                                            style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                  color: Color.fromRGBO(13, 149, 211, 1)),
+                                                          ),
+                              )),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              onTap: () {
+                                Get.back();
+                              },
+                              child: Container(
+                                width: 235,
+                                height: 47,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(80),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                          Color.fromRGBO(13, 149, 211, 1),
+                                          Color.fromRGBO(9, 96, 186, 1)
+                                        ])),
+                                child: Center(
+                                    child: Text(
+                                  "Done",
+                                  style: TextStyle(
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white),
+                                )),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ));
+                },
                 child: Container(
                   height: 64,
                   width: 315,

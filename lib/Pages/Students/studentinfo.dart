@@ -120,7 +120,7 @@ class _StudentinfoState extends State<Studentinfo> {
                   ),
                   const Padding(
                     padding: EdgeInsets.only(
-                        left: 20.0, right: 20, top: 15, bottom: 25),
+                        left: 20.0, right: 20,  bottom: 25),
                     child: TabBar(
                         labelColor: Color.fromRGBO(9, 96, 186, 1),
                         dividerColor: Colors.transparent,
