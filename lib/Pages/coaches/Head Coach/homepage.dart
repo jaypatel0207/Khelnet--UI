@@ -6,7 +6,7 @@ import 'package:khelnet/Pages/coaches/CoachAttendancePage.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/ExpensesPage.dart';
 import 'package:khelnet/Pages/Plans/FeesPage.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/PerformanceRatingPage.dart';
-import 'package:khelnet/Pages/coaches/Head%20Coach/ReportsPage.dart';
+import 'package:khelnet/Report/Report.dart';
 import 'package:khelnet/Pages/academy.dart';
 
 class Homepage extends StatefulWidget {

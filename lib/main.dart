@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child:  Bottom(),
+      child:  DownloadButtons(),
     );
   }
 }

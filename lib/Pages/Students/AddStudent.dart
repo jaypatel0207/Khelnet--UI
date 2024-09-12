@@ -28,7 +28,7 @@ class _AddstudentState extends State<Addstudent> {
 
 
   DateTime? _selectedDate;
-  TextEditingController _dateController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   DateTime? _selectedDueDate;
   final TextEditingController _DuedateController = TextEditingController();

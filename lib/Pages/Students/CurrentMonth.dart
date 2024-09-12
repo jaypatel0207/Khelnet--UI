@@ -70,18 +70,18 @@ class _CurrentmonthState extends State<Currentmonth> {
                     child: Container(
                       height: 375,
                       width: 307,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 37,
                           ),
                           Center(
                               child: Image.asset("assets/images/download.png")),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Center(
+                          const Center(
                               child: Text(
                             "Attendance Report",
                             style: TextStyle(
@@ -89,7 +89,7 @@ class _CurrentmonthState extends State<Currentmonth> {
                               fontSize: 20,
                             ),
                           )),
-                          Center(
+                          const Center(
                               child: Text(
                             "Downloaded Sucessfully",
                             style: TextStyle(
@@ -99,18 +99,18 @@ class _CurrentmonthState extends State<Currentmonth> {
                           )),
                           SizedBox(height: 35.h),
                           Center(
-                              child: InkWell( 
-                                onTap: () {
-                                  Get.back(); //For Testing, 
-                                },
-                                child: Text(
-                                                            "Share Now",
-                                                            style: TextStyle(
+                              child: InkWell(
+                            onTap: () {
+                              Get.back(); //For Testing,
+                            },
+                            child: const Text(
+                              "Share Now",
+                              style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 14,
                                   color: Color.fromRGBO(13, 149, 211, 1)),
-                                                          ),
-                              )),
+                            ),
+                          )),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: InkWell(
@@ -122,14 +122,14 @@ class _CurrentmonthState extends State<Currentmonth> {
                                 height: 47,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(80),
-                                    gradient: LinearGradient(
+                                    gradient: const LinearGradient(
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
                                         colors: [
                                           Color.fromRGBO(13, 149, 211, 1),
                                           Color.fromRGBO(9, 96, 186, 1)
                                         ])),
-                                child: Center(
+                                child: const Center(
                                     child: Text(
                                   "Done",
                                   style: TextStyle(

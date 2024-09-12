@@ -50,7 +50,7 @@ class _SignupState extends State<Signup> {
                         controller: scrollController,
                         crossAxisCount: 2,
                         childAspectRatio: 2,
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         children: [
                           _buildSelectionItem("Cricket", setModalState),
                           _buildSelectionItem("Football", setModalState),
@@ -78,7 +78,7 @@ class _SignupState extends State<Signup> {
                               color: selectedSports.isEmpty
                                   ? const Color.fromARGB(255, 134, 193, 242)
                                   : Colors.blue),
-                          child: Center(
+                          child: const Center(
                               child: Text(
                             "Done",
                             style: TextStyle(
@@ -115,7 +115,7 @@ class _SignupState extends State<Signup> {
         setState(() {});
       },
       child: Container(
-        margin: EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
         // padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: isSelected ? Colors.blue : Colors.grey[300],
@@ -124,7 +124,7 @@ class _SignupState extends State<Signup> {
         ),
         child: Center(
           child: Column(
-          mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
                 isSelected ? Icons.check_circle : Icons.circle_outlined,
@@ -172,17 +172,17 @@ class _SignupState extends State<Signup> {
       child: Container(
         height: 445,
         width: 300,
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 37,
             ),
             Center(child: Image.asset("assets/images/man.png")),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Center(
+            const Center(
                 child: Text(
               "Existing Account ",
               style: TextStyle(
@@ -190,8 +190,8 @@ class _SignupState extends State<Signup> {
                 fontSize: 20,
               ),
             )),
-            SizedBox(height: 25),
-            Center(
+            const SizedBox(height: 25),
+            const Center(
                 child: Text(
               "Already An Account exist with ",
               style: TextStyle(
@@ -199,7 +199,7 @@ class _SignupState extends State<Signup> {
                   fontSize: 16,
                   color: Color.fromRGBO(90, 90, 90, 1)),
             )),
-            Center(
+            const Center(
                 child: Text(
               "this number . Try to LogIn into",
               style: TextStyle(
@@ -207,7 +207,7 @@ class _SignupState extends State<Signup> {
                   fontSize: 16,
                   color: Color.fromRGBO(90, 90, 90, 1)),
             )),
-            Center(
+            const Center(
                 child: Text(
               "the account",
               style: TextStyle(
@@ -215,30 +215,28 @@ class _SignupState extends State<Signup> {
                   fontSize: 16,
                   color: Color.fromRGBO(90, 90, 90, 1)),
             )),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
-
                 onTap: () {
-                     Get.to(Loginpage());
+                  Get.to(const Loginpage());
                 },
-            
                 child: Container(
                   width: 220,
                   height: 51,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                           colors: [
                             Color.fromRGBO(13, 149, 211, 1),
                             Color.fromRGBO(9, 96, 186, 1)
                           ])),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "Log In",
                     style: TextStyle(
@@ -257,7 +255,7 @@ class _SignupState extends State<Signup> {
 
   void _showRegistrationSuccessSnackbar() {
     Get.snackbar("Registered Successfully", "Thank You !!!",
-        backgroundGradient: LinearGradient(
+        backgroundGradient: const LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             colors: [
@@ -265,9 +263,9 @@ class _SignupState extends State<Signup> {
               Color.fromRGBO(9, 96, 186, 1)
             ]),
         snackPosition: SnackPosition.BOTTOM,
-        padding: EdgeInsets.all(8),
-        margin: EdgeInsets.all(8),
-        duration: Duration(seconds: 2));
+        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
+        duration: const Duration(seconds: 2));
     // ScaffoldMessenger.of(context).showSnackBar(
     //   SnackBar(
     //     content: Text('Registered Successfully'),
@@ -277,7 +275,7 @@ class _SignupState extends State<Signup> {
     // );
 
     // Navigate to login page after 3 seconds
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       _navigateToLogin();
     });
   }
@@ -286,7 +284,7 @@ class _SignupState extends State<Signup> {
     // Navigate to login page
     Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (context) {
-        return Loginpage();
+        return const Loginpage();
       },
     ));
   }
@@ -298,10 +296,10 @@ class _SignupState extends State<Signup> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Center(
+              const Center(
                   child: Text(
                 "Sign Up",
                 style: TextStyle(
@@ -309,7 +307,7 @@ class _SignupState extends State<Signup> {
                   fontSize: 24,
                 ),
               )),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Stack(
@@ -325,10 +323,10 @@ class _SignupState extends State<Signup> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Center(
+              const Center(
                   child: Text(
                 "Academy Logo",
                 style: TextStyle(
@@ -338,7 +336,7 @@ class _SignupState extends State<Signup> {
               )),
               Padding(
                 padding: const EdgeInsets.only(top: 30, right: 20, left: 20),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 353,
                   child: TextField(
@@ -346,28 +344,28 @@ class _SignupState extends State<Signup> {
 
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(241, 241, 241, 1),
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(241, 241, 241, 1),
+                      prefixIcon: const Icon(
                         Icons.person,
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
                       hintText: 'Full name *',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
@@ -377,7 +375,7 @@ class _SignupState extends State<Signup> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25, right: 20, left: 20),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 353,
                   child: TextField(
@@ -385,28 +383,28 @@ class _SignupState extends State<Signup> {
 
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(241, 241, 241, 1),
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(241, 241, 241, 1),
+                      prefixIcon: const Icon(
                         Icons.sports_basketball,
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
                       hintText: 'Academy name *',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
@@ -416,7 +414,7 @@ class _SignupState extends State<Signup> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25, right: 20, left: 20),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 353,
                   child: TextField(
@@ -424,28 +422,28 @@ class _SignupState extends State<Signup> {
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(241, 241, 241, 1),
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(241, 241, 241, 1),
+                      prefixIcon: const Icon(
                         Icons.phone,
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
                       hintText: 'Mobile Number *',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
@@ -455,7 +453,7 @@ class _SignupState extends State<Signup> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25, right: 20, left: 20),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 353,
                   child: TextField(
@@ -463,28 +461,28 @@ class _SignupState extends State<Signup> {
 
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(241, 241, 241, 1),
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(241, 241, 241, 1),
+                      prefixIcon: const Icon(
                         Icons.location_on,
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
                       hintText: 'Academy Location *',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
@@ -494,7 +492,7 @@ class _SignupState extends State<Signup> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25, right: 20, left: 20),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 353,
                   child: TextField(
@@ -503,28 +501,28 @@ class _SignupState extends State<Signup> {
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         onPressed: _openBottomSheet, // Open bottom sheet here
-                        icon: Icon(Icons.keyboard_arrow_down),
+                        icon: const Icon(Icons.keyboard_arrow_down),
                       ),
-                      suffixIconColor: Color.fromRGBO(13, 149, 211, 1),
+                      suffixIconColor: const Color.fromRGBO(13, 149, 211, 1),
                       filled: true,
-                      fillColor: Color.fromRGBO(241, 241, 241, 1),
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(241, 241, 241, 1),
+                      prefixIcon: const Icon(
                         Icons.sports_kabaddi_rounded,
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
 
@@ -533,7 +531,7 @@ class _SignupState extends State<Signup> {
                           : selectedSports
                               .join(', '), // Display selected sports
 
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1),
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
@@ -544,7 +542,7 @@ class _SignupState extends State<Signup> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25, right: 20, left: 20),
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: 353,
                   child: TextField(
@@ -552,28 +550,28 @@ class _SignupState extends State<Signup> {
 
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color.fromRGBO(241, 241, 241, 1),
-                      prefixIcon: Icon(
+                      fillColor: const Color.fromRGBO(241, 241, 241, 1),
+                      prefixIcon: const Icon(
                         Icons.email_outlined,
                         color: Colors.black,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide:
-                            BorderSide(color: Colors.transparent, width: 1.0),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 1.0),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(26),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                             color: Color.fromRGBO(9, 96, 186, 1), width: 1.5),
                       ),
                       hintText: 'Email Adress',
-                      hintStyle: TextStyle(
+                      hintStyle: const TextStyle(
                           color: Color.fromRGBO(186, 186, 186, 1),
                           fontSize: 14,
                           fontWeight: FontWeight.w600),
@@ -581,32 +579,32 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 7,
               ),
               Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 25,
                   ),
                   Checkbox(
-                    activeColor: Color.fromRGBO(13, 149, 211, 1),
-                    checkColor: Color.fromRGBO(237, 237, 237, 1),
-                    focusColor: Color.fromRGBO(237, 237, 237, 1),
-                    value: this.value,
+                    activeColor: const Color.fromRGBO(13, 149, 211, 1),
+                    checkColor: const Color.fromRGBO(237, 237, 237, 1),
+                    focusColor: const Color.fromRGBO(237, 237, 237, 1),
+                    value: value,
                     onChanged: (value) {
                       setState(() {
                         this.value = value!;
                       });
                     },
                   ),
-                  Text(
+                  const Text(
                     "I Agree All ",
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                   ),
                   InkWell(
                       onTap: () {},
-                      child: Text(
+                      child: const Text(
                         "Terms & Conditions",
                         style: TextStyle(
                             fontSize: 14,
@@ -615,13 +613,12 @@ class _SignupState extends State<Signup> {
                       ))
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Center(
-                  
                   child: InkWell(
                     onTap: () {
                       _checkMobileNumber();
@@ -631,14 +628,14 @@ class _SignupState extends State<Signup> {
                       height: 45,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                               colors: [
                                 Color.fromRGBO(13, 149, 211, 1),
                                 Color.fromRGBO(9, 96, 186, 1)
                               ])),
-                      child: Center(
+                      child: const Center(
                           child: Text(
                         "Create Profile",
                         style: TextStyle(

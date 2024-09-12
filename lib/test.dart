@@ -1,75 +1,79 @@
 import 'package:flutter/material.dart';
 
-
-
-class MyHomePage extends StatefulWidget {
+class DownloadButtons extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _DownloadButtonsState createState() => _DownloadButtonsState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  bool isExpanded = false;
+class _DownloadButtonsState extends State<DownloadButtons> {
+  bool isPdfSelected = true;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Advance Payment')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Advance',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  '₹ 50000',
-                  style: TextStyle(fontSize: 18, color: Colors.blue),
-                ),
-                IconButton(
-                  key: ValueKey("toggleButton"), // Add a key here
-                  icon: Icon(isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down),
-                  onPressed: () {
-                    setState(() {
-                      isExpanded = !isExpanded;
-                    });
-                  },
-                ),
-              ],
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isPdfSelected = true;
+              });
+            },
+            child: Container(
+             
+              decoration: BoxDecoration(
+                color: isPdfSelected ? Colors.blue : Colors.white,
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.picture_as_pdf,
+                      color: isPdfSelected ? Colors.white : Colors.black),
+                
+                  Text(
+                    'Download as Pdf',
+                    style: TextStyle(
+                      color: isPdfSelected ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            AnimatedContainer(
-              key: ValueKey("expandableContainer"), // Add a key here
-              duration: Duration(milliseconds: 200), // Add some animation
-              height: isExpanded ? 60.0 : 0.0,
-              child: isExpanded
-                  ? Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Paid',
-                            style: TextStyle(color: Colors.green, fontSize: 16),
-                          ),
-                          Text(
-                            '23/04/2024',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    )
-                  : null,
+          ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isPdfSelected = false;
+              });
+            },
+            child: Container(
+             
+              decoration: BoxDecoration(
+                color: !isPdfSelected ? Colors.blue : Colors.white,
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colors.grey),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.table_chart,
+                      color: !isPdfSelected ? Colors.white : Colors.black),
+               
+                  Text(
+                    'Download as Excel',
+                    style: TextStyle(
+                      color: !isPdfSelected ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
