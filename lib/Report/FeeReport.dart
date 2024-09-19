@@ -12,6 +12,8 @@ class DownloadController extends GetxController {
     selectedDownloadType.value = type;
   }
 
+
+
   // Function to trigger the download
   void download() {
     if (selectedDownloadType.value == 'PDF') {
@@ -57,9 +59,10 @@ class _FeereportState extends State<Feereport> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-             const      Text('Select Report Type', style: TextStyle(fontSize: 18.0)),
+                  const Text('Select Report Type',
+                      style: TextStyle(fontSize: 18.0)),
                   RadioListTile<String>(
-                    title:const  Text('Collection Report'),
+                    title: const Text('Collection Report'),
                     value: 'Collection Report',
                     groupValue: _tempSelectedReportType,
                     onChanged: (String? value) {
@@ -99,6 +102,103 @@ class _FeereportState extends State<Feereport> {
                   ),
                 ],
               ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  final List<String> centers = [
+    'Khelnet Badminton 1',
+    'Khelnet Badminton 2',
+    'Khelnet Badminton 3'
+  ];
+
+  // List to track which centers are selected
+  List<bool> selectedCenters = [false, false, false];
+
+  // Controller for the TextField
+  TextEditingController centerController = TextEditingController();
+
+  // Flag to indicate if all items are selected
+  bool selectAll1 = false;
+
+  // Method to get the list of selected center names
+  List<String> getSelectedCenterNames() {
+    List<String> selectedNames = [];
+    for (int i = 0; i < centers.length; i++) {
+      if (selectedCenters[i]) {
+        selectedNames.add(centers[i]);
+      }
+    }
+    return selectedNames;
+  }
+
+  // Method to update the TextField with selected center names
+  void updateCenterTextField() {
+    centerController.text = getSelectedCenterNames().join(', ');
+  }
+
+  // Method to show the Bottom Sheet
+  void _showCenterSelectionSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                // "Select All" Checkbox
+                CheckboxListTile(
+                  title: Text('Select All'),
+                  value: selectAll1,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      selectAll1 = value ?? false;
+                      // Update all checkboxes based on selectAll value
+                      for (int i = 0; i < selectedCenters.length; i++) {
+                        selectedCenters[i] = selectAll1;
+                      }
+                    });
+                  },
+                ),
+                // List of checkboxes for each center
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: centers.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CheckboxListTile(
+                      title: Text(centers[index]),
+                      value: selectedCenters[index],
+                      onChanged: (bool? value) {
+                        setState(() {
+                          selectedCenters[index] = value ?? false;
+                          // If any checkbox is deselected, uncheck "Select All"
+                          if (!selectedCenters[index]) {
+                            selectAll1 = false;
+                          } else {
+                            // If all checkboxes are selected, check "Select All"
+                            selectAll1 =
+                                selectedCenters.every((element) => element);
+                          }
+                        });
+                      },
+                    );
+                  },
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      // Update the TextField in the main UI
+                      updateCenterTextField();
+                    });
+                    Navigator.pop(context);
+                  },
+                  child: Text('Select'),
+                ),
+              ],
             );
           },
         );
@@ -146,8 +246,8 @@ class _FeereportState extends State<Feereport> {
                                       // Navigator.pushNamed(context, '/feeReport');
                                       break;
                                     case 'Select Center':
-                                      Navigator.pushNamed(
-                                          context, '/expenseReport');
+                                      
+                                      _showCenterSelectionSheet();
                                       break;
                                     case 'Select Batch':
                                       Navigator.pushNamed(

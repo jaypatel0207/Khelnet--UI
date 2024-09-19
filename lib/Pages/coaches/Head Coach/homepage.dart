@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:khelnet/Pages/Fees/Fees.dart';
+import 'package:khelnet/Pages/Students/Fees.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/Academy.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/AttendancePage.dart';
 import 'package:khelnet/Pages/coaches/CoachAttendancePage.dart';
@@ -47,7 +49,7 @@ class _HomepageState extends State<Homepage> {
       case "Fees":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => FeesPage()),
+          MaterialPageRoute(builder: (context) => Fees1()),
         );
         break;
       case "Reports":
@@ -212,7 +214,7 @@ class _HomepageState extends State<Homepage> {
                                 shrinkWrap: true,
                                 itemCount: showAll ? items.length : 6,
                                 gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
                                   childAspectRatio: 1.7,
                                 ),

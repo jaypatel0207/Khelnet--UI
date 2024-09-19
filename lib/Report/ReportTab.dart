@@ -66,7 +66,7 @@ class _ReporttabState extends State<Reporttab> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Coachreoprt(),
+                                      builder: (context) => Coachreport(),
                                     ));
                                     
                        
