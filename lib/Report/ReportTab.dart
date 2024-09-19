@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:khelnet/Pages/Students/AddStudent.dart';
+import 'package:khelnet/Report/CoachReoprt.dart';
+import 'package:khelnet/Report/ExpenseReport.dart';
 import 'package:khelnet/Report/FeeReport.dart';
 
 class Reporttab extends StatefulWidget {
@@ -47,17 +49,27 @@ class _ReporttabState extends State<Reporttab> {
                                     MaterialPageRoute(
                                       builder: (context) => Feereport(),
                                     ));
-                                // Navigator.pushNamed(context, '/feeReport');
+                                 Navigator.pushNamed(context, '/feereport');
                                 break;
                               case 'Expense Report':
-                                Navigator.pushNamed(context, '/expenseReport');
+                                 Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Expensereport(),
+                                    ));
                                 break;
                               case 'Attendance Report':
                                 Navigator.pushNamed(context, '/attendanceReport');
                                 break;
                               case 'Coach Report':
-                                Navigator.pushNamed(context, '/coachReport');
-                                break;
+                        
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Coachreoprt(),
+                                    ));
+                                    
+                       
                               case 'Combined Report':
                                 Navigator.pushNamed(context, '/combinedReport');
                                 break;
