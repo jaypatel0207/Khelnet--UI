@@ -1,5 +1,14 @@
 
 
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
+import 'package:khelnet/Custome%20Widget/Gradient.dart';
+import 'package:khelnet/Pages/Fees/Invoice.dart';
+import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
+
 ////// ---- select Coach ---------///////
 
 
@@ -795,63 +804,1115 @@
 //     );
 //   }
 // }
+// import 'package:flutter/material.dart';
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: DropdownExample(),
+//     );
+//   }
+// }
+
+// class DropdownExample extends StatefulWidget {
+//   @override
+//   _DropdownExampleState createState() => _DropdownExampleState();
+// }
+
+// class _DropdownExampleState extends State<DropdownExample> {
+//   String? selectedYear; // Start as null to show the placeholder
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text('Dropdown in Container')),
+//       body: Center(
+//         child: Container(
+//           height: 50,
+//           width: 145,
+//           padding: EdgeInsets.symmetric(horizontal: 16),
+//           decoration: BoxDecoration(
+//             color: Colors.grey[200], // Background color of the container
+//             borderRadius: BorderRadius.circular(50),
+//             border: Border.all(color: Colors.grey), // Optional border
+//           ),
+//           child: DropdownButtonHideUnderline(
+//             child: DropdownButton<String>(
+//               hint: Text('Year'),  // Placeholder text
+//               value: selectedYear,
+//               icon: Icon(Icons.arrow_drop_down),
+//               iconSize: 24,
+//               elevation: 16,
+//               style: TextStyle(color: Colors.black, fontSize: 16),
+//               onChanged: (String? newValue) {
+//                 setState(() {
+//                   selectedYear = newValue!;
+//                 });
+//               },
+//               items: <String>['2024', '2025']
+//                   .map<DropdownMenuItem<String>>((String value) {
+//                 return DropdownMenuItem<String>(
+//                   value: value,
+//                   child: Text(value),
+//                 );
+//               }).toList(),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+// import 'package:flutter/material.dart';
+// import 'package:intl/intl.dart'; // Add this for formatting dates
+
+// class MyWidget extends StatefulWidget {
+//   @override
+//   _MyWidgetState createState() => _MyWidgetState();
+// }
+
+// class _MyWidgetState extends State<MyWidget> {
+//   String? selectedYear;
+//   String? selectedMonth;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: Container(
+//           child: Padding(
+//             padding: const EdgeInsets.only(left: 18, top: 15, right: 15),
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//               children: [
+//                 // Year Dropdown
+//                 Container(
+//                   height: 50,
+//                   width: 145,
+//                   padding: const EdgeInsets.symmetric(horizontal: 16),
+//                   decoration: BoxDecoration(
+//                     color: const Color.fromRGBO(241, 241, 241, 1),
+//                     borderRadius: BorderRadius.circular(50),
+//                     border: Border.all(color: Colors.white),
+//                   ),
+//                   child: DropdownButtonHideUnderline(
+//                     child: DropdownButton<String>(
+//                       hint: const Text('Year'),
+//                       value: selectedYear,
+//                       icon: const Icon(Icons.arrow_drop_down),
+//                       iconSize: 24,
+//                       elevation: 16,
+//                       style: const TextStyle(color: Colors.black, fontSize: 16),
+//                       onChanged: (String? newValue) {
+//                         setState(() {
+//                           selectedYear = newValue!;
+//                         });
+//                       },
+//                       items: <String>["2024", "2025"]
+//                           .map<DropdownMenuItem<String>>((String value) {
+//                         return DropdownMenuItem<String>(
+//                           value: value,
+//                           child: Text(
+//                             value,
+//                             style: TextStyle(
+//                               color: selectedYear == value
+//                                   ? Colors.blue
+//                                   : Colors.black,
+//                             ),
+//                           ),
+//                         );
+//                       }).toList(),
+//                     ),
+//                   ),
+//                 ),
+          
+//                 // Month Dropdown
+//                 Container(
+//                   height: 50,
+//                   width: 145,
+//                   padding: const EdgeInsets.symmetric(horizontal: 16),
+//                   decoration: BoxDecoration(
+//                     color: const Color.fromRGBO(241, 241, 241, 1),
+//                     borderRadius: BorderRadius.circular(50),
+//                     border: Border.all(color: Colors.white),
+//                   ),
+//                   child: DropdownButtonHideUnderline(
+//                     child: DropdownButton<String>(
+//                       hint: const Text('Month'),
+//                       value: selectedMonth,
+//                       icon: const Icon(Icons.arrow_drop_down),
+//                       iconSize: 24,
+//                       elevation: 16,
+//                       style: const TextStyle(color: Colors.black, fontSize: 16),
+//                       onChanged: (String? newValue) {
+//                         setState(() {
+//                           selectedMonth = newValue!;
+//                         });
+//                       },
+//                       items: <String>[
+//                         "January",
+//                         "February",
+//                         "March",
+//                         "April", 
+//                         "May",
+//                         "July",
+//                         "August",
+//                         "September",
+//                         "October",
+//                         "November",
+//                         "December"
+//                       ].map<DropdownMenuItem<String>>((String value) {
+//                         return DropdownMenuItem<String>(
+//                           value: value,
+//                           child: Text(
+//                             value,
+//                             style: TextStyle(
+//                               color: selectedMonth == value
+//                                   ? Colors.blue
+//                                   : Colors.black,
+//                             ),
+//                           ),
+//                         );
+//                       }).toList(),
+//                     ),
+//                   ),
+//                 ),
+          
+//                 // Calendar Icon Button
+//                 IconButton(
+//                   onPressed: () async {
+//                     // Open the DatePicker
+//                     DateTime? pickedDate = await showDatePicker(
+//                       context: context,
+//                       initialDate: DateTime.now(),
+//                       firstDate: DateTime(2000),
+//                       lastDate: DateTime(2100),
+//                     );
+          
+//                     if (pickedDate != null) {
+//                       // Update selected year and month based on picked date
+//                       setState(() {
+//                         selectedYear = pickedDate.year.toString();
+//                         selectedMonth = DateFormat.MMMM().format(pickedDate); // Formats to full month name
+//                       });
+//                     }
+//                   },
+//                   icon: const Icon(
+//                     Icons.calendar_today_outlined,
+//                     color: Colors.blue,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:dotted_border/dotted_border.dart';
+// import 'package:file_picker/file_picker.dart';
+// import 'dart:io'; // Import for File
+
+// class UploadSignatureStamp extends StatefulWidget {
+//   @override
+//   _UploadSignatureStampState createState() => _UploadSignatureStampState();
+// }
+
+// class _UploadSignatureStampState extends State<UploadSignatureStamp> {
+//   File? _selectedFile; // Variable to hold the selected file
+
+//   // Function to handle file picking
+//   Future<void> _pickFile() async {
+//     // Show file picker dialog
+//     FilePickerResult? result = await FilePicker.platform.pickFiles(
+//       type: FileType.image, // Allow only image files
+//     );
+
+//     if (result != null && result.files.isNotEmpty) {
+//       String? filePath = result.files.single.path;
+//       if (filePath != null) {
+//         setState(() {
+//           _selectedFile = File(filePath); // Update the selected file
+//         });
+//       }
+//     } else {
+//       // User canceled the picker
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text('No file selected')),
+//       );
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: GestureDetector(
+//           onTap: _pickFile, // Trigger file picker on tap
+//           child: DottedBorder(
+//             color: Colors.blue,  // Border color
+//             strokeWidth: 2,      // Border thickness
+//             dashPattern: [6, 4], // Dash and gap length for the dashed border
+//             borderType: BorderType.RRect,
+//             radius: Radius.circular(20), // Rounded corners
+//             padding: EdgeInsets.all(16), // Padding inside the border
+//             child: Container(
+//               width: MediaQuery.of(context).size.width * 0.8, // Responsive width
+//               height: 150,
+//               color: Colors.white,
+//               child: _selectedFile != null
+//                   ? Image.file(
+//                       _selectedFile!,
+//                       fit: BoxFit.cover, // Adjust the image to fit the container
+//                     )
+//                   : Column(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       children: [
+//                         Icon(
+//                           Icons.cloud_upload_outlined, // Cloud upload icon
+//                           color: Colors.blue,
+//                           size: 40,
+//                         ),
+//                         SizedBox(height: 10), // Space between icon and text
+//                         Text(
+//                           "Upload Signature / Stamp",
+//                           style: TextStyle(
+//                             color: Colors.blue, // Text color
+//                             fontSize: 16,      // Font size
+//                             fontWeight: FontWeight.w500, // Font weight
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// import 'package:flutter/material.dart';
+
+
+
+// class AutoSendInvoiceTile extends StatefulWidget {
+//   @override
+//   _AutoSendInvoiceTileState createState() => _AutoSendInvoiceTileState();
+// }
+
+// class _AutoSendInvoiceTileState extends State<AutoSendInvoiceTile> {
+//   bool isSwitched = false;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return 
+    
+    
+//     Scaffold(
+//       body: Container(
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(12),
+//           color: Colors.white,
+//           boxShadow: [
+//             BoxShadow(
+//               color: Colors.black12,
+//               blurRadius: 6,
+//               spreadRadius: 2,
+//             ),
+//           ],
+//         ),
+//         child: ListTile(
+//           contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+//           title: Row(
+//             children: [
+//               Expanded(
+//                 child: Text(
+//                   'Auto Send Invoice',
+//                   style: TextStyle(
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 16,
+//                   ),
+//                 ),
+//               ),
+//               Switch(
+                
+//                 value: isSwitched,
+//                 onChanged: (value) {
+//                   setState(() {
+//                     isSwitched = value;
+//                   });
+//                 },
+//                 activeColor: Colors.blueAccent[700],
+//               ),
+//             ],
+//           ),
+//           subtitle: Padding(
+//             padding: const EdgeInsets.only(top: 8.0),
+//             child: Text(
+//               '* This will automatically send the fee receipt whenever any payment made',
+//               style: TextStyle(
+//                 color: Colors.grey,
+//                 fontSize: 12,
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         body: Center(
+//           child: Padding(
+//             padding: const EdgeInsets.all(16.0),
+//             child: CurrentInvoiceTile(),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class CurrentInvoiceTile extends StatefulWidget {
+//   @override
+//   _CurrentInvoiceTileState createState() => _CurrentInvoiceTileState();
+// }
+
+// class _CurrentInvoiceTileState extends State<CurrentInvoiceTile> {
+//   final TextEditingController _controller = TextEditingController(text: "30");
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: Container(
+//           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+//           decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(12),
+//             color: Colors.white,
+//             boxShadow: [
+//               BoxShadow(
+//                 color: Colors.black12,
+//                 blurRadius: 6,
+//                 spreadRadius: 2,
+//               ),
+//             ],
+//           ),
+//           child: Row(
+//             children: [
+//               Expanded(
+//                 child: TextField(
+//                   controller: _controller,
+//                   decoration: InputDecoration(
+//                     border: InputBorder.none,
+//                     hintText: 'Current Invoice No.',
+//                     hintStyle: TextStyle(
+//                       color: Colors.grey,
+//                       fontSize: 16,
+//                     ),
+//                   ),
+//                   style: TextStyle(
+//                     fontWeight: FontWeight.bold,
+//                     fontSize: 16,
+//                     color: Colors.black,
+//                   ),
+//                   enabled: false, // Disable the field until edit mode is activated
+//                 ),
+//               ),
+//               IconButton(
+//                 icon: Icon(Icons.edit, color: Colors.blue),
+//                 onPressed: () {
+//                   // Define the action when the edit button is clicked
+//                   setState(() {
+//                     _controller.text = 'Edit Mode'; // Sample action
+//                   });
+//                 },
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+// class Test extends StatefulWidget {
+//   const Test({super.key});
+
+//   @override
+//   State<Test> createState() => _TestState();
+// }
+
+// class _TestState extends State<Test> {
+//     bool isSwitched = false;
+//   final TextEditingController _invoiceController = TextEditingController();
+//   final TextEditingController _bottomSheetController = TextEditingController(); // Controller for bottom sheet text field
+
+ 
+ 
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       appBar: const CustomAppBar(title: "Invoice Settings"),
+//       body: Column(
+//         children: [
+//           SizedBox(height: 25.h),
+//           Center(
+//             child: Container(
+//               height: 81.h,
+//               width: 353.w,
+//               decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(18),
+//                   border: Border.all(color: const Color.fromRGBO(241, 241, 241, 1), width: 1)),
+//               child: Padding(
+//                 padding: const EdgeInsets.only(top: 8, right: 10, left: 10),
+//                 child: Center(
+//                   child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                     children: [
+//                       const Column(
+//                         children: [
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                             children: [
+//                               Text("Auto Send Invoice", style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600)),
+//                               SizedBox(width: 50),
+//                             ],
+//                           ),
+//                           SizedBox(height: 5),
+//                           Row(
+//                             children: [
+//                               Text(
+//                                 "* This will automatically send the fee",
+//                                 style: TextStyle(color: Color.fromRGBO(186, 186, 186, 1), fontSize: 12, fontWeight: FontWeight.w500),
+//                               ),
+//                             ],
+//                           ),
+//                           Row(
+//                             children: [
+//                               Text(
+//                                 "receipt whenever any payment made",
+//                                 style: TextStyle(color: Color.fromRGBO(186, 186, 186, 1), fontSize: 12, fontWeight: FontWeight.w500),
+//                               ),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                       Switch(
+//                         value: isSwitched,
+//                         onChanged: (value) {
+//                           setState(() {
+//                             isSwitched = value;
+//                           });
+//                         },
+//                         activeColor: Colors.blue,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.only(left: 18, right: 18, top: 20),
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 Container(
+//                   height: 50,
+//                   width: 302,
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(26),
+//                     border: Border.all(width: 1, color: const Color.fromRGBO(241, 241, 241, 1)),
+//                   ),
+//                   child: Padding(
+//                     padding: const EdgeInsets.only(left: 17, right: 17),
+//                     child: Row(
+//                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                       children: [
+//                         const Text(
+//                           "Current Invoice No.",
+//                           style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15, color: Color.fromRGBO(186, 186, 186, 1)),
+//                         ),
+//                         const SizedBox(width: 100),
+//                         Expanded(
+//                           child: TextField(
+//                             controller: _invoiceController,
+//                             decoration: const InputDecoration(
+//                               border: InputBorder.none,
+//                               isDense: true,
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),
+//                 InkWell(
+//                   onTap: () {
+//                     Get.bottomSheet(
+//                       Container(
+//                         height: 300.h,
+//                         padding: const EdgeInsets.all(20),
+//                         decoration: BoxDecoration(
+//                           color: Colors.white,
+//                           borderRadius: BorderRadius.only(
+//                             topLeft: Radius.circular(20.h),
+//                             topRight: Radius.circular(20.h),
+//                           ),
+//                         ),
+//                         child: Column(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             Row(
+//                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                               children: [
+//                                 InkWell(
+//                                   onTap: () => Get.back(),
+//                                   child: Container(
+//                                     height: 36,
+//                                     width: 36,
+//                                     decoration: BoxDecoration(
+//                                       shape: BoxShape.circle,
+//                                       color: Color.fromRGBO(13, 141, 207, 0.13),
+//                                     ),
+//                                     child: const Center(
+//                                       child: Icon(
+//                                         Icons.arrow_back_ios_new,
+//                                         color: Color.fromRGBO(11, 121, 198, 1),
+//                                       ),
+//                                     ),
+//                                   ),
+//                                 ),
+//                                 const Text(
+//                                   "Invoice Number",
+//                                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//                                 ),
+//                                 const SizedBox(width: 36), // For symmetry with back button
+//                               ],
+//                             ),
+//                             const SizedBox(height: 20),
+//                             TextField(
+//                               controller: _bottomSheetController,
+//                               keyboardType: TextInputType.number,
+//                               decoration: const InputDecoration(
+//                                 labelText: "Enter Invoice Number",
+//                                 border: OutlineInputBorder(),
+//                               ),
+//                             ),
+//                             const SizedBox(height: 20),
+//                             Center(
+//                               child: ElevatedButton(
+//                                 onPressed: () {
+//                                   setState(() {
+//                                     _invoiceController.text = _bottomSheetController.text;
+//                                   });
+//                                   Get.back(); // Close bottom sheet
+//                                 },
+//                                 child: const Text("OK"),
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     );
+//                   },
+//                   child: Container(
+//                     height: 45.0,
+//                     width: 45.0,
+//                     decoration: BoxDecoration(
+//                       shape: BoxShape.circle,
+//                       border: Border.all(width: 1, color: const Color.fromRGBO(241, 241, 241, 1)),
+//                     ),
+//                     child: const Center(
+//                       child: Icon(
+//                         Icons.edit,
+//                         color: Colors.blue,
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           Container(
+//             height: 50,
+//             width: 368,
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(26),
+//               border: Border.all(width: 1, color: const Color.fromRGBO(241, 241, 241, 1)),
+//             ),
+//             child: const Padding(
+//               padding: EdgeInsets.only(left: 13, right: 13),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   Text(
+//                     "Preview Invoice Design",
+//                     style: TextStyle(color: Colors.blue, fontSize: 15, fontWeight: FontWeight.w500),
+//                   ),
+//                   Icon(Icons.remove_red_eye, color: Colors.blue),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+
+
+// class RadioButtonExample extends StatefulWidget {
+//   @override
+//   _RadioButtonExampleState createState() => _RadioButtonExampleState();
+// }
+
+// class _RadioButtonExampleState extends State<RadioButtonExample> {
+//   String? _selectedOption = 'withUPI';
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Send Fee Reminder'),
+//         centerTitle: true,
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           children: [
+//             Card(
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(16.0),
+//               ),
+//               elevation: 2,
+//               child: Column(
+//                 children: [
+//                   RadioListTile<String>(
+//                     title: Text('Send Fee Reminder With UPI Payment Link'),
+//                     value: 'withUPI',
+//                     activeColor: Colors.blue,
+//                     groupValue: _selectedOption,
+//                     onChanged: (value) {
+//                       setState(() {
+//                         _selectedOption = value;
+//                       });
+//                     },
+//                   ),
+//                   Divider(), 
+//                   RadioListTile<String>(
+//                     title: Text('Send Fee Reminder Without UPI Payment Link'),
+//                     value: 'withoutUPI',
+//                     groupValue: _selectedOption,
+//                     activeColor: Colors.blue,
+//                     onChanged: (value) {
+//                       setState(() {
+//                         _selectedOption = value;
+//                       });
+//                     },
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Custom Radio Button Example',
+//       home: RadioButtonExample(),
+//     );
+//   }
+// }
+
+// class RadioButtonExample extends StatefulWidget {
+//   @override
+//   _RadioButtonExampleState createState() => _RadioButtonExampleState();
+// }
+
+// class _RadioButtonExampleState extends State<RadioButtonExample> {
+//   String? _selectedOption = 'withUPI';
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Send Fee Reminder'),
+//         centerTitle: true,
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           children: [
+//             Card(
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(16.0),
+//               ),
+//               elevation: 2,
+//               child: Column(
+//                 children: [
+//                   Theme(
+//                     data: Theme.of(context).copyWith(
+//                       radioTheme: RadioThemeData(
+//                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+//                         fillColor: MaterialStateProperty.all(Colors.blue),
+//                         visualDensity: VisualDensity(horizontal: -4.0, vertical: -4.0),
+//                       ),
+//                     ),
+//                     child: RadioListTile<String>(
+//                       title: Text('Send Fee Reminder With UPI Payment Link'),
+//                       value: 'withUPI',
+//                       groupValue: _selectedOption,
+//                       onChanged: (value) {
+//                         setState(() {
+//                           _selectedOption = value;
+//                         });
+//                       },
+//                       contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+//                       controlAffinity: ListTileControlAffinity.trailing, // Radio button on the right
+//                     ),
+//                   ),
+//                   Theme(
+//                     data: Theme.of(context).copyWith(
+//                       radioTheme: RadioThemeData(
+//                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+//                         fillColor: MaterialStateProperty.all(Colors.blue),
+//                         visualDensity: VisualDensity(horizontal: -4.0, vertical: -4.0),
+//                       ),
+//                     ),
+//                     child: RadioListTile<String>(
+//                       title: Text('Send Fee Reminder Without UPI Payment Link'),
+//                       value: 'withoutUPI',
+//                       groupValue: _selectedOption,
+//                       onChanged: (value) {
+//                         setState(() {
+//                           _selectedOption = value;
+//                         });
+//                       },
+//                       contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+//                       controlAffinity: ListTileControlAffinity.trailing, // Radio button on the right
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+// import 'package:flutter/material.dart';
+
+// class CustomFloatingActionButton extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Custom FAB Example'),
+//       ),
+//       body: Center(
+//         child: Text('Your content here'),
+//       ),
+//       floatingActionButton: Container(
+//         height: 64.0, // Custom height for the button
+//         width: 315.0,  // Custom width for the button
+//         child: FloatingActionButton(
+//           onPressed: () {
+//             // Define the action when the button is pressed
+//             print('Add Student button pressed');
+//           },
+//           shape: RoundedRectangleBorder(
+//             borderRadius: BorderRadius.circular(30.0), // Rounded edges
+//           ),
+//           child: Ink(
+//             decoration: BoxDecoration(
+//               gradient: LinearGradient(
+//                 colors: [Colors.lightBlue, Colors.blue],
+//                 begin: Alignment.centerLeft,
+//                 end: Alignment.centerRight,
+//               ),
+//               borderRadius: BorderRadius.circular(30.0),
+//             ),
+//             child: Container(
+//               alignment: Alignment.center,
+//               child: Text(
+//                 'Add Student',
+//                 style: TextStyle(
+//                   fontWeight: FontWeight.bold,
+//                   fontSize: 16.0,
+//                   color: Colors.white,
+//                 ),
+//               ),
+//             ),
+//           ),
+//           backgroundColor: Colors.transparent, // Make background transparent to use gradient
+//           elevation: 0,  // Remove shadow if you want
+//         ),
+//       ),
+//       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat, // Position at the bottom center
+//     );
+//   }
+// }
+
+// void main() {
+//   runApp(MaterialApp(
+//     home: CustomFloatingActionButton(),
+//   ));
+// }
+
+
+
+
+// class GradientTextExample extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Gradient Text Example'),
+//       ),
+//       body: Center(
+//         child: GradientText(
+          
+//           text: 'Gradient Text Example',
+//           gradient: LinearGradient(
+            
+            
+//             colors: <Color>[
+//              // rgba(9, 96, 186, 1)
+//               Color.fromRGBO(13, 149, 211, 1), 
+//              Color.fromRGBO(9, 96, 186, 1), 
+//           // Repeating for a three-color effect
+//             ],
+//             begin: Alignment.centerLeft,
+//             end: Alignment.centerRight,
+//           ),
+//           style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+//         ),
+//       ),
+//     );
+//   }
+//}
+
+
+// import 'package:flutter/material.dart';
+// import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
+
+// void main() {
+//   runApp(
+//     const WoltModalSheetApp(),
+//   );
+// }
+
+// class WoltModalSheetApp extends StatelessWidget {
+//   const WoltModalSheetApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       home: WoltModalSheetHomePage(),
+//     );
+//   }
+// }
+
+// class WoltModalSheetHomePage extends StatelessWidget {
+//   const WoltModalSheetHomePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Wolt Modal Bottom Sheet Sample'),
+//       ),
+//       floatingActionButton: FloatingActionButton.extended(
+//         onPressed: () {
+//           WoltModalSheet.show(
+//             context: context,
+//             pageListBuilder: (bottomSheetContext) => [
+//               SliverWoltModalSheetPage(
+//                 mainContentSliversBuilder: (context) => [
+//                   SliverList.builder(
+//                     itemBuilder: (context, index) {
+//                       return ListTile(
+//                         title: Text('Index is $index'),
+//                         onTap: Navigator.of(bottomSheetContext).pop,
+//                       );
+//                     },
+//                   ),
+//                 ],
+//               )
+//             ],
+//           );
+//         },
+//         label: const Text('Trigger Wolt Sheet'),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+// void showCustomBottomSheet() {
+//   Get.bottomSheet(
+//     Container(
+//       // Use 90% of the screen height
+//       height: MediaQuery.of(context).size.height * 0.9,
+//       width: MediaQuery.of(context).size.width,
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(20),
+//         color: Colors.white,
+//       ),
+//       padding: const EdgeInsets.all(16.0),
+//       child: SingleChildScrollView(
+//         child: Column(
+//           children: [
+//             // Add your widgets here
+//           ],
+//         ),
+//       ),
+//     ),
+//     isScrollControlled: true, 
+//   );
+// }
+
+
+
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart'; // For formatting the date
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class DatePickerExample extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DropdownExample(),
+  _DatePickerExampleState createState() => _DatePickerExampleState();
+}
+
+class _DatePickerExampleState extends State<DatePickerExample> {
+  DateTime _selectedDate = DateTime.now(); // Current date initially
+
+  // Function to show the date picker dialog
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2000), // Define the range
+      lastDate: DateTime(2100),
     );
+    if (picked != null && picked != _selectedDate)
+      setState(() {
+        _selectedDate = picked;
+      });
   }
-}
-
-class DropdownExample extends StatefulWidget {
-  @override
-  _DropdownExampleState createState() => _DropdownExampleState();
-}
-
-class _DropdownExampleState extends State<DropdownExample> {
-  String? selectedYear; // Start as null to show the placeholder
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Dropdown in Container')),
+      appBar: AppBar(
+        title: Text('Date Picker Example'),
+      ),
       body: Center(
-        child: Container(
-          height: 50,
-          width: 145,
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          decoration: BoxDecoration(
-            color: Colors.grey[200], // Background color of the container
-            borderRadius: BorderRadius.circular(50),
-            border: Border.all(color: Colors.grey), // Optional border
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              hint: Text('Year'),  // Placeholder text
-              value: selectedYear,
-              icon: Icon(Icons.arrow_drop_down),
-              iconSize: 24,
-              elevation: 16,
-              style: TextStyle(color: Colors.black, fontSize: 16),
-              onChanged: (String? newValue) {
-                setState(() {
-                  selectedYear = newValue!;
-                });
-              },
-              items: <String>['2024', '2025']
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Transaction Date : ",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                color: Color.fromRGBO(186, 186, 186, 1),
+              ),
             ),
-          ),
+            Text(
+              DateFormat('dd/MM/yyyy').format(_selectedDate), // Format the date
+              style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                color: Colors.black,
+              ),
+            ),
+            IconButton(
+              icon: Icon(Icons.edit_calendar, color: Colors.blue),
+              onPressed: () => _selectDate(context), // Open the date picker
+            ),
+          ],
         ),
       ),
     );

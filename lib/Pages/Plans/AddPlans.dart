@@ -45,7 +45,8 @@ class _AddplansState extends State<Addplans> {
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
-                  borderSide: const BorderSide(color: Colors.transparent, width: 1.0),
+                  borderSide:
+                      const BorderSide(color: Colors.transparent, width: 1.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
@@ -414,40 +415,47 @@ class _AddplansState extends State<Addplans> {
           const SizedBox(
             height: 300,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                setState(() {});
-                Navigator.pop(context); // Close the bottom sheet
-              },
-              child: Center(
-                child: Container(
-                  width: 347,
-                  height: 51,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(103),
-                      gradient: const LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Color.fromRGBO(13, 149, 211, 1),
-                            Color.fromRGBO(9, 96, 186, 1)
-                          ])),
-                  child: const Center(
-                      child: Text(
-                    "Add Plan",
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white),
-                  )),
+        ],
+      ),
+      floatingActionButton: Container(
+        height: 64.0, // Custom height for the button
+        width: 315.0, // Custom width for the button
+        child: FloatingActionButton(
+          onPressed: () {
+            // Define the action when the button is pressed
+            Get.snackbar("Paln Add Sucessfully", "Thank You");
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+          ),
+          backgroundColor:
+              Colors.transparent, // Make background transparent to use gradient
+          elevation: 0,
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [  Color.fromRGBO(13, 149, 211, 1),
+                          Color.fromRGBO(9, 96, 186, 1)],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Add Plan',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
                 ),
               ),
             ),
-          ),
-        ],
+          ), // Remove shadow if you want
+        ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

@@ -6,10 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:intl/intl.dart';
 import 'package:khelnet/Controller/Tabcontroller.dart';
 import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 
 import 'package:khelnet/Pages/Fees/Upcoming.dart';
+import 'package:khelnet/Pages/Fees/setting.dart';
+import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class Fees1 extends StatefulWidget {
   const Fees1({super.key});
@@ -51,14 +54,17 @@ class _FeesState extends State<Fees1> {
     print("Selected items: $selectedIndices");
   }
 
-  Widget buildTabButton(String title, IconData icon, String tab) {
+  Widget buildTabButton(String title, dynamic iconOrImage, String tab,
+      {bool isImage = false}) {
     return GestureDetector(
       onTap: () => tabController.changeTab(tab),
       child: Obx(() {
-        Color iconColor =
-            tabController.selectedTab.value == tab ? Colors.red : Colors.blue;
-        Color textColor =
-            tabController.selectedTab.value == tab ? Colors.red : Colors.black;
+        Color iconColor = tabController.selectedTab.value == tab
+            ? Color.fromRGBO(204, 23, 23, 1)
+            : Colors.blue;
+        Color textColor = tabController.selectedTab.value == tab
+            ? Color.fromRGBO(204, 23, 23, 1)
+            : Colors.black;
 
         return GestureDetector(
           onTap: () => navigateToPage(tab),
@@ -66,13 +72,19 @@ class _FeesState extends State<Fees1> {
             height: 70,
             width: 85,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                    width: 1, color: const Color.fromRGBO(186, 186, 186, 1))),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                width: 1,
+                color: const Color.fromRGBO(186, 186, 186, 1),
+              ),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, color: iconColor),
+                isImage
+                    ? Image.asset(iconOrImage, height: 26, width: 26)
+                    : Icon(iconOrImage, color: iconColor),
+                // SizedBox(height: 7),
                 Text(
                   title,
                   style: TextStyle(color: textColor),
@@ -116,6 +128,22 @@ class _FeesState extends State<Fees1> {
     }
   }
 
+  DateTime _selectedDate = DateTime.now(); // Current date initially
+
+  // Function to show the date picker dialog
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2000), // Define the range
+      lastDate: DateTime(2100),
+    );
+    if (picked != null && picked != _selectedDate)
+      setState(() {
+        _selectedDate = picked;
+      });
+  }
+
   Widget buildContent(String content) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -129,7 +157,172 @@ class _FeesState extends State<Fees1> {
   Future _navigateToUpcoming() {
     return Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => Upcoming()),
+      MaterialPageRoute(builder: (context) => const Upcoming()),
+    );
+  }
+
+  void showCustomBottomSheet() {
+    Get.bottomSheet(
+      isScrollControlled: true,
+      Container(
+        height: 600,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+        ),
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SizedBox(
+                  width: 170.w,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 4,
+                      width: 27,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(23),
+                          color: Color.fromRGBO(241, 241, 241, 1)),
+                    ),
+                    SizedBox(
+                      height: 1.5.h,
+                    ),
+                    Container(
+                      height: 3,
+                      width: 19,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(23),
+                          color: Color.fromRGBO(241, 241, 241, 1)),
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 130.w,
+                ),
+                InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(
+                      Icons.cancel,
+                      color: Colors.grey,
+                      size: 35,
+                    ))
+              ],
+            ),
+            SizedBox(
+              height: 5.h,
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(top: 9, left: 10, right: 10, bottom: 9),
+              child: Container(
+                height: 64.h,
+                width: 374.w,
+                decoration: BoxDecoration(
+                    color: Color.fromRGBO(241, 241, 241, 1),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                        width: 1, color: Color.fromRGBO(241, 241, 241, 1))),
+                child: Center(
+                  child: ListTile(
+                    leading: Padding(
+                      padding: const EdgeInsets.only(top: 3),
+                      child: Image.asset("assets/images/modi.png"),
+                    ),
+                    title: Text(
+                      "Narendra Modi",
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(0, 0, 0, 1)),
+                    ),
+                    subtitle: Text(
+                      "Khelnet Sports Academy Morning",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                          color: Color.fromRGBO(0, 0, 0, 1)),
+                    ),
+                    trailing: InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Color.fromRGBO(186, 186, 186, 1),
+                        )),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Monthly Khelent Plan",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: Color.fromRGBO(0, 0, 0, 1)),
+                  ),
+                  Container(
+                    height: 32.h,
+                    width: 81.w,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(32),
+                        color: Color.fromRGBO(223, 92, 92, 0.26),
+                        border: Border.all(
+                            width: 1, color: Color.fromRGBO(204, 23, 23, 1))),
+                    child: Center(
+                        child: Text(
+                      "Plan Due",
+                      style: TextStyle(
+                          color: Color.fromRGBO(204, 23, 23, 1),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500),
+                    )),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 20.h,), 
+            Row(
+         
+              children: [
+                Text(
+                  "Transaction Date : ",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: Color.fromRGBO(186, 186, 186, 1),
+                  ),
+                ),
+                SizedBox(width: 130.w,),
+                Text(
+                  DateFormat('dd/MM/yyyy')
+                      .format(_selectedDate), // Format the date
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                ),
+                InkWell(
+                    onTap: () {
+                      _selectDate(context);
+                    },
+                    child: Image.asset("assets/images/Subtract.png", height: 20, width: 20,))
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -141,7 +334,9 @@ class _FeesState extends State<Fees1> {
         title: "Fees",
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(const Setting()); // Navigate to Setting page
+              },
               icon: const Icon(
                 Icons.settings,
                 color: Colors.black,
@@ -280,11 +475,15 @@ class _FeesState extends State<Fees1> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   buildTabButton(
-                      "Past Dues", Icons.arrow_downward, 'past_dues'),
-                  buildTabButton("Upcoming", Icons.event, 'upcoming'),
-                  buildTabButton("History", Icons.history, 'history'),
+                      "Past Dues", 'assets/images/down.png', 'past_dues',
+                      isImage: true),
                   buildTabButton(
-                      "Installment", Icons.account_tree, 'installment'),
+                      "Upcoming", 'assets/images/upcoming.png', 'upcoming',
+                      isImage: true),
+                  buildTabButton("History", Icons.history, 'history'),
+                  buildTabButton("Installment", 'assets/images/installment.png',
+                      'installment',
+                      isImage: true),
                 ],
               ),
             ),
@@ -487,7 +686,9 @@ class _FeesState extends State<Fees1> {
                                                 width: 20,
                                               ),
                                               InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  showCustomBottomSheet();
+                                                },
                                                 child: Container(
                                                   height: 40,
                                                   width: 80,
@@ -568,141 +769,6 @@ class _FeesState extends State<Fees1> {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Positioned(
-                          bottom: 40,
-                          left: 0,
-                          right: 0,
-                          child: Center(
-                            child: InkWell(
-                              onTap: () {
-                                isSelectionMode ? handleButtonPress : null;
-                                Get.dialog(Dialog(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Container(
-                                    height: 437,
-                                    width: 347,
-                                    decoration: const BoxDecoration(),
-                                    child: Column(
-                                      children: [
-                                        const SizedBox(
-                                          height: 37,
-                                        ),
-                                        Center(
-                                            child: Image.asset(
-                                                "assets/images/multiple.png")),
-                                        const SizedBox(
-                                          height: 20,
-                                        ),
-                                        const Center(
-                                            child: Text(
-                                          "Do You Want To Confirm ",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 20,
-                                          ),
-                                        )),
-                                        const Center(
-                                            child: Text(
-                                          "Multiple Payments ?",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 20,
-                                          ),
-                                        )),
-                                        SizedBox(height: 65.h),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: InkWell(
-                                            onTap: () {
-                                              Get.back();
-                                            },
-                                            child: Container(
-                                              width: 235,
-                                              height: 47,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(80),
-                                                  border: Border.all(
-                                                      color: Colors.blue)),
-                                              child: const Center(
-                                                  child: Text(
-                                                "Cancel",
-                                                style: TextStyle(
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.w700,
-                                                    color: Colors.blue),
-                                              )),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: InkWell(
-                                            onTap: () {
-                                              Get.back();
-                                            },
-                                            child: Container(
-                                              width: 235,
-                                              height: 47,
-                                              decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(80),
-                                                  gradient:
-                                                      const LinearGradient(
-                                                          begin: Alignment
-                                                              .centerLeft,
-                                                          end: Alignment
-                                                              .centerRight,
-                                                          colors: [
-                                                        Color.fromRGBO(
-                                                            13, 149, 211, 1),
-                                                        Color.fromRGBO(
-                                                            9, 96, 186, 1)
-                                                      ])),
-                                              child: const Center(
-                                                  child: Text(
-                                                "Confirm",
-                                                style: TextStyle(
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.w700,
-                                                    color: Colors.white),
-                                              )),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ));
-                              },
-                              child: Container(
-                                height: 64,
-                                width: 315,
-                                decoration: BoxDecoration(
-                                    gradient: const LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          Color.fromRGBO(13, 149, 211, 1),
-                                          Color.fromRGBO(9, 96, 186, 1),
-                                        ]),
-                                    borderRadius: BorderRadius.circular(84)),
-                                child: const Center(
-                                    child: Text(
-                                  "Make Payment Sucess",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16,
-                                      color: Color.fromRGBO(251, 251, 251, 1)),
-                                )),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   );
 
@@ -726,6 +792,134 @@ class _FeesState extends State<Fees1> {
           ],
         ),
       ),
+      floatingActionButton: SizedBox(
+        height: 64.0,
+        width: 315.0,
+        child: FloatingActionButton(
+          onPressed: () {
+            isSelectionMode ? handleButtonPress : null;
+            Get.dialog(Dialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Container(
+                height: 437,
+                width: 347,
+                decoration: const BoxDecoration(),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 37,
+                    ),
+                    Center(child: Image.asset("assets/images/multiple.png")),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Center(
+                        child: Text(
+                      "Do You Want To Confirm ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
+                    )),
+                    const Center(
+                        child: Text(
+                      "Multiple Payments ?",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
+                    )),
+                    SizedBox(height: 65.h),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Container(
+                          width: 235,
+                          height: 47,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              border: Border.all(color: Colors.blue)),
+                          child: const Center(
+                              child: Text(
+                            "Cancel",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.blue),
+                          )),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Container(
+                          width: 235,
+                          height: 47,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(80),
+                              gradient: const LinearGradient(
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                  colors: [
+                                    Color.fromRGBO(13, 149, 211, 1),
+                                    Color.fromRGBO(9, 96, 186, 1)
+                                  ])),
+                          child: const Center(
+                              child: Text(
+                            "Confirm",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ));
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color.fromRGBO(13, 149, 211, 1),
+                  Color.fromRGBO(9, 96, 186, 1)
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Make Payment Sucess',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ), // Remove shadow if you want
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

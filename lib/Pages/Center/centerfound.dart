@@ -131,43 +131,51 @@ class _CenterfoundState extends State<Centerfound> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: InkWell(
-                onTap: () {
-                  Get.to(Addcenter(
-                    startTime: '',
-                    endTime: '',
-                  ));
-                },
-                child: Center(
-                  child: Container(
-                    width: 347,
-                    height: 51,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(103),
-                        gradient: const LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color.fromRGBO(13, 149, 211, 1),
-                              Color.fromRGBO(9, 96, 186, 1)
-                            ])),
-                    child: const Center(
-                        child: Text(
-                      "Add Centers",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white),
-                    )),
-                  ),
-                ),
-              ),
-            )
+           
           ],
         ),
       ),
+      floatingActionButton: Container(
+           width: 347,
+                    height: 51,
+        child: FloatingActionButton(
+          onPressed: () {
+            // Define the action when the button is pressed
+             Get.to(Addcenter(
+                    startTime: '',
+                    endTime: '',
+                  ));
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+          ),
+          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          elevation: 0,
+          child:  Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [  Color.fromRGBO(13, 149, 211, 1),
+                          Color.fromRGBO(9, 96, 186, 1)],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Add Centers',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),  // Remove shadow if you want
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

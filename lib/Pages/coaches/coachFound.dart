@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
+import 'package:khelnet/Pages/coaches/AddCoaches.dart';
 import 'package:khelnet/Pages/coaches/coachInfo.dart';
 
 class Coachfound extends StatefulWidget {
@@ -139,6 +140,43 @@ class _CoachfoundState extends State<Coachfound> {
           ),
         ],
       ),
+      floatingActionButton: Container(
+        height: 64.0, // Custom height for the button
+        width: 315.0,  // Custom width for the button
+        child: FloatingActionButton(
+          onPressed: () {
+            // Define the action when the button is pressed
+            Get.to(const Addcoaches());
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+          ),
+          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          elevation: 0,
+          child:  Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Colors.lightBlue, Colors.blue],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Add Coaches',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),  // Remove shadow if you want
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

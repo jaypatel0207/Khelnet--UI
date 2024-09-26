@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:khelnet/Pages/Students/AddStudent.dart';
 import 'package:khelnet/Pages/Students/studentbasicinfo.dart';
 import 'package:khelnet/Pages/Students/studentinfo.dart';
 
@@ -205,7 +206,7 @@ class _NodatafoundState extends State<Studentfound> {
                       )
                     ],
                   ),
-                  SizedBox(
+              const     SizedBox(
                     height: 15,
                   ),
                   // Check if there are members to show
@@ -277,39 +278,47 @@ class _NodatafoundState extends State<Studentfound> {
               ),
             ),
           ),
-          Positioned(
-            bottom: 20,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 64,
-                  width: 315,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Color.fromRGBO(13, 149, 211, 1),
-                            Color.fromRGBO(9, 96, 186, 1),
-                          ]),
-                      borderRadius: BorderRadius.circular(84)),
-                  child: Center(
-                      child: Text(
-                    "Add Students",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: Color.fromRGBO(251, 251, 251, 1)),
-                  )),
+          
+        ],
+      ),
+     
+      floatingActionButton: Container(
+        height: 64.0, // Custom height for the button
+        width: 315.0,  // Custom width for the button
+        child: FloatingActionButton(
+          onPressed: () {
+            // Define the action when the button is pressed
+            Get.to(const Addstudent());
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+          ),
+          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          elevation: 0,
+          child:  Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Colors.lightBlue, Colors.blue],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Add Student',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
                 ),
               ),
             ),
-          ),
-        ],
+          ),  // Remove shadow if you want
+        ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat, 
     );
   }
 }

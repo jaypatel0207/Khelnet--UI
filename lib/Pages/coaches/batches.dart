@@ -71,40 +71,46 @@ class _BatchesState extends State<Batches> {
             ],
           ),
         ),
-        Positioned(
-          bottom: 20,
-          left: 0,
-          right: 0,
-          child: InkWell(
-            onTap: () {
-              Get.to(Assigncenterbatch());
-            },
-            child: Center(
-              child: Container(
-                width: 347,
+        
+      ]),
+      floatingActionButton: Container(
+        width: 347,
                 height: 51,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(103),
-                    gradient: const LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [
-                          Color.fromRGBO(13, 149, 211, 1),
-                          Color.fromRGBO(9, 96, 186, 1)
-                        ])),
-                child: const Center(
-                    child: Text(
-                  "Add Center & Batches",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
-                )),
+        child: FloatingActionButton(
+          onPressed: () {
+            // Define the action when the button is pressed
+            Get.to(Assigncenterbatch());
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+          ),
+          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          elevation: 0,
+          child:  Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [  Color.fromRGBO(13, 149, 211, 1),
+                          Color.fromRGBO(9, 96, 186, 1)],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Add Student',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
+                ),
               ),
             ),
-          ),
+          ),  // Remove shadow if you want
         ),
-      ]),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

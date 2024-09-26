@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:khelnet/Pages/Plans/AddPlans&Charges.dart';
 
 class Plans extends StatefulWidget {
   const Plans({super.key});
@@ -13,7 +15,6 @@ class _PlansState extends State<Plans> {
     "Khelnet Plan 01",
     "Khelnet Plan 01",
     "Khelnet Plan 01",
-    
   ];
 
   int totalplans = 0;
@@ -24,6 +25,7 @@ class _PlansState extends State<Plans> {
     super.initState();
     totalplans = PlanList.length;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,7 @@ class _PlansState extends State<Plans> {
                   Expanded(
                     child: TextField(
                       // onChanged: (value) => _runFilter(value),
-        
+
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.search,
@@ -76,563 +78,575 @@ class _PlansState extends State<Plans> {
                             color: Colors.black,
                           )),
                       Text(
-                        totalplans.toString(), 
+                        totalplans.toString(),
                         //"0"
-                          // totalMembers.toString(), // Show the total number of members here
-                          // style: TextStyle(
-                          //     color: Colors.blue,
-                          //     fontWeight: FontWeight.w500,
-                          //     fontSize: 12),
-                          )
+                        // totalMembers.toString(), // Show the total number of members here
+                        // style: TextStyle(
+                        //     color: Colors.blue,
+                        //     fontWeight: FontWeight.w500,
+                        //     fontSize: 12),
+                      )
                     ],
                   )
                 ],
               ),
             ),
-           Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 88,
-                            width: 158,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              border: Border.all(
-                                  width: 1.5,
-                                  color: Color.fromRGBO(241, 241, 241, 1)),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 8.0, top: 13),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Khelnet Plan 01",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8.0,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Monthly",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text("₹ 5000"),
-                                      SizedBox(
-                                        width: 75,
-                                      ),
-                                      Image.asset("assets/images/rupee.png")
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Container(
-                              height: 88,
-                              width: 158,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(
-                                    width: 1.5,
-                                    color: Color.fromRGBO(241, 241, 241, 1)),
-                              ),
-                              child: Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 88,
+                        width: 158,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          border: Border.all(
+                              width: 1.5,
+                              color: Color.fromRGBO(241, 241, 241, 1)),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 8.0, top: 13),
+                              child: Row(
                                 children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8.0, top: 13),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Khelnet Plan 01",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
+                                  Text(
+                                    "Khelnet Plan 01",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Monthly",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text("₹ 5000"),
-                                        SizedBox(
-                                          width: 75,
-                                        ),
-                                        Image.asset("assets/images/rupee.png")
-                                      ],
-                                    ),
-                                  )
                                 ],
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Container(
-                              height: 88,
-                              width: 158,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(
-                                    width: 1.5,
-                                    color: Color.fromRGBO(241, 241, 241, 1)),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8.0,
                               ),
-                              child: Column(
+                              child: Row(
                                 children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8.0, top: 13),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Khelnet Plan 01",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
+                                  Text(
+                                    "Monthly",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Monthly",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text("₹ 5000"),
-                                        SizedBox(
-                                          width: 75,
-                                        ),
-                                        Image.asset("assets/images/rupee.png")
-                                      ],
-                                    ),
-                                  )
                                 ],
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Container(
-                              height: 88,
-                              width: 158,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(
-                                    width: 1.5,
-                                    color: Color.fromRGBO(241, 241, 241, 1)),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8,
                               ),
-                              child: Column(
+                              child: Row(
                                 children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8.0, top: 13),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Khelnet Plan 01",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                  Text("₹ 5000"),
+                                  SizedBox(
+                                    width: 75,
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Monthly",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text("₹ 5000"),
-                                        SizedBox(
-                                          width: 75,
-                                        ),
-                                        Image.asset("assets/images/rupee.png")
-                                      ],
-                                    ),
-                                  )
+                                  Image.asset("assets/images/rupee.png")
                                 ],
                               ),
-                            ),
-                          ),
-                        ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0, top: 30),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 88,
-                            width: 158,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              border: Border.all(
-                                  width: 1.5,
-                                  color: Color.fromRGBO(241, 241, 241, 1)),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 8.0, top: 13),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Khelnet Plan 01",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14,
-                                        ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Container(
+                          height: 88,
+                          width: 158,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                width: 1.5,
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 13),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Khelnet Plan 01",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8.0,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Monthly",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 8,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Text("₹ 5000"),
-                                      SizedBox(
-                                        width: 75,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Monthly",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
                                       ),
-                                      Image.asset("assets/images/rupee.png")
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("₹ 5000"),
+                                    SizedBox(
+                                      width: 75,
+                                    ),
+                                    Image.asset("assets/images/rupee.png")
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Container(
-                              height: 88,
-                              width: 158,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(
-                                    width: 1.5,
-                                    color: Color.fromRGBO(241, 241, 241, 1)),
-                              ),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8.0, top: 13),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Khelnet Plan 01",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Monthly",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text("₹ 5000"),
-                                        SizedBox(
-                                          width: 75,
-                                        ),
-                                        Image.asset("assets/images/rupee.png")
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Container(
-                              height: 88,
-                              width: 158,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(
-                                    width: 1.5,
-                                    color: Color.fromRGBO(241, 241, 241, 1)),
-                              ),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8.0, top: 13),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Khelnet Plan 01",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Monthly",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text("₹ 5000"),
-                                        SizedBox(
-                                          width: 75,
-                                        ),
-                                        Image.asset("assets/images/rupee.png")
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 12),
-                            child: Container(
-                              height: 88,
-                              width: 158,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(
-                                    width: 1.5,
-                                    color: Color.fromRGBO(241, 241, 241, 1)),
-                              ),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.only(left: 8.0, top: 13),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Khelnet Plan 01",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          "Monthly",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: 8,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Text("₹ 5000"),
-                                        SizedBox(
-                                          width: 75,
-                                        ),
-                                        Image.asset("assets/images/rupee.png")
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
-                ), 
-                SizedBox(height: 110,),
-                Positioned(
-            bottom: 20,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 64,
-                  width: 315,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Color.fromRGBO(13, 149, 211, 1),
-                            Color.fromRGBO(9, 96, 186, 1),
-                          ]),
-                      borderRadius: BorderRadius.circular(84)),
-                  child: Center(
-                      child: Text(
-                    "Add Plan",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        color: Color.fromRGBO(251, 251, 251, 1)),
-                  )),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Container(
+                          height: 88,
+                          width: 158,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                width: 1.5,
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 13),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Khelnet Plan 01",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Monthly",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("₹ 5000"),
+                                    SizedBox(
+                                      width: 75,
+                                    ),
+                                    Image.asset("assets/images/rupee.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Container(
+                          height: 88,
+                          width: 158,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                width: 1.5,
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 13),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Khelnet Plan 01",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Monthly",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("₹ 5000"),
+                                    SizedBox(
+                                      width: 75,
+                                    ),
+                                    Image.asset("assets/images/rupee.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 18.0, top: 30),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 88,
+                        width: 158,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          border: Border.all(
+                              width: 1.5,
+                              color: Color.fromRGBO(241, 241, 241, 1)),
+                        ),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 8.0, top: 13),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Khelnet Plan 01",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8.0,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Monthly",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 8,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text("₹ 5000"),
+                                  SizedBox(
+                                    width: 75,
+                                  ),
+                                  Image.asset("assets/images/rupee.png")
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Container(
+                          height: 88,
+                          width: 158,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                width: 1.5,
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 13),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Khelnet Plan 01",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Monthly",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("₹ 5000"),
+                                    SizedBox(
+                                      width: 75,
+                                    ),
+                                    Image.asset("assets/images/rupee.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Container(
+                          height: 88,
+                          width: 158,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                width: 1.5,
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 13),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Khelnet Plan 01",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Monthly",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("₹ 5000"),
+                                    SizedBox(
+                                      width: 75,
+                                    ),
+                                    Image.asset("assets/images/rupee.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: Container(
+                          height: 88,
+                          width: 158,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
+                                width: 1.5,
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 8.0, top: 13),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Khelnet Plan 01",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Monthly",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text("₹ 5000"),
+                                    SizedBox(
+                                      width: 75,
+                                    ),
+                                    Image.asset("assets/images/rupee.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ),
+            SizedBox(
+              height: 110,
+            ),
           ],
         ),
       ),
+      floatingActionButton: Container(
+        height: 64.0, // Custom height for the button
+        width: 315.0, // Custom width for the button
+        child: FloatingActionButton(
+          onPressed: () {
+            // Define the action when the button is pressed
+            Get.to(AddplansCharges());
+          },
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+          ),
+          backgroundColor:
+              Colors.transparent, // Make background transparent to use gradient
+          elevation: 0,
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  Color.fromRGBO(13, 149, 211, 1),
+                  Color.fromRGBO(9, 96, 186, 1)
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              child: const Text(
+                'Add Plan',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ), // Remove shadow if you want
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

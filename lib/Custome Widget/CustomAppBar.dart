@@ -7,7 +7,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Widget? leading;
 
-  const CustomAppBar({
+  const  CustomAppBar({
     required this.title,
     this.actions,
     this.leading,
@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       leading: Row(
         children: [
-          SizedBox(
+        const   SizedBox(
             width: 13,
           ),
           Builder(builder: (context) {
@@ -37,10 +37,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Container(
                   height: 36,
                   width: 36,
-                  decoration: BoxDecoration(
+                  decoration:const  BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color.fromRGBO(13, 141, 207, 0.13)),
-                  child: Center(
+                  child:const  Center(
                       child: Icon(
                     Icons.arrow_back_ios_new,
                     color: Color.fromRGBO(11, 121, 198, 1),
@@ -55,5 +55,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize =>const  Size.fromHeight(kToolbarHeight);
 }

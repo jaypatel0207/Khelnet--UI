@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khelnet/Pages/Fees/PaymentLink.dart';
 import 'package:khelnet/Pages/coaches/Head%20Coach/homepage.dart';
 
 class Bottom extends StatefulWidget {
@@ -10,9 +11,10 @@ class Bottom extends StatefulWidget {
 
 class _BottomState extends State<Bottom> {
   List PageList = [
-    Homepage(),
+    const Homepage(),
+    const Paymentlink(), 
   ];
-
+  
   int _selectedIndex = 0;
 
   @override
@@ -25,6 +27,11 @@ class _BottomState extends State<Bottom> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex, 
         fixedColor: Colors.white,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
         
         items: [
        const  BottomNavigationBarItem(
