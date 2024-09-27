@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class GradientText extends StatelessWidget {
   final String text;
   final Gradient gradient;
-  final TextStyle style;
+ final TextStyle style;
 
   GradientText({
     required this.text,
     required this.gradient,
-    this.style = const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+   this.style = const TextStyle(fontSize: 15, fontWeight:FontWeight.w500),
   });
 
   @override

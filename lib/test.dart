@@ -1856,65 +1856,1024 @@ import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 
 
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // For formatting the date
+// import 'package:flutter/material.dart';
+// import 'package:intl/intl.dart'; // For formatting the date
 
 
-class DatePickerExample extends StatefulWidget {
-  @override
-  _DatePickerExampleState createState() => _DatePickerExampleState();
-}
+// class DatePickerExample extends StatefulWidget {
+//   @override
+//   _DatePickerExampleState createState() => _DatePickerExampleState();
+// }
 
-class _DatePickerExampleState extends State<DatePickerExample> {
-  DateTime _selectedDate = DateTime.now(); // Current date initially
+// class _DatePickerExampleState extends State<DatePickerExample> {
+//   DateTime _selectedDate = DateTime.now(); // Current date initially
 
-  // Function to show the date picker dialog
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate,
-      firstDate: DateTime(2000), // Define the range
-      lastDate: DateTime(2100),
-    );
-    if (picked != null && picked != _selectedDate)
-      setState(() {
-        _selectedDate = picked;
-      });
-  }
+//   // Function to show the date picker dialog
+//   Future<void> _selectDate(BuildContext context) async {
+//     final DateTime? picked = await showDatePicker(
+//       context: context,
+//       initialDate: _selectedDate,
+//       firstDate: DateTime(2000), // Define the range
+//       lastDate: DateTime(2100),
+//     );
+//     if (picked != null && picked != _selectedDate)
+//       setState(() {
+//         _selectedDate = picked;
+//       });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Date Picker Example'),
-      ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Transaction Date : ",
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
-                color: Color.fromRGBO(186, 186, 186, 1),
-              ),
-            ),
-            Text(
-              DateFormat('dd/MM/yyyy').format(_selectedDate), // Format the date
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-                color: Colors.black,
-              ),
-            ),
-            IconButton(
-              icon: Icon(Icons.edit_calendar, color: Colors.blue),
-              onPressed: () => _selectDate(context), // Open the date picker
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Date Picker Example'),
+//       ),
+//       body: Center(
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Text(
+//               "Transaction Date : ",
+//               style: TextStyle(
+//                 fontWeight: FontWeight.w500,
+//                 fontSize: 14,
+//                 color: Color.fromRGBO(186, 186, 186, 1),
+//               ),
+//             ),
+//             Text(
+//               DateFormat('dd/MM/yyyy').format(_selectedDate), // Format the date
+//               style: TextStyle(
+//                 fontWeight: FontWeight.w400,
+//                 fontSize: 16,
+//                 color: Colors.black,
+//               ),
+//             ),
+//             IconButton(
+//               icon: Icon(Icons.edit_calendar, color: Colors.blue),
+//               onPressed: () => _selectDate(context), // Open the date picker
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: ExtraChargesScreen(),
+//     );
+//   }
+// }
+
+// class ExtraChargesScreen extends StatefulWidget {
+//   @override
+//   _ExtraChargesScreenState createState() => _ExtraChargesScreenState();
+// }
+
+// class _ExtraChargesScreenState extends State<ExtraChargesScreen>
+//     with SingleTickerProviderStateMixin {
+//   bool showOptions = false;
+//   bool chargesAdded = false;
+//   List<Map<String, dynamic>> selectedOptions = [];
+
+//   // Dummy options list
+//   final List<Map<String, dynamic>> options = [
+//     {"title": "Shuttle Fee", "amount": 50000},
+//     {"title": "Uniform Fee", "amount": 50000},
+//     {"title": "Admission Fee", "amount": 50000},
+//     {"title": "Kit Fee", "amount": 50000},
+//     {"title": "Kit Fee", "amount": 50000},
+//   ];
+
+//   // Function to toggle the visibility of options
+//   void _toggleOptions() {
+//     setState(() {
+//       showOptions = !showOptions;
+//     });
+//   }
+
+//   // Function to handle option selection
+//   void _toggleSelection(Map<String, dynamic> option) {
+//     setState(() {
+//       if (selectedOptions.contains(option)) {
+//         selectedOptions.remove(option);
+//       } else {
+//         selectedOptions.add(option);
+//       }
+//     });
+//   }
+
+//   // Function to handle "Done" button press
+//   void _onDone() {
+//     setState(() {
+//       chargesAdded = true;
+//       showOptions = false;
+//     });
+//   }
+
+//   // Calculate total amount
+//   int _calculateTotalAmount() {
+//   return selectedOptions.fold(0, (sum, option) => sum + (option['amount'] as int));
+// }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Add Extra Charges'),
+//       ),
+//       body: Column(
+//         mainAxisAlignment: MainAxisAlignment.start,
+//         children: [
+//           // Container that behaves differently based on the state of the expansion
+//           Container(
+//             width: MediaQuery.of(context).size.width * 0.9,
+//             padding: EdgeInsets.symmetric(horizontal: 20),
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(15),
+//               border: Border.all(color: Colors.grey),
+//               color: Colors.white,
+//             ),
+//             child: Column(
+//               children: [
+//                 // Main row (fixed height section)
+//                 Container(
+//                   height: 60, // Fixed height for the main section
+//                   child: Row(
+//                     children: [
+//                       Icon(Icons.grid_view_outlined,
+//                           color: Colors.black, size: 24),
+//                       SizedBox(width: 10),
+//                       Text(
+//                         chargesAdded ? "Charges Added" : "Add Extra Charges",
+//                         style: TextStyle(
+//                             fontSize: 18, fontWeight: FontWeight.bold),
+//                       ),
+//                       Spacer(),
+//                       GestureDetector(
+//                         onTap: _toggleOptions,
+//                         child: Icon(
+//                           showOptions ? Icons.close : Icons.add,
+//                           color: Colors.blue,
+//                           size: 24,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//                 // Animated container that opens downward
+//                 AnimatedSize(
+//                   duration: Duration(milliseconds: 300),
+//                   curve: Curves.easeInOut,
+//                   child: showOptions
+//                       ? Container(
+//                           decoration: const BoxDecoration(
+//                             // Only round bottom corners when expanded
+//                             borderRadius: BorderRadius.only(
+//                               bottomLeft: Radius.circular(15),
+//                               bottomRight: Radius.circular(15),
+//                             ),
+//                           ),
+//                           child: Column(
+//                             children: [
+//                               // List of options
+//                               ...options.map((option) {
+//                                 return ListTile(
+//                                   leading: GestureDetector(
+//                                     onTap: () {
+//                                       _toggleSelection(option);
+//                                     },
+//                                     child: Icon(
+//                                       selectedOptions.contains(option)
+//                                           ? Icons.check_circle
+//                                           : Icons.radio_button_unchecked,
+//                                       color: selectedOptions.contains(option)
+//                                           ? Colors.blue
+//                                           : Colors.grey,
+//                                     ),
+//                                   ),
+//                                   title: Text(
+//                                     option['title'],
+//                                     style: const TextStyle(
+//                                         fontWeight: FontWeight.w500),
+//                                   ),
+//                                   trailing: Text(
+//                                     '₹ ${option['amount']}',
+//                                     style: const  TextStyle(
+//                                         fontSize: 16,
+//                                         fontWeight: FontWeight.bold,
+//                                         color: Colors.blue),
+//                                   ),
+//                                 );
+//                               }).toList(),
+
+//                               // Done button
+//                               Padding(
+//                                 padding: const EdgeInsets.all(8.0),
+//                                 child: ElevatedButton(
+//                                   onPressed: _onDone,
+//                                   child: Text("Done"),
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                         )
+//                       : SizedBox.shrink(), // When closed, no space is occupied.
+//                 ),
+//               ],
+//             ),
+//           ),
+//           SizedBox(height: 20), // Add some space between the container and the text
+//           // Display total amount with GST
+//           Text(
+//             chargesAdded
+//                 ? 'Total Amount: ₹ ${_calculateTotalAmount()} + 525 (GST)'
+//                 : '',
+//             style: TextStyle(
+//               fontSize: 20,
+//               fontWeight: FontWeight.bold,
+//               color: Colors.black,
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+// import 'package:flutter/material.dart';
+// import 'package:intl/intl.dart';  // For date formatting
+
+
+
+// class DateRangePickerExample extends StatefulWidget {
+//   @override
+//   _DateRangePickerExampleState createState() => _DateRangePickerExampleState();
+// }
+
+// class _DateRangePickerExampleState extends State<DateRangePickerExample> {
+//   DateTimeRange? selectedDateRange;
+
+//   // Function to open date range picker
+//   Future<void> _selectDateRange(BuildContext context) async {
+//     final DateTimeRange? picked = await showDateRangePicker(
+//       context: context,
+//       firstDate: DateTime(2020),   // Start date for the picker
+//       lastDate: DateTime(2030),    // End date for the picker
+//     );
+
+//     if (picked != null) {
+//       print("Picked Start Date: ${picked.start}");
+//       print("Picked End Date: ${picked.end}");
+//       setState(() {
+//         selectedDateRange = picked;   // Updating selected date range
+//         print("State Updated with Start: ${selectedDateRange!.start} End: ${selectedDateRange!.end}");
+//       });
+//     } else {
+//       print("No date range selected");
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: Text('Date Range Picker Example')),
+//       body: Center(
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             // Display the selected date range or a default message
+//             Text(
+//               selectedDateRange == null
+//                   ? 'Select Date Range'   // Default message when no date is picked
+//                   : '${DateFormat('dd/MM/yy').format(selectedDateRange!.start)} - ' +
+//                     '${DateFormat('dd/MM/yy').format(selectedDateRange!.end)}',  // Display the picked date range
+//               style: TextStyle(fontSize: 18),
+//             ),
+//             SizedBox(width: 10),
+//             // Icon button to open the date range picker
+//             IconButton(
+//               icon: Icon(Icons.edit_calendar, color: Colors.blue),
+//               onPressed: () {
+//                 print("Icon Button Pressed - Opening Date Picker");
+//                 _selectDateRange(context);  // Open the date picker on press
+//               },
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+// // Icon button to open the date range picker
+// IconButton(
+//   icon: Icon(Icons.edit_calendar, color: Colors.blue),
+//   onPressed: () async {
+//     print("Icon Button Pressed - Opening Date Picker");
+    
+//     // Open the date picker and get selected date range
+//     final DateTimeRange? picked = await _selectDateRange(context);
+
+//     // Ensure the state updates after selection
+//     if (picked != null) {
+//       setState(() {
+//         selectedDateRange = picked;  // Updating the date range immediately
+//         print("State Updated with Start: ${selectedDateRange!.start} End: ${selectedDateRange!.end}");
+//       });
+//     }
+//   },
+// ),
+
+// // Function to open date range picker
+// Future<DateTimeRange?> _selectDateRange(BuildContext context) async {
+//   final DateTimeRange? picked = await showDateRangePicker(
+//     context: context,
+//     firstDate: DateTime(2020), // Start date for the picker
+//     lastDate: DateTime(2030),  // End date for the picker
+//   );
+
+//   if (picked != null) {
+//     print("Picked Start Date: ${picked.start}");
+//     print("Picked End Date: ${picked.end}");
+//     return picked; // Return the selected date range
+//   } else {
+//     print("No date range selected");
+//     return null;
+//   }
+// }
+
+
+
+
+// void _showBottomSheet(BuildContext context) {
+//   showModalBottomSheet(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return StatefulBuilder(
+//         builder: (BuildContext context, StateSetter setState) {
+//           return Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: [
+//               ListTile(
+//                 title: Text(
+//                   selectedDateRange == null
+//                       ? 'Select Date Range'
+//                       : '${DateFormat('dd/MM/yy').format(selectedDateRange!.start)} - '
+//                         '${DateFormat('dd/MM/yy').format(selectedDateRange!.end)}',
+//                   style: TextStyle(fontSize: 18),
+//                 ),
+//                 trailing: IconButton(
+//                   icon: Icon(Icons.edit_calendar, color: Colors.blue),
+//                   onPressed: () async {
+//                     final DateTimeRange? picked = await _selectDateRange(context);
+//                     if (picked != null) {
+//                       setState(() {
+//                         selectedDateRange = picked;
+//                       });
+//                     }
+//                   },
+//                 ),
+//               ),
+//             ],
+//           );
+//         },
+//       );
+//     },
+//   );
+// }
+
+// Future<DateTimeRange?> _selectDateRange(BuildContext context) async {
+//   final DateTimeRange? picked = await showDateRangePicker(
+//     context: context,
+//     firstDate: DateTime(2020),
+//     lastDate: DateTime(2030),
+//   );
+
+//   return picked;
+// }
+// \end{code}
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// class SelectableContainerExample extends StatefulWidget {
+//   @override
+//   _SelectableContainerExampleState createState() => _SelectableContainerExampleState();
+// }
+
+// class _SelectableContainerExampleState extends State<SelectableContainerExample> {
+//   int selectedContainerIndex = -1; // Variable to track the selected container
+
+//   @override
+//   Widget build(BuildContext context) {
+    // return Padding(
+    //   padding: const EdgeInsets.only(top: 20),
+    //   child: Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //     children: [
+    //       // Cash Container
+    //       GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             selectedContainerIndex = 0; // Update the index for Cash
+    //           });
+    //         },
+    //         child: Container(
+    //           height: 40,
+    //           width: 109,
+    //           decoration: BoxDecoration(
+    //             color: selectedContainerIndex == 0 // Change color if selected
+    //                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+    //                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+    //             borderRadius: BorderRadius.circular(61),
+    //           ),
+    //           child: Row(
+    //             children: [
+    //               SizedBox(width: 20),
+    //               Container(
+    //                 height: 19,
+    //                 width: 19,
+    //                 decoration: BoxDecoration(
+    //                   shape: BoxShape.circle,
+    //                   border: Border.all(
+    //                     width: 2,
+    //                     color: Color.fromRGBO(9, 96, 186, 1),
+    //                   ),
+    //                 ),
+    //                 child: Center(
+    //                   child: Icon(
+    //                     Icons.currency_rupee,
+    //                     color: Color.fromRGBO(9, 96, 186, 1),
+    //                     size: 15,
+    //                   ),
+    //                 ),
+    //               ),
+    //               SizedBox(width: 10),
+    //               Text(
+    //                 "Cash",
+    //                 style: TextStyle(
+    //                   fontSize: 15,
+    //                   fontWeight: FontWeight.w500,
+    //                   color: Color.fromRGBO(0, 0, 0, 1),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //       // UPI Container
+    //       GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             selectedContainerIndex = 1; // Update the index for UPI
+    //           });
+    //         },
+    //         child: Container(
+    //           height: 40,
+    //           width: 109,
+    //           decoration: BoxDecoration(
+    //             color: selectedContainerIndex == 1 // Change color if selected
+    //                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+    //                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+    //             borderRadius: BorderRadius.circular(61),
+    //           ),
+    //           child: Row(
+    //             children: [
+    //               SizedBox(width: 27),
+    //               Center(
+    //                 child: Icon(
+    //                   Icons.account_balance,
+    //                   color: Color.fromRGBO(9, 96, 186, 1),
+    //                   size: 17,
+    //                 ),
+    //               ),
+    //               SizedBox(width: 10),
+    //               Text(
+    //                 "UPI",
+    //                 style: TextStyle(
+    //                   fontSize: 15,
+    //                   fontWeight: FontWeight.w500,
+    //                   color: Color.fromRGBO(0, 0, 0, 1),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //       // Others Container
+    //       GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             selectedContainerIndex = 2; // Update the index for Others
+    //           });
+    //         },
+    //         child: Container(
+    //           height: 40,
+    //           width: 119,
+    //           decoration: BoxDecoration(
+    //             color: selectedContainerIndex == 2 // Change color if selected
+    //                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+    //                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+    //             borderRadius: BorderRadius.circular(61),
+    //           ),
+    //           child: Row(
+    //             children: [
+    //               SizedBox(width: 22),
+    //               Center(
+    //                 child: Icon(
+    //                   Icons.account_balance_wallet_outlined,
+    //                   color: Color.fromRGBO(9, 96, 186, 1),
+    //                   size: 17,
+    //                 ),
+    //               ),
+    //               SizedBox(width: 10),
+    //               Text(
+    //                 "Others",
+    //                 style: TextStyle(
+    //                   fontSize: 15,
+    //                   fontWeight: FontWeight.w500,
+    //                   color: Color.fromRGBO(0, 0, 0, 1),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
+//   }
+// }
+// import 'package:flutter/material.dart';
+
+// class SelectableContainerExample extends StatefulWidget {
+//   @override
+//   _SelectableContainerExampleState createState() => _SelectableContainerExampleState();
+// }
+
+// class _SelectableContainerExampleState extends State<SelectableContainerExample> {
+//   int selectedContainerIndex = -1; // Variable to track the selected container
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(top: 20),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         children: [
+//           // Cash Container
+//           GestureDetector(
+//             onTap: () {
+//               setState(() {
+//                 selectedContainerIndex = 0; // Update the index for Cash
+//               });
+//             },
+//             child: Container(
+//               height: 40,
+//               width: 109,
+//               decoration: BoxDecoration(
+//                 color: selectedContainerIndex == 0 // Change color if selected
+//                     ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                     : Color.fromRGBO(248, 247, 247, 1), // Default color
+//                 borderRadius: BorderRadius.circular(61),
+//               ),
+//               child: Row(
+//                 children: [
+//                   SizedBox(width: 20),
+//                   Container(
+//                     height: 19,
+//                     width: 19,
+//                     decoration: BoxDecoration(
+//                       shape: BoxShape.circle,
+//                       border: Border.all(
+//                         width: 2,
+//                         color: Color.fromRGBO(9, 96, 186, 1),
+//                       ),
+//                     ),
+//                     child: Center(
+//                       child: Icon(
+//                         Icons.currency_rupee,
+//                         color: Color.fromRGBO(9, 96, 186, 1),
+//                         size: 15,
+//                       ),
+//                     ),
+//                   ),
+//                   SizedBox(width: 10),
+//                   Text(
+//                     "Cash",
+//                     style: TextStyle(
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.w500,
+//                       color: Color.fromRGBO(0, 0, 0, 1),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           // UPI Container
+//           GestureDetector(
+//             onTap: () {
+//               setState(() {
+//                 selectedContainerIndex = 1; // Update the index for UPI
+//               });
+//             },
+//             child: Container(
+//               height: 40,
+//               width: 109,
+//               decoration: BoxDecoration(
+//                 color: selectedContainerIndex == 1 // Change color if selected
+//                     ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                     : Color.fromRGBO(248, 247, 247, 1), // Default color
+//                 borderRadius: BorderRadius.circular(61),
+//               ),
+//               child: Row(
+//                 children: [
+//                   SizedBox(width: 27),
+//                   Center(
+//                     child: Icon(
+//                       Icons.account_balance,
+//                       color: Color.fromRGBO(9, 96, 186, 1),
+//                       size: 17,
+//                     ),
+//                   ),
+//                   SizedBox(width: 10),
+//                   Text(
+//                     "UPI",
+//                     style: TextStyle(
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.w500,
+//                       color: Color.fromRGBO(0, 0, 0, 1),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           // Others Container
+//           GestureDetector(
+//             onTap: () {
+//               setState(() {
+//                 selectedContainerIndex = 2; // Update the index for Others
+//               });
+//             },
+//             child: Container(
+//               height: 40,
+//               width: 119,
+//               decoration: BoxDecoration(
+//                 color: selectedContainerIndex == 2 // Change color if selected
+//                     ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                     : Color.fromRGBO(248, 247, 247, 1), // Default color
+//                 borderRadius: BorderRadius.circular(61),
+//               ),
+//               child: Row(
+//                 children: [
+//                   SizedBox(width: 22),
+//                   Center(
+//                     child: Icon(
+//                       Icons.account_balance_wallet_outlined,
+//                       color: Color.fromRGBO(9, 96, 186, 1),
+//                       size: 17,
+//                     ),
+//                   ),
+//                   SizedBox(width: 10),
+//                   Text(
+//                     "Others",
+//                     style: TextStyle(
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.w500,
+//                       color: Color.fromRGBO(0, 0, 0, 1),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+// import 'package:flutter/material.dart';
+
+// class SelectableContainerExample extends StatefulWidget {
+//   @override
+//   _SelectableContainerExampleState createState() =>
+//       _SelectableContainerExampleState();
+// }
+
+// class _SelectableContainerExampleState
+//     extends State<SelectableContainerExample> {
+//   int selectedContainerIndex = -1; // Variable to track the selected container
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.only(top: 20),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//         children: [
+//           // Cash Container
+//           GestureDetector(
+//             onTap: () {
+//               setState(() {
+//                 selectedContainerIndex = 0; // Update the index for Cash
+//               });
+//             },
+//             child: AnimatedContainer(
+//               duration: Duration(milliseconds: 150), // Duration for the animation
+//               height: 40,
+//               width: 109,
+//               decoration: BoxDecoration(
+//                 color: selectedContainerIndex == 0
+//                     ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                     : Color.fromRGBO(248, 247, 247, 1), // Default color
+//                 borderRadius: BorderRadius.circular(61),
+//                 boxShadow: selectedContainerIndex == 0 // Shadow effect for selected
+//                     ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+//                     : [],
+//               ),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Icon(
+//                     Icons.currency_rupee,
+//                     color: Color.fromRGBO(9, 96, 186, 1),
+//                     size: 15,
+//                   ),
+//                   SizedBox(width: 10),
+//                   Text(
+//                     "Cash",
+//                     style: TextStyle(
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.w500,
+//                       color: Color.fromRGBO(0, 0, 0, 1),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           // UPI Container
+//           GestureDetector(
+//             onTap: () {
+//               setState(() {
+//                 selectedContainerIndex = 1; // Update the index for UPI
+//               });
+//             },
+//             child: AnimatedContainer(
+//               duration: Duration(milliseconds: 150), // Duration for the animation
+//               height: 40,
+//               width: 109,
+//               decoration: BoxDecoration(
+//                 color: selectedContainerIndex == 1
+//                     ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                     : Color.fromRGBO(248, 247, 247, 1), // Default color
+//                 borderRadius: BorderRadius.circular(61),
+//                 boxShadow: selectedContainerIndex == 1 // Shadow effect for selected
+//                     ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+//                     : [],
+//               ),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Icon(
+//                     Icons.account_balance,
+//                     color: Color.fromRGBO(9, 96, 186, 1),
+//                     size: 17,
+//                   ),
+//                   SizedBox(width: 10),
+//                   Text(
+//                     "UPI",
+//                     style: TextStyle(
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.w500,
+//                       color: Color.fromRGBO(0, 0, 0, 1),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           // Others Container
+//           GestureDetector(
+//             onTap: () {
+//               setState(() {
+//                 selectedContainerIndex = 2; // Update the index for Others
+//               });
+//             },
+//             child: AnimatedContainer(
+//               duration: Duration(milliseconds: 150), // Duration for the animation
+//               height: 40,
+//               width: 119,
+//               decoration: BoxDecoration(
+//                 color: selectedContainerIndex == 2
+//                     ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                     : Color.fromRGBO(248, 247, 247, 1), // Default color
+//                 borderRadius: BorderRadius.circular(61),
+//                 boxShadow: selectedContainerIndex == 2 // Shadow effect for selected
+//                     ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+//                     : [],
+//               ),
+//               child: Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Icon(
+//                     Icons.account_balance_wallet_outlined,
+//                     color: Color.fromRGBO(9, 96, 186, 1),
+//                     size: 17,
+//                   ),
+//                   SizedBox(width: 10),
+//                   Text(
+//                     "Others",
+//                     style: TextStyle(
+//                       fontSize: 15,
+//                       fontWeight: FontWeight.w500,
+//                       color: Color.fromRGBO(0, 0, 0, 1),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int selectedContainerIndex = 0; // Define the variable
+
+// Padding(
+//   padding: const EdgeInsets.only(top: 20),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//     children: [
+//       // Cash Container
+//       GestureDetector(
+//         onTap: () {
+//           setModalState(() {
+//             selectedContainerIndex = 0; // Update the index for Cash
+//           });
+//         },
+//         child: AnimatedContainer(
+//           duration: Duration(milliseconds: 150), // Duration for the animation
+//           height: 40,
+//           width: 109,
+//           decoration: BoxDecoration(
+//             color: selectedContainerIndex == 0
+//                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+//             borderRadius: BorderRadius.circular(61),
+//             boxShadow: selectedContainerIndex == 0 // Shadow effect for selected
+//                 ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+//                 : [],
+//           ),
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: const [
+//               Icon(
+//                 Icons.currency_rupee,
+//                 color: Color.fromRGBO(9, 96, 186, 1),
+//                 size: 15,
+//               ),
+//               SizedBox(width: 10),
+//               Text(
+//                 "Cash",
+//                 style: TextStyle(
+//                   fontSize: 15,
+//                   fontWeight: FontWeight.w500,
+//                   color: Color.fromRGBO(0, 0, 0, 1),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//       // UPI Container
+//       GestureDetector(
+//         onTap: () {
+//           setModalState(() {
+//             selectedContainerIndex = 1; // Update the index for UPI
+//           });
+//         },
+//         child: AnimatedContainer(
+//           duration: Duration(milliseconds: 150), // Duration for the animation
+//           height: 40,
+//           width: 109,
+//           decoration: BoxDecoration(
+//             color: selectedContainerIndex == 1
+//                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+//             borderRadius: BorderRadius.circular(61),
+//             boxShadow: selectedContainerIndex == 1 // Shadow effect for selected
+//                 ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+//                 : [],
+//           ),
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Icon(
+//                 Icons.account_balance,
+//                 color: Color.fromRGBO(9, 96, 186, 1),
+//                 size: 17,
+//               ),
+//               SizedBox(width: 10),
+//               Text(
+//                 "UPI",
+//                 style: TextStyle(
+//                   fontSize: 15,
+//                   fontWeight: FontWeight.w500,
+//                   color: Color.fromRGBO(0, 0, 0, 1),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//       // Others Container
+//       GestureDetector(
+//         onTap: () {
+//           setModalState(() {
+//             selectedContainerIndex = 2; // Update the index for Others
+//           });
+//         },
+//         child: AnimatedContainer(
+//           duration: Duration(milliseconds: 150), // Duration for the animation
+//           height: 40,
+//           width: 119,
+//           decoration: BoxDecoration(
+//             color: selectedContainerIndex == 2
+//                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+//                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+//             borderRadius: BorderRadius.circular(61),
+//             boxShadow: selectedContainerIndex == 2 // Shadow effect for selected
+//                 ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+//                 : [],
+//           ),
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               Icon(
+//                 Icons.account_balance_wallet_outlined,
+//                 color: Color.fromRGBO(9, 96, 186, 1),
+//                 size: 17,
+//               ),
+//               SizedBox(width: 10),
+//               Text(
+//                 "Others",
+//                 style: TextStyle(
+//                   fontSize: 15,
+//                   fontWeight: FontWeight.w500,
+//                   color: Color.fromRGBO(0, 0, 0, 1),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     ],
+//   ),
+// )

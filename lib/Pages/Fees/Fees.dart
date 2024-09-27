@@ -9,9 +9,11 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:khelnet/Controller/Tabcontroller.dart';
 import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
+import 'package:khelnet/Custome%20Widget/Gradient.dart';
 
 import 'package:khelnet/Pages/Fees/Upcoming.dart';
 import 'package:khelnet/Pages/Fees/setting.dart';
+import 'package:khelnet/test.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
 
 class Fees1 extends StatefulWidget {
@@ -21,10 +23,12 @@ class Fees1 extends StatefulWidget {
   State<Fees1> createState() => _FeesState();
 }
 
-class _FeesState extends State<Fees1> {
+class _FeesState extends State<Fees1> with SingleTickerProviderStateMixin {
   final CustomTabController tabController = Get.put(CustomTabController());
   List<bool> selectedItems = List.generate(10, (index) => false);
   bool isSelectionMode = false;
+    int selectedContainerIndex = -1; // Variable to track the selected container
+
 
   void toggleSelection(int index) {
     if (isSelectionMode) {
@@ -53,6 +57,29 @@ class _FeesState extends State<Fees1> {
     // Process the selected items
     print("Selected items: $selectedIndices");
   }
+
+  DateTimeRange? selectedDateRange;
+
+  
+
+  // Function to open date range picker
+ Future<DateTimeRange?> _selectDateRange(BuildContext context) async {
+  final DateTimeRange? picked = await showDateRangePicker(
+    context: context,
+    firstDate: DateTime(2020), // Start date for the picker
+    lastDate: DateTime(2030),  // End date for the picker
+  );
+
+  if (picked != null) {
+    print("Picked Start Date: ${picked.start}");
+    print("Picked End Date: ${picked.end}");
+    return picked; // Return the selected date range
+  } else {
+    print("No date range selected");
+    return null;
+  }
+}
+
 
   Widget buildTabButton(String title, dynamic iconOrImage, String tab,
       {bool isImage = false}) {
@@ -144,6 +171,31 @@ class _FeesState extends State<Fees1> {
       });
   }
 
+  // DateTimeRange? selectedDateRange;
+
+  // // Function to open date range picker
+  // Future<void> _selectDateRange(BuildContext context) async {
+  //   final DateTimeRange? picked = await showDateRangePicker(
+  //     context: context,
+  //     firstDate: DateTime(2020),   // Start date for the picker
+  //     lastDate: DateTime(2030),    // End date for the picker
+  //   );
+
+  //   // Ensure dates are picked, and update the state
+  //   if (picked != null && picked != selectedDateRange) {
+  //     setState(() {
+  //       selectedDateRange = picked;   // Updating selected date range
+  //     });
+  //   }
+  // }
+
+// if (picked != null && picked != selectedDateRange) {
+//    print('Selected range: ${picked.start} to ${picked.end}');  // Add this line to check if dates are selected
+//    setState(() {
+//      selectedDateRange = picked;
+//    });
+// }
+
   Widget buildContent(String content) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
@@ -162,168 +214,762 @@ class _FeesState extends State<Fees1> {
   }
 
   void showCustomBottomSheet() {
+    // Resetting state when opening the BottomSheet
+    setState(() {
+      showOptions = false; // Ensure it's reset
+    });
+
     Get.bottomSheet(
       isScrollControlled: true,
       Container(
-        height: 600,
+        height: 641.h,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           color: Colors.white,
         ),
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                SizedBox(
-                  width: 170.w,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 4,
-                      width: 27,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(23),
-                          color: Color.fromRGBO(241, 241, 241, 1)),
-                    ),
-                    SizedBox(
-                      height: 1.5.h,
-                    ),
-                    Container(
-                      height: 3,
-                      width: 19,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(23),
-                          color: Color.fromRGBO(241, 241, 241, 1)),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  width: 130.w,
-                ),
-                InkWell(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Icon(
-                      Icons.cancel,
-                      color: Colors.grey,
-                      size: 35,
-                    ))
-              ],
-            ),
-            SizedBox(
-              height: 5.h,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.only(top: 9, left: 10, right: 10, bottom: 9),
-              child: Container(
-                height: 64.h,
-                width: 374.w,
-                decoration: BoxDecoration(
-                    color: Color.fromRGBO(241, 241, 241, 1),
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                        width: 1, color: Color.fromRGBO(241, 241, 241, 1))),
-                child: Center(
-                  child: ListTile(
-                    leading: Padding(
-                      padding: const EdgeInsets.only(top: 3),
-                      child: Image.asset("assets/images/modi.png"),
-                    ),
-                    title: Text(
-                      "Narendra Modi",
-                      style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500,
-                          color: Color.fromRGBO(0, 0, 0, 1)),
-                    ),
-                    subtitle: Text(
-                      "Khelnet Sports Academy Morning",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13,
-                          color: Color.fromRGBO(0, 0, 0, 1)),
-                    ),
-                    trailing: InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color.fromRGBO(186, 186, 186, 1),
-                        )),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: StatefulBuilder(
+          // Use StatefulBuilder to manage state within the BottomSheet
+          builder: (BuildContext context, StateSetter setModalState) {
+            return SingleChildScrollView(
+              child: Column(
                 children: [
-                  Text(
-                    "Monthly Khelent Plan",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                        color: Color.fromRGBO(0, 0, 0, 1)),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 170.w,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 4,
+                            width: 27,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(23),
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          ),
+                          SizedBox(
+                            height: 1.5.h,
+                          ),
+                          Container(
+                            height: 3,
+                            width: 19,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(23),
+                                color: Color.fromRGBO(241, 241, 241, 1)),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        width: 130.w,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Get.back(); // Close the bottom sheet
+                        },
+                        child: Icon(
+                          Icons.cancel,
+                          color: Colors.grey,
+                          size: 35,
+                        ),
+                      )
+                    ],
                   ),
-                  Container(
-                    height: 32.h,
-                    width: 81.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32),
-                        color: Color.fromRGBO(223, 92, 92, 0.26),
-                        border: Border.all(
-                            width: 1, color: Color.fromRGBO(204, 23, 23, 1))),
-                    child: Center(
-                        child: Text(
-                      "Plan Due",
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 9, left: 10, right: 10, bottom: 9),
+                    child: Container(
+                      height: 64.h,
+                      width: 374.w,
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(241, 241, 241, 1),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                              width: 1,
+                              color: Color.fromRGBO(241, 241, 241, 1))),
+                      child: Center(
+                        child: ListTile(
+                          leading: Padding(
+                            padding: const EdgeInsets.only(top: 3),
+                            child: Image.asset("assets/images/modi.png"),
+                          ),
+                          title: Text(
+                            "Narendra Modi",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w500,
+                                color: Color.fromRGBO(0, 0, 0, 1)),
+                          ),
+                          subtitle: Text(
+                            "Khelnet Sports Academy Morning",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 13,
+                                color: Color.fromRGBO(0, 0, 0, 1)),
+                          ),
+                          trailing: InkWell(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: Color.fromRGBO(186, 186, 186, 1),
+                              )),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 12, right: 12, top: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Monthly Khelent Plan",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: Color.fromRGBO(0, 0, 0, 1)),
+                        ),
+                        Container(
+                          height: 32.h,
+                          width: 81.w,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32),
+                              color: Color.fromRGBO(223, 92, 92, 0.26),
+                              border: Border.all(
+                                  width: 1,
+                                  color: Color.fromRGBO(204, 23, 23, 1))),
+                          child: Center(
+                              child: Text(
+                            "Plan Due",
+                            style: TextStyle(
+                                color: Color.fromRGBO(204, 23, 23, 1),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500),
+                          )),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Row(
+                    children: [
+                     const  Padding(
+                        padding:  EdgeInsets.only(left: 10),
+                        child: const Text(
+                          "Transaction Date : ",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            color: Color.fromRGBO(186, 186, 186, 1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100.w,
+                      ),
+                      Text(
+                        DateFormat('dd/MM/yyyy').format(_selectedDate),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20.w,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            _selectDate(context);
+                          },
+                          child: Image.asset("assets/images/Subtract.png",
+                              height: 25, width: 25))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Stack(children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(29),
+                        border: Border.all(color: Colors.grey),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 60,
+                            // Fixed height for the main section
+                            child: Row(
+                              children: [
+                                Icon(Icons.grid_view_outlined,
+                                    color: Colors.black, size: 24),
+                                SizedBox(width: 10),
+                                Text(
+                                  chargesAdded
+                                      ? "Charges Added"
+                                      : "Add Extra Charges",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Spacer(),
+                                GestureDetector(
+                                  onTap: () {
+                                    // Use setModalState to update the state inside the BottomSheet
+                                    setModalState(() {
+                                      showOptions = !showOptions;
+                                    });
+                                  },
+                                  child: Icon(
+                                    showOptions ? Icons.close : Icons.add,
+                                    color: Colors.blue,
+                                    size: 24,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          AnimatedSize(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                            child: showOptions
+                                ? Container(
+                                    decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15),
+                                        bottomRight: Radius.circular(15),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        ...options.map((option) {
+                                          return ListTile(
+                                            leading: GestureDetector(
+                                              onTap: () {
+                                                setModalState(() {
+                                                  _toggleSelection(option);
+                                                });
+                                              },
+                                              child: Icon(
+                                                selectedOptions.contains(option)
+                                                    ? Icons.check_circle
+                                                    : Icons
+                                                        .radio_button_unchecked,
+                                                color: selectedOptions
+                                                        .contains(option)
+                                                    ? Colors.blue
+                                                    : Colors.grey,
+                                              ),
+                                            ),
+                                            title: Text(
+                                              option['title'],
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            trailing: Text(
+                                              '₹ ${option['amount']}',
+                                              style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.blue),
+                                            ),
+                                          );
+                                        }).toList(),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 15, bottom: 10),
+                                          child: Center(
+                                            child: InkWell(
+                                              onTap: () {
+                                                 setModalState(() {
+                                                _onDone();
+                                              });
+                                              },
+                                              child: Container(
+                                                height: 62,
+                                                width: 365,
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(color: Colors.blue, width: 2),
+                                          
+                                                    borderRadius: BorderRadius.circular(103)),
+                                                child: const Center(
+                                                    child: Text(
+                                                  "Done",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.w700,
+                                                      fontSize: 18,
+                                                      color: Colors.blue
+                                                      ),
+                                                )),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                : SizedBox.shrink(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+    //    Padding(
+    //   padding: const EdgeInsets.only(top: 20),
+    //   child: Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //     children: [
+    //       // Cash Container
+    //       GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             selectedContainerIndex = 0; // Update the index for Cash
+    //           });
+    //         },
+    //         child: AnimatedContainer(
+    //           duration: Duration(milliseconds: 150), // Duration for the animation
+    //           height: 40,
+    //           width: 109,
+    //           decoration: BoxDecoration(
+    //             color: selectedContainerIndex == 0
+    //                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+    //                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+    //             borderRadius: BorderRadius.circular(61),
+    //             boxShadow: selectedContainerIndex == 0 // Shadow effect for selected
+    //                 ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+    //                 : [],
+    //           ),
+    //           child: Row(
+    //             mainAxisAlignment: MainAxisAlignment.center,
+    //             children: [
+    //               Icon(
+    //                 Icons.currency_rupee,
+    //                 color: Color.fromRGBO(9, 96, 186, 1),
+    //                 size: 15,
+    //               ),
+    //               SizedBox(width: 10),
+    //               Text(
+    //                 "Cash",
+    //                 style: TextStyle(
+    //                   fontSize: 15,
+    //                   fontWeight: FontWeight.w500,
+    //                   color: Color.fromRGBO(0, 0, 0, 1),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //       // UPI Container
+    //       GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             selectedContainerIndex = 1; // Update the index for UPI
+    //           });
+    //         },
+    //         child: AnimatedContainer(
+    //           duration: Duration(milliseconds: 150), // Duration for the animation
+    //           height: 40,
+    //           width: 109,
+    //           decoration: BoxDecoration(
+    //             color: selectedContainerIndex == 1
+    //                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+    //                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+    //             borderRadius: BorderRadius.circular(61),
+    //             boxShadow: selectedContainerIndex == 1 // Shadow effect for selected
+    //                 ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+    //                 : [],
+    //           ),
+    //           child: Row(
+    //             mainAxisAlignment: MainAxisAlignment.center,
+    //             children: [
+    //               Icon(
+    //                 Icons.account_balance,
+    //                 color: Color.fromRGBO(9, 96, 186, 1),
+    //                 size: 17,
+    //               ),
+    //               SizedBox(width: 10),
+    //               Text(
+    //                 "UPI",
+    //                 style: TextStyle(
+    //                   fontSize: 15,
+    //                   fontWeight: FontWeight.w500,
+    //                   color: Color.fromRGBO(0, 0, 0, 1),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //       // Others Container
+    //       GestureDetector(
+    //         onTap: () {
+    //           setState(() {
+    //             selectedContainerIndex = 2; // Update the index for Others
+    //           });
+    //         },
+    //         child: AnimatedContainer(
+    //           duration: Duration(milliseconds: 150), // Duration for the animation
+    //           height: 40,
+    //           width: 119,
+    //           decoration: BoxDecoration(
+    //             color: selectedContainerIndex == 2
+    //                 ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+    //                 : Color.fromRGBO(248, 247, 247, 1), // Default color
+    //             borderRadius: BorderRadius.circular(61),
+    //             boxShadow: selectedContainerIndex == 2 // Shadow effect for selected
+    //                 ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+    //                 : [],
+    //           ),
+    //           child: Row(
+    //             mainAxisAlignment: MainAxisAlignment.center,
+    //             children: [
+    //               Icon(
+    //                 Icons.account_balance_wallet_outlined,
+    //                 color: Color.fromRGBO(9, 96, 186, 1),
+    //                 size: 17,
+    //               ),
+    //               SizedBox(width: 10),
+    //               Text(
+    //                 "Others",
+    //                 style: TextStyle(
+    //                   fontSize: 15,
+    //                   fontWeight: FontWeight.w500,
+    //                   color: Color.fromRGBO(0, 0, 0, 1),
+    //                 ),
+    //               ),
+    //             ],
+    //           ),
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // ), 
+
+
+    Padding(
+  padding: const EdgeInsets.only(top: 20),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      // Cash Container
+      GestureDetector(
+        onTap: () {
+          setModalState(() {
+            selectedContainerIndex = 0; // Update the index for Cash
+          });
+        },
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 150), // Duration for the animation
+          height: 40,
+          width: 109,
+          decoration: BoxDecoration(
+            color: selectedContainerIndex == 0
+                ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+                : Color.fromRGBO(248, 247, 247, 1), // Default color
+            borderRadius: BorderRadius.circular(61),
+            boxShadow: selectedContainerIndex == 0 // Shadow effect for selected
+                ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+                : [],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+              Icon(
+                Icons.currency_rupee,
+color: selectedContainerIndex == 0
+                ? Color.fromRGBO(248, 247, 247, 1) // Selected color
+                : Color.fromRGBO(0, 0, 0, 1),                 size: 15,
+              ),
+              SizedBox(width: 10),
+              Text(
+                "Cash",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+ color: selectedContainerIndex == 0
+                ? Color.fromRGBO(248, 247, 247, 1) // Selected color
+                : Color.fromRGBO(0, 0, 0, 1),                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // UPI Container
+      GestureDetector(
+        onTap: () {
+          setModalState(() {
+            selectedContainerIndex = 1; // Update the index for UPI
+          });
+        },
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 150), // Duration for the animation
+          height: 40,
+          width: 109,
+          decoration: BoxDecoration(
+            color: selectedContainerIndex == 1
+                ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+                : Color.fromRGBO(248, 247, 247, 1), // Default color
+            borderRadius: BorderRadius.circular(61),
+            boxShadow: selectedContainerIndex == 1 // Shadow effect for selected
+                ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+                : [],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.account_balance,
+color: selectedContainerIndex == 1
+                ? Color.fromRGBO(248, 247, 247, 1) // Selected color
+                : Color.fromRGBO(0, 0, 0, 1),                 size: 17,
+              ),
+              SizedBox(width: 10),
+              Text(
+                "UPI",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+color: selectedContainerIndex == 1
+                ? Color.fromRGBO(248, 247, 247, 1) // Selected color
+                : Color.fromRGBO(0, 0, 0, 1),                 ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // Others Container
+      GestureDetector(
+        onTap: () {
+          setModalState(() {
+            selectedContainerIndex = 2; // Update the index for Others
+          });
+        },
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 150), // Duration for the animation
+          height: 40,
+          width: 119,
+          decoration: BoxDecoration(
+            color: selectedContainerIndex == 2
+                ? Color.fromRGBO(13, 149, 211, 1) // Selected color
+                : Color.fromRGBO(248, 247, 247, 1), // Default color
+            borderRadius: BorderRadius.circular(61),
+            boxShadow: selectedContainerIndex == 2 // Shadow effect for selected
+                ? [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)]
+                : [],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.account_balance_wallet_outlined,
+color: selectedContainerIndex == 2
+                ? Color.fromRGBO(248, 247, 247, 1) // Selected color
+                : Color.fromRGBO(0, 0, 0, 1),                     size: 17,
+              ),
+              SizedBox(width: 10),
+              Text(
+                "Others",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+color: selectedContainerIndex == 2
+                ? Color.fromRGBO(248, 247, 247, 1) // Selected color
+                : Color.fromRGBO(0, 0, 0, 1),                     ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ],
+  ),
+), 
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 23),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.currency_rupee,
+                            color: Color.fromRGBO(186, 186, 186, 1)),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          chargesAdded ? '${_calculateTotalAmount()}' : '',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "+525 (GST)",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromRGBO(146, 146, 146, 1)),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 13.w,
+                        ),
+                        Column(
+                          children: [
+                            Image.asset("assets/images/Subtract.png"),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      "Total Amount ",
                       style: TextStyle(
-                          color: Color.fromRGBO(204, 23, 23, 1),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500),
-                    )),
-                  )
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(186, 186, 186, 1)),
+                    ),
+                  ),
+                  Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                  selectedDateRange == null
+                      ? 'Select Date Range'
+                      : '${DateFormat('dd/MM/yy').format(selectedDateRange!.start)} - '
+                        '${DateFormat('dd/MM/yy').format(selectedDateRange!.end)}',
+                  style: TextStyle(fontSize: 18),
+                ),
+
+                IconButton(
+                  icon: Icon(Icons.edit_calendar, color: Colors.blue),
+                  onPressed: () async {
+                    final DateTimeRange? picked = await _selectDateRange(context);
+                    if (picked != null) {
+                      setState(() {
+                        selectedDateRange = picked;
+                      });
+                    }
+                  },
+                ),
+                      ],
+                    )
+                  ),
+
+
+SizedBox(height: 15.h,), 
+
+                 GradientText(text: "Add Remarks ( Optional )", 
+                
+                 
+                 gradient:LinearGradient(
+                  begin: Alignment.centerLeft, 
+                  end: Alignment.centerRight,
+                  
+                  colors:[
+                      Color.fromRGBO(13, 149, 211, 1),
+                          Color.fromRGBO(9, 96, 186, 1)
+                  ])), 
+
+
+SizedBox(height: 35.h,), 
+                   Center(
+                     child: InkWell(
+                       onTap: () {},
+                       child: Container(
+                         height: 64.h,
+                         width: 365.w,
+                         decoration: BoxDecoration(
+                             gradient: LinearGradient(
+                                 begin: Alignment.centerLeft,
+                                 end: Alignment.centerRight,
+                                 colors: [
+                                   Color.fromRGBO(13, 149, 211, 1),
+                                   Color.fromRGBO(9, 96, 186, 1),
+                                 ]),
+                             borderRadius: BorderRadius.circular(84)),
+                         child: Center(
+                             child: Text(
+                           "Make Payment Received",
+                           style: TextStyle(
+                               fontWeight: FontWeight.w700,
+                               fontSize: 18,
+                               color: Color.fromRGBO(251, 251, 251, 1)),
+                         )),
+                       ),
+                     ),
+                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 20.h,), 
-            Row(
-         
-              children: [
-                Text(
-                  "Transaction Date : ",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                    color: Color.fromRGBO(186, 186, 186, 1),
-                  ),
-                ),
-                SizedBox(width: 130.w,),
-                Text(
-                  DateFormat('dd/MM/yyyy')
-                      .format(_selectedDate), // Format the date
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    color: Colors.black,
-                  ),
-                ),
-                InkWell(
-                    onTap: () {
-                      _selectDate(context);
-                    },
-                    child: Image.asset("assets/images/Subtract.png", height: 20, width: 20,))
-              ],
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
+  }
+
+  bool showOptions = false;
+  bool chargesAdded = false;
+  List<Map<String, dynamic>> selectedOptions = [];
+
+  // Dummy options list
+  final List<Map<String, dynamic>> options = [
+    {"title": "Shuttle Fee", "amount": 50000},
+    {"title": "Uniform Fee", "amount": 50000},
+    {"title": "Admission Fee", "amount": 50000},
+    {"title": "Kit Fee", "amount": 50000},
+    {"title": "Kit Fee", "amount": 50000},
+  ];
+
+  void _toggleOptions() {
+    setState(() {
+      showOptions = !showOptions;
+    });
+  }
+
+  // Function to handle option selection
+  void _toggleSelection(Map<String, dynamic> option) {
+    setState(() {
+      if (selectedOptions.contains(option)) {
+        selectedOptions.remove(option);
+      } else {
+        selectedOptions.add(option);
+      }
+    });
+  }
+
+  void _onDone() {
+    setState(() {
+      chargesAdded = true;
+      showOptions = false;
+    });
+  }
+
+  // Calculate total amount
+  int _calculateTotalAmount() {
+    return selectedOptions.fold(
+        0, (sum, option) => sum + (option['amount'] as int));
   }
 
   @override
