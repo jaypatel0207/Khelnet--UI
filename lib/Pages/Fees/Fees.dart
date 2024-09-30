@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'package:khelnet/Controller/Tabcontroller.dart';
 import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 import 'package:khelnet/Custome%20Widget/Gradient.dart';
+import 'package:khelnet/Pages/Fees/History.dart';
 
 import 'package:khelnet/Pages/Fees/Upcoming.dart';
 import 'package:khelnet/Pages/Fees/setting.dart';
@@ -139,10 +140,10 @@ class _FeesState extends State<Fees1> with SingleTickerProviderStateMixin {
         );
         break;
       case 'history':
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => HistoryPage()),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => History()),
+        );
         break;
       case 'installment':
         // Navigator.push(
@@ -1428,7 +1429,7 @@ SizedBox(height: 35.h,),
                   );
 
                 case 'history':
-                  return buildContent("History Content");
+                  return History();
                 case 'installment':
                   return buildContent("Installment Content");
                 default:

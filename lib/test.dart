@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/intl.dart';
 import 'package:khelnet/Custome%20Widget/CustomAppBar.dart';
 import 'package:khelnet/Custome%20Widget/Gradient.dart';
 import 'package:khelnet/Pages/Fees/Invoice.dart';
@@ -2877,3 +2878,514 @@ int selectedContainerIndex = 0; // Define the variable
 //     ],
 //   ),
 // )
+
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:intl/intl.dart'; // For date formatting
+
+
+
+// class DateSelector extends StatefulWidget {
+//   @override
+//   _DateSelectorState createState() => _DateSelectorState();
+// }
+
+// class _DateSelectorState extends State<DateSelector> {
+//   DateTime? selectedDate;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(16.0),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           Text(
+//             "Transaction Date",
+//             style: TextStyle(fontSize: 18),
+//           ),
+//           Row(
+//             children: [
+//               Text(
+//                 selectedDate != null
+//                     ? DateFormat('dd-MM-yyyy').format(selectedDate!)
+//                     : "Select Date",
+//                 style: TextStyle(fontSize: 18),
+//               ),
+//               IconButton(
+//                 icon: Icon(Icons.calendar_today_outlined),
+//                 onPressed: () => _selectDate(context),
+//               ),
+//             ],
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+//   Future<void> _selectDate(BuildContext context) async {
+//     DateTime? picked = await showDatePicker(
+//       context: context,
+//       initialDate: selectedDate ?? DateTime.now(),
+//       firstDate: DateTime(2000),
+//       lastDate: DateTime(2101),
+//     );
+//     if (picked != null && picked != selectedDate) {
+//       setState(() {
+//         selectedDate = picked;
+//       });
+//     }
+//   }
+// }
+
+
+
+
+
+// class DateList extends StatelessWidget {
+//   // List of DateTime objects
+//   final List<DateTime> dates = [
+//     DateTime(2024, 6, 25),
+//     DateTime(2024, 7, 10),
+//     DateTime(2024, 8, 5),
+//     DateTime(2024, 9, 15),
+//     DateTime(2024, 10, 1),
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       itemCount: dates.length,
+//       itemBuilder: (context, index) {
+//         // Format the date to dd-MM-yyyy
+//         String formattedDate = DateFormat('dd-MM-yyyy').format(dates[index]);
+
+//         return Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: Card(
+//             elevation: 4,
+//             child: ListTile(
+//               title: Text('$formattedDate'),
+//             ),
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: ChargeScreen(),
+//     );
+//   }
+// }
+
+// class ChargeScreen extends StatefulWidget {
+//   @override
+//   _ChargeScreenState createState() => _ChargeScreenState();
+// }
+
+// class _ChargeScreenState extends State<ChargeScreen> {
+//   List<String> charges = [
+//     'Charges 1',
+//     'Charges 2',
+//     'Charges 3',
+//     'Charges 4',
+//     'Charges 5'
+//   ];
+//   List<bool> isSelected = [false, false, false, false, false];
+//   bool isChargesAdded = false; // Default to false
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Add Charges'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             GestureDetector(
+//               onTap: () {
+//                 _showAddChargesBottomSheet(context);
+//               },
+//               child: Container(
+//                 padding: EdgeInsets.all(16.0),
+//                 decoration: BoxDecoration(
+//                   color: Colors.blue,
+//                   borderRadius: BorderRadius.circular(8.0),
+//                 ),
+//                 child: Text(
+//                   isChargesAdded ? 'Charges Added' : 'Add Extra Charges',
+//                   style: TextStyle(color: Colors.white),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+//   void _showAddChargesBottomSheet(BuildContext context) {
+//     showModalBottomSheet(
+//       context: context,
+//       isScrollControlled: true,
+//       builder: (BuildContext context) {
+//         return StatefulBuilder(
+//           builder: (BuildContext context, StateSetter setModalState) {
+//             return Container(
+//               padding: EdgeInsets.all(16.0),
+//               height: MediaQuery.of(context).size.height * 0.6,
+//               child: Column(
+//                 children: [
+//                   Text(
+//                     isChargesAdded ? "Charges Added" : "Add Extra Charges",
+//                     style: TextStyle(
+//                       fontWeight: FontWeight.bold,
+//                       fontSize: 20.0,
+//                     ),
+//                   ),
+//                   Expanded(
+//                     child: ListView.builder(
+//                       itemCount: charges.length,
+//                       itemBuilder: (context, index) {
+//                         return ListTile(
+//                           leading: GestureDetector(
+//                             onTap: () {
+//                               setModalState(() {
+//                                 isSelected[index] = !isSelected[index];
+//                               });
+//                             },
+//                             child: Icon(
+//                               isSelected[index]
+//                                   ? Icons.check_circle
+//                                   : Icons.radio_button_unchecked,
+//                               color: isSelected[index]
+//                                   ? Colors.blue
+//                                   : Colors.grey,
+//                             ),
+//                           ),
+//                           title: Text(charges[index]),
+//                           subtitle: Text('₹ 50000'),
+//                         );
+//                       },
+//                     ),
+//                   ),
+//                   ElevatedButton(
+//                     onPressed: () {
+//                       // Check if any item is selected
+//                       if (isSelected.contains(true)) {
+//                         // If at least one item is selected, update the label
+//                         setState(() {
+//                           isChargesAdded = true; // Mark charges as added
+//                         });
+//                       }
+//                       // Close the bottom sheet
+//                       Navigator.pop(context);
+//                     },
+//                     child: Text('Okay'),
+//                     style: ElevatedButton.styleFrom(
+//                       padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+//                       shape: RoundedRectangleBorder(
+//                         borderRadius: BorderRadius.circular(30.0),
+//                       ),
+//                       backgroundColor: Colors.blueAccent,
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             );
+//           },
+//         );
+//       },
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+// class ChargeScreen extends StatefulWidget {
+//   @override
+//   _ChargeScreenState createState() => _ChargeScreenState();
+// }
+
+// class _ChargeScreenState extends State<ChargeScreen> {
+//   List<String> charges = [
+//     'Charges 1',
+//     'Charges 2',
+//     'Charges 3',
+//     'Charges 4',
+//     'Charges 5'
+//   ];
+//   List<bool> isSelected = [false, false, false, false, false];
+//   bool isChargesAdded = false; // Default to false
+//   bool removeAllSelected = false; // Track the "Remove All" checkbox state
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Add Charges'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             GestureDetector(
+//               onTap: () {
+//                 _showAddChargesBottomSheet(context);
+//               },
+//               child: Container(
+//                 padding: EdgeInsets.all(16.0),
+//                 decoration: BoxDecoration(
+//                   color: Colors.blue,
+//                   borderRadius: BorderRadius.circular(8.0),
+//                 ),
+//                 child: Text(
+//                   isChargesAdded ? 'Charges Added' : 'Add Extra Charges',
+//                   style: TextStyle(color: Colors.white),
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+  // void _showAddChargesBottomSheet(BuildContext context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     isScrollControlled: true,
+  //     builder: (BuildContext context) {
+  //       return StatefulBuilder(
+  //         builder: (BuildContext context, StateSetter setModalState) {
+  //           return Container(
+  //             padding: EdgeInsets.all(16.0),
+  //             height: MediaQuery.of(context).size.height * 0.6,
+  //             child: Column(
+  //               children: [
+  //                 Text(
+  //                   'Add Charges',
+  //                   style: TextStyle(
+  //                     fontWeight: FontWeight.bold,
+  //                     fontSize: 20.0,
+  //                   ),
+  //                 ),
+  //                 // "Remove All Charges" Checkbox
+  //                 CheckboxListTile(
+  //                   title: Text('Remove All Charges'),
+  //                   value: removeAllSelected,
+  //                   onChanged: (bool? value) {
+  //                     setModalState(() {
+  //                       removeAllSelected = value ?? false;
+  //                       if (removeAllSelected) {
+  //                         // Unselect all items
+  //                         for (int i = 0; i < isSelected.length; i++) {
+  //                           isSelected[i] = false;
+  //                         }
+  //                       }
+  //                     });
+  //                   },
+  //                 ),
+  //                 Expanded(
+  //                   child: ListView.builder(
+  //                     itemCount: charges.length,
+  //                     itemBuilder: (context, index) {
+  //                       return ListTile(
+  //                         leading: GestureDetector(
+  //                           onTap: () {
+  //                             setModalState(() {
+  //                               isSelected[index] = !isSelected[index];
+  //                               // If any charge is selected, uncheck "Remove All" option
+  //                               if (isSelected[index]) {
+  //                                 removeAllSelected = false;
+  //                               }
+  //                             });
+  //                           },
+  //                           child: Icon(
+  //                             isSelected[index]
+  //                                 ? Icons.check_circle
+  //                                 : Icons.radio_button_unchecked,
+  //                             color: isSelected[index]
+  //                                 ? Colors.blue
+  //                                 : Colors.grey,
+  //                           ),
+  //                         ),
+  //                         title: Text(charges[index]),
+  //                         subtitle: Text('₹ 50000'),
+  //                       );
+  //                     },
+  //                   ),
+  //                 ),
+  //                 ElevatedButton(
+  //                   onPressed: () {
+  //                     // Check if any item is selected
+  //                     if (isSelected.contains(true)) {
+  //                       // If at least one item is selected, update the label
+  //                       setState(() {
+  //                         isChargesAdded = true; // Mark charges as added
+  //                       });
+  //                     }
+  //                     // Close the bottom sheet
+  //                     Navigator.pop(context);
+  //                   },
+  //                   child: Text('Okay'),
+  //                   style: ElevatedButton.styleFrom(
+  //                     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 16),
+  //                     shape: RoundedRectangleBorder(
+  //                       borderRadius: BorderRadius.circular(30.0),
+  //                     ),
+  //                     backgroundColor: Colors.blueAccent,
+  //                   ),
+  //                 ),
+  //               ],
+  //             ),
+  //           );
+  //         },
+  //       );
+  //     },
+  //   );
+  // }
+//}
+
+
+
+
+
+
+
+
+
+
+
+class DropdownTextFieldExample extends StatefulWidget {
+  @override
+  _DropdownTextFieldExampleState createState() =>
+      _DropdownTextFieldExampleState();
+}
+
+class _DropdownTextFieldExampleState extends State<DropdownTextFieldExample> {
+  String? selectedValue; // For storing the selected dropdown value
+  final TextEditingController _controller = TextEditingController(); // Controller for TextField
+
+  // Options for dropdown
+  final List<String> options = ['2024', '2025'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Dropdown in TextField')),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 22, right: 22, top: 10),
+          child: Column(
+            children: [
+              TextField(
+                controller: _controller, // Set the controller here
+                style: const TextStyle(
+                    fontSize: 15, fontWeight: FontWeight.w500),
+                readOnly: true, // Make it read-only to prevent manual input
+                decoration: InputDecoration(
+                  hintText: "Year",
+                  hintStyle: TextStyle(
+                      color: Color.fromRGBO(186, 186, 186, 1)),
+                  prefixIcon: GestureDetector(
+                    onTap: () async {
+                      // Show dropdown when prefix icon is tapped
+                      final RenderBox renderBox =
+                          context.findRenderObject() as RenderBox;
+                      final overlay =
+                          Overlay.of(context).context.findRenderObject() as RenderBox;
+
+                      // Show dropdown menu
+                      final result = await showMenu(
+                        context: context,
+                        position: RelativeRect.fromRect(
+                          Rect.fromPoints(
+                            renderBox.localToGlobal(Offset.zero, ancestor: overlay),
+                            renderBox.localToGlobal(
+                                renderBox.size.bottomRight(Offset.zero),
+                                ancestor: overlay),
+                          ),
+                          Offset.zero & overlay.size,
+                        ),
+                        items: options
+                            .map(
+                              (value) => PopupMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              ),
+                            )
+                            .toList(),
+                      );
+
+                      // Update selected value and text field if an option is selected
+                      if (result != null) {
+                        setState(() {
+                          selectedValue = result;
+                          _controller.text = selectedValue!;
+                        });
+                      }
+                    },
+                    child: Icon(Icons.calendar_today, color: Colors.blue),
+                  ),
+                  suffixIcon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(26),
+                    borderSide: BorderSide(
+                      color: Color.fromRGBO(241, 241, 241, 1),
+                      width: 1,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(26),
+                    borderSide: BorderSide(
+                      color: Color.fromRGBO(241, 241, 241, 1),
+                      width: 1,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: DropdownTextFieldExample(),
+  ));
+}
