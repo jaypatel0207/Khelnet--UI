@@ -1131,6 +1131,7 @@ SizedBox(height: 35.h,),
                   buildTabButton("Installment", 'assets/images/installment.png',
                       'installment',
                       isImage: true),
+                      
                 ],
               ),
             ),

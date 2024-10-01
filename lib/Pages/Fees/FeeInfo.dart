@@ -154,6 +154,7 @@ class _FeeinfoState extends State<Feeinfo> {
       },
     );
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -416,6 +417,44 @@ class _FeeinfoState extends State<Feeinfo> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(26),
                   borderSide: const BorderSide(
+                    color: Color.fromRGBO(241, 241, 241, 1),
+                    width: 1,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(26),
+                  borderSide: const BorderSide(
+                    color: Color.fromRGBO(241, 241, 241, 1),
+                    width: 1,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 22,
+              right: 22,
+              top: 15,
+            ),
+            child: TextField(
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                hintText: "Plan",
+                hintStyle:const  TextStyle(color: Color.fromRGBO(186, 186, 186, 1)),
+                prefixIcon: Image.asset("assets/images/status.png"),
+                suffixIcon: InkWell(
+                  onTap: () {
+                    
+                  },
+                  
+                  child: Icon(Icons.keyboard_arrow_down, color: Colors.blue,)), 
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(26),
+                  borderSide:const  BorderSide(
                     color: Color.fromRGBO(241, 241, 241, 1),
                     width: 1,
                   ),
