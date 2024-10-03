@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:khelnet/Pages/Fees/Fees.dart';
 import 'package:khelnet/Pages/Students/Fees.dart';
@@ -37,43 +36,44 @@ class _HomepageState extends State<Homepage> {
       case "My Academy":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Academy1()),
+          MaterialPageRoute(builder: (context) => const Academy1()),
         );
         break;
       case "Attendance":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => AttendancePage()),
+          MaterialPageRoute(builder: (context) => const AttendancePage()),
         );
         break;
       case "Fees":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Fees1()),
+          MaterialPageRoute(builder: (context) => const Fees1()),
         );
         break;
       case "Reports":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ReportsPage()),
+          MaterialPageRoute(builder: (context) => const ReportsPage()),
         );
         break;
       case "Performance Rating":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PerformanceRatingPage()),
+          MaterialPageRoute(
+              builder: (context) => const PerformanceRatingPage()),
         );
         break;
       case "Coach Attendance":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => CoachAttendancePage()),
+          MaterialPageRoute(builder: (context) => const CoachAttendancePage()),
         );
         break;
       case "Expenses":
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ExpensesPage()),
+          MaterialPageRoute(builder: (context) => const ExpensesPage()),
         );
         break;
     }
@@ -85,7 +85,7 @@ class _HomepageState extends State<Homepage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -97,9 +97,9 @@ class _HomepageState extends State<Homepage> {
             ),
             child: Column(
               children: [
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
+                const SizedBox(height: 10),
+                const Padding(
+                  padding: EdgeInsets.all(15.0),
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -107,7 +107,7 @@ class _HomepageState extends State<Homepage> {
                         radius: 40,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: EdgeInsets.all(15.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -131,12 +131,12 @@ class _HomepageState extends State<Homepage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   height: 650,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(250, 248, 248, 1),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25)),
@@ -145,47 +145,54 @@ class _HomepageState extends State<Homepage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Container(
-                          height: 107,
-                          width: 360,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1.5,
-                                  color: Color.fromRGBO(241, 241, 241, 1)),
-                              borderRadius: BorderRadius.circular(18),
-                              color: Color.fromRGBO(251, 251, 251, 1)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  // Handle navigation
-                                  navigateToPage("My Academy");
-                                },
-                                child: Image.asset("assets/images/remind.png"),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  // Handle navigation
-                                  navigateToPage("Attendance");
-                                },
-                                child: Image.asset("assets/images/add.png"),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  // Handle navigation
-                                  navigateToPage("Fees");
-                                },
-                                child: Image.asset("assets/images/report.png"),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  // Handle navigation
-                                  navigateToPage("Reports");
-                                },
-                                child: Image.asset("assets/images/overview.png"),
-                              ),
-                            ],
+                        child: Card(
+                          elevation: 15,
+                          child: Container(
+                            height: 107,
+                            width: 360,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    width: 1.5,
+                                    color:
+                                        const Color.fromRGBO(241, 241, 241, 1)),
+                                borderRadius: BorderRadius.circular(18),
+                                color: Colors.white),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    // Handle navigation
+                                    navigateToPage("My Academy");
+                                  },
+                                  child:
+                                      Image.asset("assets/images/remind.png"),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    // Handle navigation
+                                    navigateToPage("Attendance");
+                                  },
+                                  child: Image.asset("assets/images/add.png"),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    // Handle navigation
+                                    navigateToPage("Fees");
+                                  },
+                                  child:
+                                      Image.asset("assets/images/report.png"),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    // Handle navigation
+                                    navigateToPage("Reports");
+                                  },
+                                  child:
+                                      Image.asset("assets/images/overview.png"),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -215,13 +222,18 @@ class _HomepageState extends State<Homepage> {
                                 itemCount: showAll ? items.length : 6,
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisSpacing: 8,
                                   crossAxisCount: 2,
                                   childAspectRatio: 1.7,
                                 ),
                                 itemBuilder: (context, index) {
-                                  return buildContainer(
-                                    items[index]["title"]!,
-                                    items[index]["image"]!,
+                                  return Card(
+                                    elevation: 15,
+                                    color: Colors.white,
+                                    child: buildContainer(
+                                      items[index]["title"]!,
+                                      items[index]["image"]!,
+                                    ),
                                   );
                                 },
                               )
@@ -260,16 +272,12 @@ class _HomepageState extends State<Homepage> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 1.5,
-            color: Color.fromRGBO(241, 241, 241, 1),
-          ),
-          color: Color.fromRGBO(251, 251, 251, 1),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(7),
         ),
         child: Column(
           children: [
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
               child: Row(
@@ -280,7 +288,8 @@ class _HomepageState extends State<Homepage> {
                     onPressed: () {
                       navigateToPage(title);
                     },
-                    icon: Icon(Icons.arrow_forward_ios, color: Colors.blue),
+                    icon:
+                        const Icon(Icons.arrow_forward_ios, color: Colors.blue),
                   ),
                 ],
               ),
@@ -292,7 +301,7 @@ class _HomepageState extends State<Homepage> {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
                     ),
@@ -313,12 +322,12 @@ class _HomepageState extends State<Homepage> {
         leading: Image.asset(image),
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 16,
           ),
         ),
-        trailing: Icon(Icons.arrow_forward_ios, color: Colors.blue),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.blue),
         onTap: () {
           navigateToPage(title);
         },

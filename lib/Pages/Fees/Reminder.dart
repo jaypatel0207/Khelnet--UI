@@ -28,8 +28,8 @@ class _ReminderState extends State<Reminder> {
                   SizedBox(height: 20.h),
 
                   // Account Details Section
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 15),
+                  const Padding(
+                    padding:  EdgeInsets.only(left: 20, top: 15),
                     child: Row(
                       children: [
                         Text(
@@ -48,11 +48,11 @@ class _ReminderState extends State<Reminder> {
                       width: double.infinity, // Change to full width
                       decoration: BoxDecoration(
                         border: Border.all(
-                            width: 1, color: Color.fromRGBO(241, 241, 241, 1)),
+                            width: 1, color:const  Color.fromRGBO(241, 241, 241, 1)),
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(26),
                       ),
-                      child: TextField(
+                      child:const  TextField(
                         decoration: InputDecoration(
                           hintText: "Enter Your UPI ID",
                           hintStyle: TextStyle(
@@ -61,7 +61,7 @@ class _ReminderState extends State<Reminder> {
                               color: Colors.grey),
                           border: InputBorder.none,
                           prefixIcon: Padding(
-                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            padding:  EdgeInsets.only(left: 20, right: 20),
                             child: Icon(
                               Icons.account_balance,
                               color: Colors.black,
@@ -76,8 +76,8 @@ class _ReminderState extends State<Reminder> {
                   SizedBox(height: 22.h),
 
                   // Fees Reminder Section
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 15),
+          const         Padding(
+                    padding:  EdgeInsets.only(left: 20, top: 15),
                     child: Row(
                       children: [
                         Text(
@@ -97,16 +97,16 @@ class _ReminderState extends State<Reminder> {
                           borderRadius: BorderRadius.circular(21),
                           border: Border.all(
                               width: 1,
-                              color: Color.fromRGBO(241, 241, 241, 1)),
+                              color:const  Color.fromRGBO(241, 241, 241, 1)),
                         ),
                         child: ListTile(
-                          title: Text(
+                          title: const Text(
                               "Link your payment gateway and     \nsend fee reminders"),
                           trailing: InkWell(
                               onTap: () {
-                                Get.to(Paymentlink()); 
+                                Get.to(const Paymentlink()); 
                               },
-                              child: Icon(
+                              child:const Icon(
                                 Icons.arrow_forward_ios,
                                 color: Colors.blue,
                               )),
@@ -121,21 +121,21 @@ class _ReminderState extends State<Reminder> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(21),
                         border: Border.all(
-                            width: 1, color: Color.fromRGBO(241, 241, 241, 1)),
+                            width: 1, color: const Color.fromRGBO(241, 241, 241, 1)),
                       ),
                       child: Theme(
                         data: Theme.of(context).copyWith(
                           radioTheme: RadioThemeData(
                             materialTapTargetSize:
                                 MaterialTapTargetSize.shrinkWrap,
-                            fillColor: MaterialStateProperty.all(Colors.blue),
+                            fillColor: WidgetStateProperty.all(Colors.blue),
                             visualDensity:
-                                VisualDensity(horizontal: -4.0, vertical: -4.0),
+                           const      VisualDensity(horizontal: -4.0, vertical: -4.0),
                           ),
                         ),
                         child: RadioListTile<String>(
                           title:
-                              Text('Send Fee Reminder With \nUPI Payment Link'),
+                       const        Text('Send Fee Reminder With \nUPI Payment Link'),
                           value: 'withUPI',
                           groupValue: _selectedOption,
                           onChanged: (value) {
@@ -144,7 +144,7 @@ class _ReminderState extends State<Reminder> {
                             });
                           },
                           contentPadding:
-                              EdgeInsets.symmetric(horizontal: 16.0),
+                            const   EdgeInsets.symmetric(horizontal: 16.0),
                           controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       ),
@@ -159,20 +159,20 @@ class _ReminderState extends State<Reminder> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(21),
                         border: Border.all(
-                            width: 1, color: Color.fromRGBO(241, 241, 241, 1)),
+                            width: 1, color:const  Color.fromRGBO(241, 241, 241, 1)),
                       ),
                       child: Theme(
                         data: Theme.of(context).copyWith(
                           radioTheme: RadioThemeData(
                             materialTapTargetSize:
                                 MaterialTapTargetSize.shrinkWrap,
-                            fillColor: MaterialStateProperty.all(Colors.blue),
+                            fillColor: WidgetStateProperty.all(Colors.blue),
                             visualDensity: const VisualDensity(
                                 horizontal: -4.0, vertical: -4.0),
                           ),
                         ),
                         child: RadioListTile<String>(
-                          title: Text(
+                          title:const  Text(
                               'Send Fee Reminder Without \nUPI Payment Link'),
                           value: 'withoutUPI',
                           groupValue: _selectedOption,
@@ -182,7 +182,7 @@ class _ReminderState extends State<Reminder> {
                             });
                           },
                           contentPadding:
-                              EdgeInsets.symmetric(horizontal: 16.0),
+                            const   EdgeInsets.symmetric(horizontal: 16.0),
                           controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       ),
@@ -203,7 +203,7 @@ class _ReminderState extends State<Reminder> {
                   height: 57.h,
                   width: 358.w,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                      gradient:const  LinearGradient(
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                           colors: [
@@ -211,7 +211,7 @@ class _ReminderState extends State<Reminder> {
                             Color.fromRGBO(9, 96, 186, 1),
                           ]),
                       borderRadius: BorderRadius.circular(84)),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "Update",
                     style: TextStyle(

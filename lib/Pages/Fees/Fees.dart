@@ -1046,7 +1046,9 @@ SizedBox(height: 35.h,),
                         children: [
                           SizedBox(width: 42.h),
                           const Text(
+
                             "Today",
+                            
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
