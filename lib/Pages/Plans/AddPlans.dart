@@ -69,6 +69,9 @@ class _AddplansState extends State<Addplans> {
               ),
             ),
           ),
+
+
+          
           Padding(
             padding: const EdgeInsets.only(top: 13, right: 20, left: 20),
             child: TextField(
@@ -102,6 +105,22 @@ class _AddplansState extends State<Addplans> {
               ),
             ),
           ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           Padding(
             padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
             child: TextField(
@@ -206,6 +225,7 @@ class _AddplansState extends State<Addplans> {
                                           Navigator.pop(
                                               context); // Close the bottom sheet
                                         },
+
                                         child: Center(
                                           child: Container(
                                             width: 347,
@@ -257,6 +277,31 @@ class _AddplansState extends State<Addplans> {
               ),
             ),
           ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           Padding(
             padding: const EdgeInsets.only(top: 11, right: 20, left: 20),
             child: TextField(

@@ -338,81 +338,81 @@
 
 
 
-import 'dart:convert'; 
+// import 'dart:convert'; 
 
-import 'package:flutter/material.dart'; 
-import 'package:dio/dio.dart'; 
+// import 'package:flutter/material.dart'; 
+// import 'package:dio/dio.dart'; 
 
 
 
-class MyHomePage extends StatefulWidget { 
-const MyHomePage({Key? key}) : super(key: key); 
+// class MyHomePage extends StatefulWidget { 
+// const MyHomePage({Key? key}) : super(key: key); 
 
-@override 
-State<MyHomePage> createState() => _MyHomePageState(); 
-} 
+// @override 
+// State<MyHomePage> createState() => _MyHomePageState(); 
+// } 
 
-class _MyHomePageState extends State<MyHomePage> { 
-var jsonList; 
-@override 
-void initState() { 
-	getData(); 
-} 
+// class _MyHomePageState extends State<MyHomePage> { 
+// var jsonList; 
+// @override 
+// void initState() { 
+// 	getData(); 
+// } 
 
-void getData() async { 
-	try { 
-	var response = await Dio() 
-		.get('https://api.escuelajs.co/api/v1/products'); 
-	if (response.statusCode == 200) { 
-		setState(() { 
-		jsonList = response.data as List; 
-		}); 
-	} else { 
-		print(response.statusCode); 
-	} 
-	} catch (e) { 
-	print(e); 
-	} 
-} 
+// void getData() async { 
+// 	try { 
+// 	var response = await Dio() 
+// 		.get('https://api.escuelajs.co/api/v1/products'); 
+// 	if (response.statusCode == 200) { 
+// 		setState(() { 
+// 		jsonList = response.data as List; 
+// 		}); 
+// 	} else { 
+// 		print(response.statusCode); 
+// 	} 
+// 	} catch (e) { 
+// 	print(e); 
+// 	} 
+// } 
 
-@override 
-Widget build(BuildContext context) { 
-	return Scaffold( 
-	appBar: AppBar( 
-		title: Text( 
-		'GeeksForGeeks', 
-		style: TextStyle(color: Colors.white), 
+// @override 
+// Widget build(BuildContext context) { 
+// 	return Scaffold( 
+// 	appBar: AppBar( 
+// 		title: Text( 
+// 		'GeeksForGeeks', 
+// 		style: TextStyle(color: Colors.white), 
     
-		), 
-    backgroundColor: Colors.blue,
-		centerTitle: true, 
-	), 
-	body:ListView.builder(
-  itemCount: jsonList?.length ?? 0,
-  itemBuilder: (BuildContext context, int index) {
-    return Card(
-      child: ListTile(
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(80),
-          child: Image.network(
-            jsonList[index]['image'] ?? '',
-            fit: BoxFit.fill,
-            width: 50,
-            height: 50,
-            errorBuilder: (context, error, stackTrace) {
-              return Icon(Icons.error);
-            },
-          ),
-        ),
-        title: Text(jsonList[index]['id']?.toString() ?? ''),
-        subtitle: Text(jsonList[index]['creationAt']?.toString() ?? ''),
-      ),
-    );
-  },
-)
-	); 
-} 
-}
+// 		), 
+//     backgroundColor: Colors.blue,
+// 		centerTitle: true, 
+// 	), 
+// 	body:ListView.builder(
+//   itemCount: jsonList?.length ?? 0,
+//   itemBuilder: (BuildContext context, int index) {
+//     return Card(
+//       child: ListTile(
+//         leading: ClipRRect(
+//           borderRadius: BorderRadius.circular(80),
+//           child: Image.network(
+//             jsonList[index]['image'] ?? '',
+//             fit: BoxFit.fill,
+//             width: 50,
+//             height: 50,
+//             errorBuilder: (context, error, stackTrace) {
+//               return Icon(Icons.error);
+//             },
+//           ),
+//         ),
+//         title: Text(jsonList[index]['id']?.toString() ?? ''),
+//         subtitle: Text(jsonList[index]['creationAt']?.toString() ?? ''),
+//       ),
+//     );
+//   },
+// )
+// 	); 
+// } 
+// }
 
 
 
@@ -876,3 +876,113 @@ Widget build(BuildContext context) {
 //     );
 //   }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+class DateRangePickerWidget extends StatefulWidget {
+  @override
+  _DateRangePickerWidgetState createState() => _DateRangePickerWidgetState();
+}
+
+class _DateRangePickerWidgetState extends State<DateRangePickerWidget> {
+  DateTimeRange? selectedDateRange;
+  final DateFormat dateFormat = DateFormat('dd MMM yyyy');
+
+  // Initial values for the date range
+  DateTimeRange initialDateRange = DateTimeRange(
+    start: DateTime(2024, 1, 1),
+    end: DateTime(2024, 1, 30),
+  );
+
+  void _selectDateRange(BuildContext context) async {
+    final DateTimeRange? picked = await showDateRangePicker(
+      context: context,
+      initialDateRange: selectedDateRange ?? initialDateRange,
+      firstDate: DateTime(2022),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != selectedDateRange) {
+      setState(() {
+        selectedDateRange = picked;
+      });
+    }
+  }
+
+  void _resetDateRange() {
+    setState(() {
+      selectedDateRange = null;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // Start Date
+        GestureDetector(
+          onTap: () => _selectDateRange(context),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text(
+              selectedDateRange != null
+                  ? dateFormat.format(selectedDateRange!.start)
+                  : '---',  // Show dash when no date is selected
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        SizedBox(width: 10),
+        // End Date
+        GestureDetector(
+          onTap: () => _selectDateRange(context),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text(
+              selectedDateRange != null
+                  ? dateFormat.format(selectedDateRange!.end)
+                  : '---',  // Show dash when no date is selected
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        SizedBox(width: 10),
+        // Cross button
+        IconButton(
+          icon: Icon(Icons.clear, color: Colors.red),
+          onPressed: _resetDateRange,
+        ),
+        SizedBox(width: 10),
+        // Calendar button
+        IconButton(
+          icon: Icon(Icons.calendar_today, color: Colors.black),
+          onPressed: () => _selectDateRange(context),
+        ),
+      ],
+    );
+  }
+}
