@@ -78,13 +78,12 @@ class _BatchesState extends State<Batches> {
                 height: 51,
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
             Get.to(Assigncenterbatch());
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
-          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          backgroundColor: Colors.transparent, 
           elevation: 0,
           child:  Ink(
             decoration: BoxDecoration(
@@ -107,7 +106,7 @@ class _BatchesState extends State<Batches> {
                 ),
               ),
             ),
-          ),  // Remove shadow if you want
+          ),  
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

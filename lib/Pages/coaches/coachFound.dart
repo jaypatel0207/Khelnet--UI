@@ -141,17 +141,16 @@ class _CoachfoundState extends State<Coachfound> {
         ],
       ),
       floatingActionButton: Container(
-        height: 64.0, // Custom height for the button
-        width: 315.0,  // Custom width for the button
+        height: 64.0, 
+        width: 315.0,  
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
             Get.to(const Addcoaches());
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
-          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          backgroundColor: Colors.transparent, 
           elevation: 0,
           child:  Ink(
             decoration: BoxDecoration(
@@ -173,7 +172,7 @@ class _CoachfoundState extends State<Coachfound> {
                 ),
               ),
             ),
-          ),  // Remove shadow if you want
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

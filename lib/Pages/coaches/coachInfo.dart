@@ -88,37 +88,7 @@ class _CoachinfoState extends State<Coachinfo> {
             ), 
             
             
-            // AppBar(
-            //   backgroundColor: Colors.white,
-            //   title: const Text(
-            //     'Coach Info',
-            //     style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-            //   ),
-            //   centerTitle: true,
-            //   leading: IconButton(
-            //       onPressed: () {
-            //         Navigator.pop(context);
-            //       },
-            //       icon: Icon(Icons.arrow_back_ios_new)),
-            //   actions: [
-            //     Container(
-            //       height: 36,
-            //       width: 36,
-            //       decoration: const BoxDecoration(
-            //           shape: BoxShape.circle,
-            //           color: Color.fromARGB(255, 233, 201, 212)),
-            //       child: const Center(
-            //           child: Icon(
-            //         Icons.delete,
-            //         color: Color.fromRGBO(223, 92, 92, 1),
-            //       )),
-            //     ),
-            //     const SizedBox(
-            //       width: 10,
-            //     ),
-            //   ],
-            // ),
-
+          
 
             body: Column(
               children: [
