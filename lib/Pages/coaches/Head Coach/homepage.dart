@@ -162,7 +162,7 @@ class _HomepageState extends State<Homepage> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    // Handle navigation
+                                   
                                     navigateToPage("My Academy");
                                   },
                                   child:

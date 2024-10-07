@@ -29,8 +29,8 @@ final TimeController timeController = Get.put(TimeController());
   @override
   void initState() {
     super.initState();
-    _startTimeController = TextEditingController(); // Initialize without text
-    _endTimeController = TextEditingController(); // Initialize without text
+    _startTimeController = TextEditingController(); 
+    _endTimeController = TextEditingController(); 
   }
 
   @override
@@ -50,7 +50,7 @@ final TimeController timeController = Get.put(TimeController());
     setState(() {
       _startTime = pickedStartTime;
       _startTimeController.text = _formatTimeOfDay(_startTime);
-      timeController.setStartTime(_startTimeController.text); // Update in controller
+      timeController.setStartTime(_startTimeController.text); 
     });
   }
 }
@@ -66,7 +66,7 @@ final TimeController timeController = Get.put(TimeController());
     setState(() {
       _endTime = pickedEndTime;
       _endTimeController.text = _formatTimeOfDay(_endTime);
-      timeController.setEndTime(_endTimeController.text); // Update in controller
+      timeController.setEndTime(_endTimeController.text); 
     });
   }
 }
@@ -74,7 +74,7 @@ final TimeController timeController = Get.put(TimeController());
   String _formatTimeOfDay(TimeOfDay time) {
     final now = DateTime.now();
     final dt = DateTime(now.year, now.month, now.day, time.hour, time.minute);
-    final formatter = DateFormat.jm(); // Format the time (e.g., 3:00 PM)
+    final formatter = DateFormat.jm(); 
     return formatter.format(dt);
   }
 
@@ -83,7 +83,7 @@ final TimeController timeController = Get.put(TimeController());
 
     Get.bottomSheet(
       Container(
-        //height: 700,
+        
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
@@ -159,7 +159,7 @@ final TimeController timeController = Get.put(TimeController());
                         ],
                       ),
                     ),
-                    // Repeat for other days (Wednesday, Thursday, etc.)
+                  
                     Obx(
                       () => Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -288,8 +288,7 @@ final TimeController timeController = Get.put(TimeController());
                       ),
                     ),
 
-                    // Add blocks for other days following the same pattern
-                    // ... (Wednesday to Sunday)
+                    
                     SizedBox(
                       height: 3,
                     ),
@@ -299,7 +298,7 @@ final TimeController timeController = Get.put(TimeController());
                       child: InkWell(
                         onTap: () {
                           Navigator.pop(Get.context!);
-                          // Close the bottom sheet
+                          
                         },
                         child: Center(
                           child: Container(
@@ -420,7 +419,7 @@ final TimeController timeController = Get.put(TimeController());
                     ),
                   ),
 
-                  // Repeat for other sports (Tennis, Basketball, etc.)
+              
                   Obx(
                     () => Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -609,7 +608,7 @@ final TimeController timeController = Get.put(TimeController());
                     ),
                   ),
 
-                  // Add blocks for other sports following the same pattern
+                  
 
                   const SizedBox(
                     height: 3,
@@ -672,7 +671,7 @@ final TimeController timeController = Get.put(TimeController());
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(20.0), // Add padding around the column
+        padding: const EdgeInsets.all(20.0), 
         child: Column(
           children: [
             SizedBox(height: 10),
@@ -762,7 +761,7 @@ final TimeController timeController = Get.put(TimeController());
                             width: 1.5,
                           ),
                         ),
-                        hintText: 'End Time', // Hint text shown initially
+                        hintText: 'End Time', 
                         suffixIcon: IconButton(
                           onPressed: () {
                             selectEndTime(context);
@@ -795,7 +794,7 @@ final TimeController timeController = Get.put(TimeController());
                   controller: TextEditingController(
                     text: controller.displayText.value,
                   )..addListener(() {
-                      // Optionally, you can update the controller text when the TextField changes
+                      
                       controller.displayText.value =
                           controller.displayText.value;
                     }),
@@ -824,7 +823,7 @@ final TimeController timeController = Get.put(TimeController());
                     hintText: 'Manage Days',
                     suffixIcon: IconButton(
                       onPressed: () {
-                        showCustomBottomSheet(); // Show the bottom sheet
+                        showCustomBottomSheet(); 
                       },
                       icon: const Icon(
                         Icons.keyboard_arrow_down,
@@ -888,7 +887,7 @@ final TimeController timeController = Get.put(TimeController());
                     hintText: 'Sports',
                     suffixIcon: IconButton(
                       onPressed: () {
-                        showSportBottomSheet(); // Show the bottom sheet
+                        showSportBottomSheet(); 
                       },
                       icon: const Icon(
                         Icons.keyboard_arrow_down,
@@ -953,7 +952,7 @@ final TimeController timeController = Get.put(TimeController());
     builder: (context) => Addcenter(
       startTime: _startTimeController.text,
       endTime: _endTimeController.text,
-      //batchName: _BatchNameController.text,
+     
     ),
   ),
 );
