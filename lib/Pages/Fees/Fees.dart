@@ -231,7 +231,6 @@ class _FeesState extends State<Fees1> with SingleTickerProviderStateMixin {
         ),
         padding: const EdgeInsets.all(16.0),
         child: StatefulBuilder(
-          // Use StatefulBuilder to manage state within the BottomSheet
           builder: (BuildContext context, StateSetter setModalState) {
             return SingleChildScrollView(
               child: Column(
@@ -268,7 +267,7 @@ class _FeesState extends State<Fees1> with SingleTickerProviderStateMixin {
                       ),
                       InkWell(
                         onTap: () {
-                          Get.back(); // Close the bottom sheet
+                          Get.back(); 
                         },
                         child: Icon(
                           Icons.cancel,

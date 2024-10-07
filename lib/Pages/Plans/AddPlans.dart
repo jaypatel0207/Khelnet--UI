@@ -22,7 +22,7 @@ class _AddplansState extends State<Addplans> {
       tileColor: PlanDuration == Plan ? Colors.blue.withOpacity(0.2) : null,
       onTap: () {
         setModalState(() {
-          PlanDuration = Plan; // Update selected center in the bottom sheet
+          PlanDuration = Plan; 
         });
       },
     );

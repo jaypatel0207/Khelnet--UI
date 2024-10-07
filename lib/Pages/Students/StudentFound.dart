@@ -14,9 +14,8 @@ class Studentfound extends StatefulWidget {
 }
 
 class _NodatafoundState extends State<Studentfound> {
-  String status = "Active"; // The status to be displayed beside the arrow
+  String status = "Active"; 
 
-  // Sample data for members
   List<Map<String, dynamic>> activeMembers = [
     {
       "name": "Shivam Jain",
@@ -72,11 +71,11 @@ class _NodatafoundState extends State<Studentfound> {
 
   @override
   Widget build(BuildContext context) {
-    // Determine the list of members based on the current status
+ 
     List<Object> membersToShow =
         status == "Active" ? activeMembers : inactiveMembers;
 
-    // Calculate the total number of members (active + inactive)
+ 
     int totalMembers = activeMembers.length + inactiveMembers.length;
 
     return Scaffold(
@@ -154,7 +153,7 @@ class _NodatafoundState extends State<Studentfound> {
                                 )),
                             Text(
                               totalMembers
-                                  .toString(), // Show the total number of members here
+                                  .toString(), 
                               style: TextStyle(
                                   color: Colors.blue,
                                   fontWeight: FontWeight.w500,
@@ -186,7 +185,7 @@ class _NodatafoundState extends State<Studentfound> {
                             ),
                             onSelected: (String value) {
                               setState(() {
-                                status = value; // Update the status text
+                                status = value; 
                               });
                             },
                             itemBuilder: (BuildContext context) {
@@ -209,7 +208,7 @@ class _NodatafoundState extends State<Studentfound> {
               const     SizedBox(
                     height: 15,
                   ),
-                  // Check if there are members to show
+             
                   membersToShow.isNotEmpty
                       ? ListView.builder(
                           shrinkWrap: true,
@@ -245,7 +244,7 @@ class _NodatafoundState extends State<Studentfound> {
                                         name: "",
                                         key: Key(""),
                                       ));
-                                      //     Get.to(Studentbasicinfo());
+                                
                                     },
                                     icon: const Icon(
                                       Icons.arrow_forward_ios,
@@ -283,17 +282,17 @@ class _NodatafoundState extends State<Studentfound> {
       ),
      
       floatingActionButton: Container(
-        height: 64.0, // Custom height for the button
-        width: 315.0,  // Custom width for the button
+        height: 64.0, 
+        width: 315.0,  
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
+            
             Get.to(const Addstudent());
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
-          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          backgroundColor: Colors.transparent, 
           elevation: 0,
           child:  Ink(
             decoration: BoxDecoration(
@@ -315,7 +314,7 @@ class _NodatafoundState extends State<Studentfound> {
                 ),
               ),
             ),
-          ),  // Remove shadow if you want
+          ),  
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat, 

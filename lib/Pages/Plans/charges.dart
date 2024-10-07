@@ -45,7 +45,7 @@ class _PlansState extends State<Charges> {
                 children: [
                   Expanded(
                     child: TextField(
-                      // onChanged: (value) => _runFilter(value),
+                
 
                       decoration: InputDecoration(
                         prefixIcon: Icon(
@@ -80,13 +80,9 @@ class _PlansState extends State<Charges> {
                             color: Colors.black,
                           )),
                       Text(
-                        //"0"
+                        
                         totalcharges
-                            .toString(), // Show the total number of members here
-                        // style: TextStyle(
-                        //     color: Colors.blue,
-                        //     fontWeight: FontWeight.w500,
-                        //     fontSize: 12),
+                            .toString(), 
                       )
                     ],
                   )
@@ -132,13 +128,7 @@ class _PlansState extends State<Charges> {
                               ),
                               child: Row(
                                 children: [
-                                  // Text(
-                                  //   "Monthly",
-                                  //   style: TextStyle(
-                                  //     fontWeight: FontWeight.w500,
-                                  //     fontSize: 12,
-                                  //   ),
-                                  // ),
+                                 
                                 ],
                               ),
                             ),
@@ -193,13 +183,7 @@ class _PlansState extends State<Charges> {
                                 ),
                                 child: Row(
                                   children: [
-                                    // Text(
-                                    //   "Monthly",
-                                    //   style: TextStyle(
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 12,
-                                    //   ),
-                                    // ),
+                                   
                                   ],
                                 ),
                               ),
@@ -255,13 +239,7 @@ class _PlansState extends State<Charges> {
                                 ),
                                 child: Row(
                                   children: [
-                                    // Text(
-                                    //   "Monthly",
-                                    //   style: TextStyle(
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 12,
-                                    //   ),
-                                    // ),
+                                   
                                   ],
                                 ),
                               ),
@@ -317,13 +295,7 @@ class _PlansState extends State<Charges> {
                                 ),
                                 child: Row(
                                   children: [
-                                    // Text(
-                                    //   "Monthly",
-                                    //   style: TextStyle(
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 12,
-                                    //   ),
-                                    // ),
+                                    
                                   ],
                                 ),
                               ),
@@ -384,13 +356,7 @@ class _PlansState extends State<Charges> {
                               ),
                               child: Row(
                                 children: [
-                                  // Text(
-                                  //   "Monthly",
-                                  //   style: TextStyle(
-                                  //     fontWeight: FontWeight.w500,
-                                  //     fontSize: 12,
-                                  //   ),
-                                  // ),
+                                  
                                 ],
                               ),
                             ),
@@ -445,13 +411,7 @@ class _PlansState extends State<Charges> {
                                 ),
                                 child: Row(
                                   children: [
-                                    // Text(
-                                    //   "Monthly",
-                                    //   style: TextStyle(
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 12,
-                                    //   ),
-                                    // ),
+                                   
                                   ],
                                 ),
                               ),
@@ -507,13 +467,7 @@ class _PlansState extends State<Charges> {
                                 ),
                                 child: Row(
                                   children: [
-                                    // Text(
-                                    //   "Monthly",
-                                    //   style: TextStyle(
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 12,
-                                    //   ),
-                                    // ),
+                                    
                                   ],
                                 ),
                               ),
@@ -569,13 +523,7 @@ class _PlansState extends State<Charges> {
                                 ),
                                 child: Row(
                                   children: [
-                                    // Text(
-                                    //   "Monthly",
-                                    //   style: TextStyle(
-                                    //     fontWeight: FontWeight.w500,
-                                    //     fontSize: 12,
-                                    //   ),
-                                    // ),
+                              
                                   ],
                                 ),
                               ),
@@ -610,17 +558,17 @@ class _PlansState extends State<Charges> {
         ),
       ),
       floatingActionButton: Container(
-        height: 64.0, // Custom height for the button
-        width: 315.0,  // Custom width for the button
+        height: 64.0, 
+        width: 315.0,  
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
+          
             Get.to(const AddplansCharges());
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
-          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          backgroundColor: Colors.transparent, 
           elevation: 0,
           child:  Ink(
             decoration: BoxDecoration(
@@ -643,7 +591,7 @@ class _PlansState extends State<Charges> {
                 ),
               ),
             ),
-          ),  // Remove shadow if you want
+          ),  
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

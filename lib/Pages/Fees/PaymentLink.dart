@@ -189,7 +189,7 @@ class _PaymentlinkState extends State<Paymentlink> {
                       height: 24,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Color(0xFFFFA500), // Orange color
+                        color: Color(0xFFFFA500), 
                       ),
                       child: const Center(
                         child: Icon(

@@ -18,7 +18,7 @@ class _InvoiceState extends State<Invoice> {
   bool isSwitched = false;
   final TextEditingController _invoiceController = TextEditingController();
   final TextEditingController _bottomSheetController =
-      TextEditingController(); // Controller for bottom sheet text field
+      TextEditingController(); 
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +159,7 @@ class _InvoiceState extends State<Invoice> {
                             padding: EdgeInsets.only(
                                 bottom: MediaQuery.of(context)
                                     .viewInsets
-                                    .bottom), // Adjust for keyboard
+                                    .bottom), 
                             child: Column(
                               children: [
                                 Padding(
@@ -244,7 +244,6 @@ class _InvoiceState extends State<Invoice> {
                                 Center(
                                   child: InkWell(
                                     onTap: () {
-                                      // Show the dialog
                                       Future.delayed(
                                           Duration(milliseconds: 300), () {
                                         _showDialog(context);
@@ -342,7 +341,7 @@ class _InvoiceState extends State<Invoice> {
     );
   }
 
-  // Updated function name
+
   void _showDialog(BuildContext context) {
     Get.dialog(
       Dialog(

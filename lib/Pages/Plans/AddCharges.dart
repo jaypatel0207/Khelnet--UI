@@ -15,7 +15,7 @@ class _AddplansState extends State<Addcharges> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      resizeToAvoidBottomInset: true, // To prevent overflow
+      resizeToAvoidBottomInset: true, 
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -128,14 +128,14 @@ class _AddplansState extends State<Addcharges> {
         height: 51,
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
+   
             Get.snackbar("Charges Added Successfully", "Thank You");
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
           backgroundColor:
-              Colors.transparent, // Make background transparent to use gradient
+              Colors.transparent, 
           elevation: 0,
           child: Ink(
             decoration: BoxDecoration(

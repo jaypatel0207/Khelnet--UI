@@ -15,23 +15,22 @@ class Gst extends StatefulWidget {
 }
 
 class _GstState extends State<Gst> {
-  File? _selectedFile; // Variable to hold the selected file
+  File? _selectedFile; 
 
-  // Function to handle file picking
+  
   Future<void> _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.image, // Allow only image files
+      type: FileType.image, 
     );
 
     if (result != null && result.files.isNotEmpty) {
       String? filePath = result.files.single.path;
       if (filePath != null) {
         setState(() {
-          _selectedFile = File(filePath); // Update the selected file
+          _selectedFile = File(filePath); 
         });
       }
     } else {
-      // User canceled the picker
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('No file selected')),
       );
@@ -47,14 +46,12 @@ class _GstState extends State<Gst> {
   final TextEditingController _hsnSacController = TextEditingController();
 
   void _saveAndNavigate() {
-    // Capture the user input
     String companyName = _companyNameController.text;
     String companyMobile = _companyMobileController.text;
     String companyAddress = _companyAddressController.text;
     String gstNumber = _gstNumberController.text;
     String hsnSac = _hsnSacController.text;
 
-    // Perform validation if necessary (e.g., check for empty fields)
     if (companyName.isEmpty ||
         companyMobile.isEmpty ||
         companyAddress.isEmpty ||
@@ -66,7 +63,6 @@ class _GstState extends State<Gst> {
       return;
     }
 
-    // Navigate to another page after saving
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -76,7 +72,7 @@ class _GstState extends State<Gst> {
           companyAddress: companyAddress,
           gstNumber: gstNumber,
           hsnSac: hsnSac,
-          signatureFile: _selectedFile, // Pass the selected file
+          signatureFile: _selectedFile, 
         ),
       ),
     );
@@ -318,14 +314,13 @@ class _GstState extends State<Gst> {
                         width: 352,
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
             _saveAndNavigate();
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
           backgroundColor:
-              Colors.transparent, // Make background transparent to use gradient
+              Colors.transparent, 
           elevation: 0,
           child: Ink(
             decoration: BoxDecoration(
@@ -350,7 +345,7 @@ class _GstState extends State<Gst> {
                 ),
               ),
             ),
-          ), // Remove shadow if you want
+          ), 
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

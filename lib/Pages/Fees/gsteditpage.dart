@@ -78,10 +78,8 @@ class _GstEditPageState extends State<GstEditPage> {
   }
 
   Future<void> _replaceImage() async {
-    // Create an instance of ImagePicker
     final ImagePicker _picker = ImagePicker();
 
-    // Let the user pick an image from the gallery
     final XFile? pickedFile = await _picker.pickImage(
       source: ImageSource.gallery,
       maxWidth: 800,
@@ -89,14 +87,11 @@ class _GstEditPageState extends State<GstEditPage> {
       imageQuality: 80,
     );
 
-    // Check if an image was picked
     if (pickedFile != null) {
       setState(() {
-        // Assign the picked file to the _signatureFile variable
         _signatureFile = File(pickedFile.path);
       });
     } else {
-      // If no image is selected, you can handle this case here
       print('No image selected.');
     }
   }
@@ -260,7 +255,6 @@ class _GstEditPageState extends State<GstEditPage> {
                 style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
               ),
             ),
-            // Image with replace and edit buttons
             SizedBox(
               height: 10,
             ),
@@ -323,17 +317,16 @@ SizedBox(height: 12 .h,),
         ),
       ),
       floatingActionButton: Container(
-        height: 64.0, // Custom height for the button
-        width: 315.0,  // Custom width for the button
+        height: 64.0, 
+        width: 315.0,  
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
             Get.to(const Gst());
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
-          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          backgroundColor: Colors.transparent, 
           elevation: 0,
           child:  Ink(
             decoration: BoxDecoration(
@@ -356,7 +349,7 @@ SizedBox(height: 12 .h,),
                 ),
               ),
             ),
-          ),  // Remove shadow if you want
+          ),  
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

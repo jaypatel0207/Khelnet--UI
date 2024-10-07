@@ -145,9 +145,9 @@ class _SignupState extends State<Signup> {
   }
 
   Future<bool> _isMobileNumberRegistered(String mobileNumber) async {
-    // This should be replaced with actual logic to check in the database
+
     if (mobileNumber == "1234567890") {
-      // Assume this number is already registered
+   
       return true;
     }
     return false;
@@ -158,10 +158,10 @@ class _SignupState extends State<Signup> {
     bool isRegistered = await _isMobileNumberRegistered(mobileNumber);
 
     if (isRegistered) {
-      // Show popup if mobile number is already registered
+
       _showAlreadyRegisteredDialog();
     } else {
-      // Show snackbar and navigate to login after 3 seconds if not registered
+
       _showRegistrationSuccessSnackbar();
     }
   }
@@ -266,22 +266,16 @@ class _SignupState extends State<Signup> {
         padding: const EdgeInsets.all(8),
         margin: const EdgeInsets.all(8),
         duration: const Duration(seconds: 2));
-    // ScaffoldMessenger.of(context).showSnackBar(
-    //   SnackBar(
-    //     content: Text('Registered Successfully'),
+    
 
-    //     duration: Duration(seconds: 3),
-    //   ),
-    // );
-
-    // Navigate to login page after 3 seconds
+   
     Timer(const Duration(seconds: 3), () {
       _navigateToLogin();
     });
   }
 
   void _navigateToLogin() {
-    // Navigate to login page
+    
     Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (context) {
         return const Loginpage();
@@ -340,7 +334,7 @@ class _SignupState extends State<Signup> {
                   height: 50,
                   width: 353,
                   child: TextField(
-                    //controller: ,
+         
 
                     decoration: InputDecoration(
                       filled: true,
@@ -379,7 +373,7 @@ class _SignupState extends State<Signup> {
                   height: 50,
                   width: 353,
                   child: TextField(
-                    //controller: ,
+
 
                     decoration: InputDecoration(
                       filled: true,
@@ -457,7 +451,7 @@ class _SignupState extends State<Signup> {
                   height: 50,
                   width: 353,
                   child: TextField(
-                    //controller: ,
+                 
 
                     decoration: InputDecoration(
                       filled: true,
@@ -496,11 +490,11 @@ class _SignupState extends State<Signup> {
                   height: 50,
                   width: 353,
                   child: TextField(
-                    readOnly: true, // Make this field non-editable
-                    onTap: _openBottomSheet, // Trigger the bottom sheet
+                    readOnly: true, 
+                    onTap: _openBottomSheet, 
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        onPressed: _openBottomSheet, // Open bottom sheet here
+                        onPressed: _openBottomSheet, 
                         icon: const Icon(Icons.keyboard_arrow_down),
                       ),
                       suffixIconColor: const Color.fromRGBO(13, 149, 211, 1),
@@ -529,7 +523,7 @@ class _SignupState extends State<Signup> {
                       hintText: selectedSports.isEmpty
                           ? 'Sports *'
                           : selectedSports
-                              .join(', '), // Display selected sports
+                              .join(', '), 
 
                       hintStyle: const TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1),
@@ -546,8 +540,7 @@ class _SignupState extends State<Signup> {
                   height: 50,
                   width: 353,
                   child: TextField(
-                    //controller: ,
-
+                  
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color.fromRGBO(241, 241, 241, 1),

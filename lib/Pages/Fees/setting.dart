@@ -32,7 +32,7 @@ class _SettingState extends State<Setting> {
                 width: 363,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    //color: Color.fromRGBO(251, 251, 251, 1),
+               
                     border: Border.all(
                         width: 1,
                         color: const Color.fromRGBO(241, 241, 241, 1))),

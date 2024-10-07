@@ -27,7 +27,7 @@ class _ReminderState extends State<Reminder> {
                 children: [
                   SizedBox(height: 20.h),
 
-                  // Account Details Section
+   
                   const Padding(
                     padding:  EdgeInsets.only(left: 20, top: 15),
                     child: Row(
@@ -45,7 +45,7 @@ class _ReminderState extends State<Reminder> {
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Container(
                       height: 50.h,
-                      width: double.infinity, // Change to full width
+                      width: double.infinity, 
                       decoration: BoxDecoration(
                         border: Border.all(
                             width: 1, color:const  Color.fromRGBO(241, 241, 241, 1)),
@@ -75,7 +75,7 @@ class _ReminderState extends State<Reminder> {
                   ),
                   SizedBox(height: 22.h),
 
-                  // Fees Reminder Section
+                
           const         Padding(
                     padding:  EdgeInsets.only(left: 20, top: 15),
                     child: Row(
@@ -113,7 +113,7 @@ class _ReminderState extends State<Reminder> {
                         )),
                   ),
 
-                  // Radio Button 1
+      
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -151,7 +151,6 @@ class _ReminderState extends State<Reminder> {
                     ),
                   ),
 
-                  // Radio Button 2
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -193,10 +192,10 @@ class _ReminderState extends State<Reminder> {
             ),
           ),
 
-          // Update Button
+    
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 20), // Add some padding
+              padding: const EdgeInsets.only(bottom: 20), 
               child: InkWell(
                 onTap: () {},
                 child: Container(

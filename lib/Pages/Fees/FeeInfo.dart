@@ -41,7 +41,7 @@ class _FeeinfoState extends State<Feeinfo> {
     }
   }
   String? selectedValue; 
-  final TextEditingController _controller = TextEditingController(); // Controller for TextField
+  final TextEditingController _controller = TextEditingController(); 
 
   final List<String> options = ['Paid', 'Unpaid'];
 
@@ -402,7 +402,6 @@ class _FeeinfoState extends State<Feeinfo> {
                       fontSize: 15,
                       color: Color.fromRGBO(0, 0, 0, 1),
                       fontWeight: FontWeight.w500),
-                  //  hintStyle: TextStyle(color: Color.fromRGBO(186, 186, 186, 1)),
                   prefixIcon: InkWell(
                     onTap: () {
                       _selectDate(context);

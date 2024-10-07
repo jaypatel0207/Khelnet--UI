@@ -14,7 +14,7 @@ class Upcoming extends StatefulWidget {
 }
 
 class _UpcomingState extends State<Upcoming> {
-  String? selectedYear; // Start as null to show the placeholder
+  String? selectedYear; 
   String? selectedMonth;
   List<bool> selectedItems = List.generate(10, (index) => false);
   bool isSelectionMode = false;
@@ -31,7 +31,7 @@ class _UpcomingState extends State<Upcoming> {
     setState(() {
       isSelectionMode = !isSelectionMode;
       if (!isSelectionMode) {
-        selectedItems = List.generate(10, (index) => false); // Clear selections
+        selectedItems = List.generate(10, (index) => false); 
       }
     });
   }
@@ -43,7 +43,7 @@ class _UpcomingState extends State<Upcoming> {
         selectedIndices.add(i);
       }
     }
-    // Process the selected items
+ 
     print("Selected items: $selectedIndices");
   }
 
@@ -102,7 +102,7 @@ class _UpcomingState extends State<Upcoming> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  // Year Dropdown
+              
                   Container(
                     height: 50,
                     width: 145,
@@ -143,7 +143,7 @@ class _UpcomingState extends State<Upcoming> {
                     ),
                   ),
             
-                  // Month Dropdown
+              
                   Container(
                     height: 50,
                     width: 145,
@@ -195,10 +195,10 @@ class _UpcomingState extends State<Upcoming> {
                     ),
                   ),
             
-                  // Calendar Icon Button
+                  
                   IconButton(
                     onPressed: () async {
-                      // Open the DatePicker
+              
                       DateTime? pickedDate = await showDatePicker(
                         context: context,
                         initialDate: DateTime.now(),
@@ -207,10 +207,10 @@ class _UpcomingState extends State<Upcoming> {
                       );
             
                       if (pickedDate != null) {
-                        // Update selected year and month based on picked date
+             
                         setState(() {
                           selectedYear = pickedDate.year.toString();
-                          selectedMonth = DateFormat.MMMM().format(pickedDate); // Formats to full month name
+                          selectedMonth = DateFormat.MMMM().format(pickedDate); 
                         });
                       }
                     },
@@ -547,11 +547,11 @@ class _UpcomingState extends State<Upcoming> {
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors
-                                        .blue, // Background color for the circle
+                                        .blue, 
                                   ),
                                   child: const Icon(
                                     Icons.check,
-                                    color: Colors.white, // Checkmark color
+                                    color: Colors.white, 
                                     size: 16,
                                   ),
                                 ),

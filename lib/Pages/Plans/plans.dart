@@ -43,7 +43,7 @@ class _PlansState extends State<Plans> {
                 children: [
                   Expanded(
                     child: TextField(
-                      // onChanged: (value) => _runFilter(value),
+            
 
                       decoration: InputDecoration(
                         prefixIcon: Icon(
@@ -607,18 +607,18 @@ class _PlansState extends State<Plans> {
         ),
       ),
       floatingActionButton: Container(
-        height: 64.0, // Custom height for the button
-        width: 315.0, // Custom width for the button
+        height: 64.0, 
+        width: 315.0, 
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
+      
             Get.to(AddplansCharges());
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
           backgroundColor:
-              Colors.transparent, // Make background transparent to use gradient
+              Colors.transparent, 
           elevation: 0,
           child: Ink(
             decoration: BoxDecoration(
@@ -643,7 +643,7 @@ class _PlansState extends State<Plans> {
                 ),
               ),
             ),
-          ), // Remove shadow if you want
+          ), 
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

@@ -21,8 +21,8 @@ class _OtpState extends State<Otp> {
   bool isOtpFilled = false;
 
   final String correctOtp = "1234";
-  int incorrectAttempts = 0; // Counter for incorrect attempts
-  final int maxAttempts = 3; // Maximum allowed incorrect attempts
+  int incorrectAttempts = 0; 
+  final int maxAttempts = 3; 
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _OtpState extends State<Otp> {
     _otpController.addListener(() {
       setState(() {
         isOtpFilled = _otpController.text.length == 4;
-        errorMessage = null; // Clear error message when typing
+        errorMessage = null; 
       });
     });
     super.initState();
@@ -75,26 +75,23 @@ class _OtpState extends State<Otp> {
     ),
   );
 
-  // Function to validate OTP
+
   void validateOtp() {
     if (_otpController.text == correctOtp) {
-      // OTP is correct, navigate to the login page
-      Get.to(Loginpage()); // Replace with your login page navigation
-    } else {
-      // OTP is incorrect, increment attempts and show error
+      
+      Get.to(Loginpage()); 
+   
       incorrectAttempts += 1;
       setState(() {
         errorMessage = "Invalid OTP";
       });
 
-      // Show dialog if maximum attempts reached
       if (incorrectAttempts >= maxAttempts) {
         showMaxAttemptsDialog();
       }
     }
   }
 
-  // Function to show dialog after max attempts
   void showMaxAttemptsDialog() {
     Get.dialog(Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -312,7 +309,7 @@ class _OtpState extends State<Otp> {
                   onChanged: (value) {},
                 ),
               ),
-              // Error message display below Pinput
+        
               if (errorMessage != null)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -396,6 +393,6 @@ class _OtpState extends State<Otp> {
   }
 }
 
-// Simulated Login Page (Replace with your actual login page)
+
 
 

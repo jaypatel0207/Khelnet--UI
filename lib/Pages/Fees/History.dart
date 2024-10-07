@@ -15,7 +15,7 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
-  String? selectedYear; // Start as null to show the placeholder
+  String? selectedYear; 
   String? selectedMonth;
   @override
   Widget build(BuildContext context) {
@@ -140,7 +140,7 @@ class _HistoryState extends State<History> {
                   ),
                 ),
 
-                // Month Dropdown
+
                 Container(
                   height: 50,
                   width: 145,
@@ -192,10 +192,10 @@ class _HistoryState extends State<History> {
                   ),
                 ),
 
-                // Calendar Icon Button
+        
                 IconButton(
                   onPressed: () async {
-                    // Open the DatePicker
+           
                     DateTime? pickedDate = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
@@ -204,11 +204,10 @@ class _HistoryState extends State<History> {
                     );
 
                     if (pickedDate != null) {
-                      // Update selected year and month based on picked date
                       setState(() {
                         selectedYear = pickedDate.year.toString();
                         selectedMonth = DateFormat.MMMM()
-                            .format(pickedDate); // Formats to full month name
+                            .format(pickedDate); 
                       });
                     }
                   },
