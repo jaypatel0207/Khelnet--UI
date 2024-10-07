@@ -131,7 +131,7 @@ class _BasicinfoState extends State<Basicinfo> {
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(Get.context!);
-                        // Close the bottom sheet
+                     
                       },
                       child: Center(
                         child: Container(
@@ -176,7 +176,7 @@ class _BasicinfoState extends State<Basicinfo> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Contact Number Field
+         
               Container(
                 margin: EdgeInsets.symmetric(vertical: 8.0),
                 decoration: BoxDecoration(
@@ -202,7 +202,6 @@ class _BasicinfoState extends State<Basicinfo> {
                 ),
               ),
 
-              // Password Field
               Row(
                 children: [
                   Expanded(
@@ -243,11 +242,11 @@ class _BasicinfoState extends State<Basicinfo> {
                   ),
                   SizedBox(
                       width:
-                          10), // Add some space between the TextField and the Reset button
+                          10), 
                   GestureDetector(
                     onTap: () {
                       textController
-                          .resetPassword(); // Reset the password field
+                          .resetPassword(); 
                     },
                     child: Text(
                       'Reset',
@@ -275,7 +274,6 @@ class _BasicinfoState extends State<Basicinfo> {
                     controller: TextEditingController(
                         text: controller.displayText.value)
                       ..addListener(() {
-                        // Optionally, you can update the controller text when the TextField changes
                         controller.displayText.value =
                             controller.displayText.value;
                       }),
@@ -302,7 +300,7 @@ class _BasicinfoState extends State<Basicinfo> {
                       hintText: 'Manage Access',
                       suffixIcon: IconButton(
                           onPressed: () {
-                            showCustomBottomSheet(); // Show the bottom sheet
+                            showCustomBottomSheet(); 
                           },
                           icon: Icon(
                             Icons.keyboard_arrow_down,
@@ -336,13 +334,12 @@ class _BasicinfoState extends State<Basicinfo> {
                       height: 51,
         child: FloatingActionButton(
           onPressed: () {
-            // Define the action when the button is pressed
         
           },
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0), // Rounded edges
+            borderRadius: BorderRadius.circular(30.0), 
           ),
-          backgroundColor: Colors.transparent, // Make background transparent to use gradient
+          backgroundColor: Colors.transparent, 
           elevation: 0,
           child:  Ink(
             decoration: BoxDecoration(
@@ -365,7 +362,7 @@ class _BasicinfoState extends State<Basicinfo> {
                 ),
               ),
             ),
-          ),  // Remove shadow if you want
+          ), 
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
