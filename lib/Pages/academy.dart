@@ -244,13 +244,13 @@ class Academy extends StatefulWidget {
 class _AcademyState extends State<Academy> {
   TextEditingController _numberController = TextEditingController();
 
-  // Simulating a backend call to check if the mobile number exists in the database
+ 
   Future<bool> checkMobileNumber(String mobileNumber) async {
-    // You can replace this with your actual API call to check the mobile number
-    await Future.delayed(Duration(seconds: 2)); // Simulating network delay
+    
+    await Future.delayed(Duration(seconds: 2)); 
 
-    // Simulated response - replace with actual logic
-    List<String> registeredNumbers = ['1234567890', '9876543210']; // Sample data
+    
+    List<String> registeredNumbers = ['1234567890', '9876543210']; 
     return registeredNumbers.contains(mobileNumber);
   }
 
@@ -303,28 +303,28 @@ class _AcademyState extends State<Academy> {
               onTap: () async {
                 String enteredNumber = _numberController.text.trim();
 
-                // Check if the mobile number is in the database
+               
                 bool numberExists = await checkMobileNumber(enteredNumber);
 
                 if (numberExists) {
-                  // If number exists, navigate to the OTP page
-                  Get.to(() => Otp(), arguments: {'mobileNumber': enteredNumber});
+                  
+                  Get.to(() => const Otp(), arguments: {'mobileNumber': enteredNumber});
                 } else {
-                  // Show dialog if the number is not found
+               
                   Get.dialog(Dialog(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
-                    child: Container(
+                    child: SizedBox(
                       height: 445,
                       width: 300,
                       child: Column(
                         children: [
-                          SizedBox(height: 37),
+                          const SizedBox(height: 37),
                           Center(
                               child:
                                   Image.asset("assets/images/Illustration.png")),
-                          SizedBox(height: 20),
-                          Center(
+                          const SizedBox(height: 20),
+                          const Center(
                               child: Text(
                             "No Account Found ",
                             style: TextStyle(
@@ -332,8 +332,8 @@ class _AcademyState extends State<Academy> {
                               fontSize: 20,
                             ),
                           )),
-                          SizedBox(height: 25),
-                          Center(
+                          const SizedBox(height: 25),
+                          const Center(
                               child: Text(
                             "Try with other number or create a",
                             style: TextStyle(
@@ -341,7 +341,7 @@ class _AcademyState extends State<Academy> {
                                 fontSize: 16,
                                 color: Color.fromRGBO(90, 90, 90, 1)),
                           )),
-                          Center(
+                          const Center(
                               child: Text(
                             "new account",
                             style: TextStyle(
@@ -361,14 +361,14 @@ class _AcademyState extends State<Academy> {
                                 height: 51,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
-                                    gradient: LinearGradient(
+                                    gradient: const LinearGradient(
                                         begin: Alignment.centerLeft,
                                         end: Alignment.centerRight,
                                         colors: [
                                           Color.fromRGBO(13, 149, 211, 1),
                                           Color.fromRGBO(9, 96, 186, 1)
                                         ])),
-                                child: Center(
+                                child: const Center(
                                     child: Text(
                                   "Create Account",
                                   style: TextStyle(
@@ -390,14 +390,14 @@ class _AcademyState extends State<Academy> {
                 height: 51,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                         colors: [
                           Color.fromRGBO(13, 149, 211, 1),
                           Color.fromRGBO(9, 96, 186, 1)
                         ])),
-                child: Center(
+                child: const Center(
                     child: Text(
                   "Log In",
                   style: TextStyle(
@@ -407,22 +407,22 @@ class _AcademyState extends State<Academy> {
                 )),
               ),
             ),
-            SizedBox(height: 70),
+            const SizedBox(height: 70),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
+                const Center(
                     child: Text(
                   "Don’t have a account ?",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700),
                 )),
-                SizedBox(width: 2),
+                const SizedBox(width: 2),
                 Center(
                     child: InkWell(
                   onTap: () {
-                    Get.to(Signup());
+                    Get.to(const Signup());
                   },
-                  child: Text(
+                  child: const Text(
                     "Sign Up",
                     style: TextStyle(
                         fontSize: 15,

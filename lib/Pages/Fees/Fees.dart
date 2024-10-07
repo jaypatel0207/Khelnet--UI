@@ -63,18 +63,18 @@ class _FeesState extends State<Fees1> with SingleTickerProviderStateMixin {
 
   
 
-  // Function to open date range picker
+ 
  Future<DateTimeRange?> _selectDateRange(BuildContext context) async {
   final DateTimeRange? picked = await showDateRangePicker(
     context: context,
-    firstDate: DateTime(2020), // Start date for the picker
-    lastDate: DateTime(2030),  // End date for the picker
+    firstDate: DateTime(2020), 
+    lastDate: DateTime(2030),  
   );
 
   if (picked != null) {
     print("Picked Start Date: ${picked.start}");
     print("Picked End Date: ${picked.end}");
-    return picked; // Return the selected date range
+    return picked;
   } else {
     print("No date range selected");
     return null;
@@ -158,12 +158,12 @@ class _FeesState extends State<Fees1> with SingleTickerProviderStateMixin {
 
   DateTime _selectedDate = DateTime.now(); // Current date initially
 
-  // Function to show the date picker dialog
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: _selectedDate,
-      firstDate: DateTime(2000), // Define the range
+      firstDate: DateTime(2000), 
       lastDate: DateTime(2100),
     );
     if (picked != null && picked != _selectedDate)
