@@ -194,7 +194,7 @@ class _AddcoachesState extends State<Addcoaches> {
                     child: InkWell(
                       onTap: () {
                         Navigator.pop(Get.context!);
-                        // Close the bottom sheet
+               
                       },
                       child: Center(
                         child: Container(
@@ -490,7 +490,7 @@ class _AddcoachesState extends State<Addcoaches> {
                                                   selectedCoachCenter;
                                             });
                                             Navigator.pop(
-                                                context); // Close the bottom sheet
+                                                context); 
                                           },
                                           child: Center(
                                             child: Container(
@@ -647,7 +647,7 @@ class _AddcoachesState extends State<Addcoaches> {
                                                       .join(', ');
                                             });
                                             Navigator.pop(
-                                                context); // Close the bottom sheet
+                                                context); 
                                           },
                                           child: Center(
                                             child: Container(
@@ -714,7 +714,6 @@ class _AddcoachesState extends State<Addcoaches> {
                     controller: TextEditingController(
                         text: controller.displayText.value)
                       ..addListener(() {
-                        // Optionally, you can update the controller text when the TextField changes
                         controller.displayText.value =
                             controller.displayText.value;
                       }),
@@ -741,7 +740,7 @@ class _AddcoachesState extends State<Addcoaches> {
                       hintText: 'Manage Access',
                       suffixIcon: IconButton(
                           onPressed: () {
-                            showCustomBottomSheet(); // Show the bottom sheet
+                            showCustomBottomSheet(); 
                           },
                           icon: const Icon(
                             Icons.keyboard_arrow_down,
